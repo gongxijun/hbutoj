@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="hbut"
+  id="myeclipse.1382264606911"
+  context-root="/hbut"
+  j2ee-spec="5.0"
+  archive="hbut.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

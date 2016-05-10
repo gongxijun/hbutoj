@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="hbutoj:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/hbutoj_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="hbutoj" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib5" />
+          <element id="library" level="project" name="lib1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="hbutoj/web/Web" />
+      <element id="javaee-facet-resources" facet="hbutoj/web/Web2" />
+    </root>
+  </artifact>
+</component>
