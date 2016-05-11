@@ -1,305 +1,308 @@
 package com.hbut.contest.attend.action;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.hbut.user.service.UserService;
 import com.hbut.contest.attend.service.AttendService;
 import com.hbut.contest.attend.vo.Attend;
 import com.hbut.contest.problem.service.CProblemService;
 import com.hbut.contest.problem.vo.CProblem;
 import com.hbut.contest.service.ContestService;
 import com.hbut.contest.vo.Contest;
+import com.hbut.user.service.UserService;
 import com.hbut.user.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.DateUtil;
+
+import java.util.*;
 
 public class ContestStandingsAction extends ActionSupport {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private AttendService attendService;
-	private ContestService contestService;
-	private CProblemService cproblemService;
-	private UserService userService;
-	private List<User> userList;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    private static final Logger logger = LoggerFactory.getLogger(ContestStandingsAction.class);
 
-	public UserService getUserService() {
-		return userService;
-	}
+    private AttendService attendService;
+    private ContestService contestService;
+    private CProblemService cproblemService;
+    private UserService userService;
+    private List<User> userList;
 
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+    public UserService getUserService() {
+        return userService;
+    }
 
-	public List<User> getUserList() {
-		return userList;
-	}
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
-	public void setUserList(List<User> userList) {
-		this.userList = userList;
-	}
+    public List<User> getUserList() {
+        return userList;
+    }
 
-	private String username;
-	private List<Attend> attendList;
-	private List<Integer> rankList;
-	private List<Integer> pageList;
-	private List<CProblem> cproblemList;
-	private List<String> fisrtSolvedUsers;
-	private Map<String, List<String>> acTimeList;
-	private Map<String, List<Integer>> acTimeIntList;
-	private Map<String, List<Integer>> wrongSubmits;
-	private List<String> penaltyList;
-	private Integer intRowCount = 0;
-	private Integer pageSize = 50;
-	private Integer page = 1;
-	private Integer contestId = 0;
-	private Contest contest;
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
 
-	private long timeLeft = 0;
+    private String username;
+    private List<Attend> attendList;
+    private List<Integer> rankList;
+    private List<Integer> pageList;
+    private List<CProblem> cproblemList;
+    private List<String> fisrtSolvedUsers;
+    private Map<String, List<String>> acTimeList;
+    private Map<String, List<Integer>> acTimeIntList;
+    private Map<String, List<Integer>> wrongSubmits;
+    private List<String> penaltyList;
+    private Integer intRowCount = 0;
+    private Integer pageSize = 50;
+    private Integer page = 1;
+    private Integer contestId = 0;
+    private Contest contest;
 
-	public long getTimeLeft() {
-		return timeLeft;
-	}
+    private long timeLeft = 0;
 
-	public void setTimeLeft(long timeLeft) {
-		this.timeLeft = timeLeft;
-	}
+    public long getTimeLeft() {
+        return timeLeft;
+    }
 
-	public List<Integer> getRankList() {
-		return rankList;
-	}
+    public void setTimeLeft(long timeLeft) {
+        this.timeLeft = timeLeft;
+    }
 
-	public void setRankList(List<Integer> rankList) {
-		this.rankList = rankList;
-	}
+    public List<Integer> getRankList() {
+        return rankList;
+    }
 
-	public Contest getContest() {
-		return contest;
-	}
+    public void setRankList(List<Integer> rankList) {
+        this.rankList = rankList;
+    }
 
-	public void setContest(Contest contest) {
-		this.contest = contest;
-	}
+    public Contest getContest() {
+        return contest;
+    }
 
-	public String queryStandingsList() throws Exception {
+    public void setContest(Contest contest) {
+        this.contest = contest;
+    }
 
-		try {
-			// 检查有没有这个比赛
-			// System.out.println(contestId + " " + page);
+    public String queryStandingsList() throws Exception {
 
-			Contest contest_ = contestService.queryContest(contestId, "USER");
-			if (null == contest_) {
-				this.addFieldError("contestId", "No such contest.");
-				return ERROR;
-			}
+        try {
+            // 检查有没有这个比赛
+            // System.out.println(contestId + " " + page);
 
-			contest = contest_;
+            Contest contest_ = contestService.queryContest(contestId, "USER");
+            if (null == contest_) {
+                this.addFieldError("contestId", "No such contest.");
+                return ERROR;
+            }
 
-			Date nowTime = new Date();
-			if (nowTime.getTime() < contest.getStart_time().getTime()) {
-				timeLeft = -1;
-			} else if (nowTime.getTime() > contest.getEnd_time().getTime()) {
-				timeLeft = 0;
-			} else {
-				timeLeft = (contest.getEnd_time().getTime() - nowTime.getTime()) / 1000;
-			}
+            contest = contest_;
 
-			List<Attend> attendList_ = new ArrayList<Attend>();
-			List<CProblem> cproblemList_ = new ArrayList<CProblem>();
-			cproblemList_ = cproblemService.queryProblems(contestId);
-			intRowCount = attendService.countContestAttends(contestId);
-			if (pageSize > 1000) {
-				pageSize = 1000;
-			}
-			Integer pageCount = (intRowCount + pageSize - 1) / pageSize;
-			List<Integer> volume = new ArrayList<Integer>();
-			for (int i = 1; i <= pageCount; i++) {
-				volume.add(i);
-			}
-			pageList = volume;
-			if (page < 1) {
-				page = 1;
-			}
-			if (page > pageCount) {
-				page = pageCount;
-			}
-			Integer from = (page - 1) * pageSize;
+            Date nowTime = new Date();
+            if (nowTime.getTime() < contest.getStart_time().getTime()) {
+                timeLeft = -1;
+            } else if (nowTime.getTime() > contest.getEnd_time().getTime()) {
+                timeLeft = 0;
+            } else {
+                timeLeft = (contest.getEnd_time().getTime() - nowTime.getTime()) / 1000;
+            }
 
-			attendList_ = attendService.queryContestAttends(from, pageSize,
-					contestId, contest_.getType());
+            List<Attend> attendList_ = new ArrayList<Attend>();
+            List<CProblem> cproblemList_ = new ArrayList<CProblem>();
+            cproblemList_ = cproblemService.queryProblems(contestId);
+            intRowCount = attendService.countContestAttends(contestId);
+            if (pageSize > 1000) {
+                pageSize = 1000;
+            }
+            Integer pageCount = (intRowCount + pageSize - 1) / pageSize;
+            List<Integer> volume = new ArrayList<Integer>();
+            for (int i = 1; i <= pageCount; i++) {
+                volume.add(i);
+            }
+            pageList = volume;
+            if (page < 1) {
+                page = 1;
+            }
+            if (page > pageCount) {
+                page = pageCount;
+            }
+            Integer from = (page - 1) * pageSize;
 
-			Map<String, List<String>> acTimeList_ = new HashMap<String, List<String>>();
-			Map<String, List<Integer>> wrongSubmitsList_ = new HashMap<String, List<Integer>>();
-			Map<String, List<Integer>> acTimeIntList_ = new HashMap<String, List<Integer>>();
-			List<String> penaltyList_ = new ArrayList<String>();
+            attendList_ = attendService.queryContestAttends(from, pageSize,
+                    contestId, contest_.getType());
 
-			rankList = new ArrayList<Integer>();
-			userList = new ArrayList<User>();
-			for (Attend c : attendList_) {
-				List<String> ACtime_ = new ArrayList<String>();
-				List<Integer> wrongSubmit_ = new ArrayList<Integer>();
-				List<Integer> acTimeInt_ = new ArrayList<Integer>();
+            Map<String, List<String>> acTimeList_ = new HashMap<String, List<String>>();
+            Map<String, List<Integer>> wrongSubmitsList_ = new HashMap<String, List<Integer>>();
+            Map<String, List<Integer>> acTimeIntList_ = new HashMap<String, List<Integer>>();
+            List<String> penaltyList_ = new ArrayList<String>();
 
-				userList.add(userService.queryUser(c.getUsername()));
-				rankList.add(attendService.getUserRank(c, contest_.getType()));
+            rankList = new ArrayList<Integer>();
+            userList = new ArrayList<User>();
+            for (Attend c : attendList_) {
+                List<String> ACtime_ = new ArrayList<String>();
+                List<Integer> wrongSubmit_ = new ArrayList<Integer>();
+                List<Integer> acTimeInt_ = new ArrayList<Integer>();
 
-				penaltyList_.add(DateUtil.penaltyString(c.getPenalty()));
-				for (int i = 1; i <= cproblemList_.size(); i++) {
-					Integer tInt = c.getACtime(i);
-					acTimeInt_.add(tInt);
-					ACtime_.add(DateUtil.penaltyString(tInt));
-					wrongSubmit_.add(c.getwrongsubmits(i));
-				}
-				acTimeList_.put(c.getUsername(), ACtime_);
-				wrongSubmitsList_.put(c.getUsername(), wrongSubmit_);
-				acTimeIntList_.put(c.getUsername(), acTimeInt_);
-			}
-			acTimeIntList = acTimeIntList_;
-			penaltyList = penaltyList_;
-			acTimeList = acTimeList_;
-			wrongSubmits = wrongSubmitsList_;
-			attendList = attendList_;
-			cproblemList = cproblemList_;
-		} catch (Exception e) {
-			// TODO: handle exception
-			this.addFieldError("tip", "Unknown error.");
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+                userList.add(userService.queryUser(c.getUsername()));
+                rankList.add(attendService.getUserRank(c, contest_.getType()));
 
-	public AttendService getAttendService() {
-		return attendService;
-	}
+                penaltyList_.add(DateUtil.penaltyString(c.getPenalty()));
+                for (int i = 1; i <= cproblemList_.size(); i++) {
+                    Integer tInt = c.getACtime(i);
+                    acTimeInt_.add(tInt);
+                    ACtime_.add(DateUtil.penaltyString(tInt));
+                    wrongSubmit_.add(c.getwrongsubmits(i));
+                }
+                acTimeList_.put(c.getUsername(), ACtime_);
+                wrongSubmitsList_.put(c.getUsername(), wrongSubmit_);
+                acTimeIntList_.put(c.getUsername(), acTimeInt_);
+            }
+            acTimeIntList = acTimeIntList_;
+            penaltyList = penaltyList_;
+            acTimeList = acTimeList_;
+            wrongSubmits = wrongSubmitsList_;
+            attendList = attendList_;
+            cproblemList = cproblemList_;
+        } catch (Exception e) {
+            // TODO: handle exception
 
-	public void setAttendService(AttendService attendService) {
-		this.attendService = attendService;
-	}
+            this.addFieldError("tip", "Unknown error.");
+            logger.error("Unknown error: {}", e);
 
-	public ContestService getContestService() {
-		return contestService;
-	}
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 
-	public void setContestService(ContestService contestService) {
-		this.contestService = contestService;
-	}
+    public AttendService getAttendService() {
+        return attendService;
+    }
 
-	public CProblemService getCproblemService() {
-		return cproblemService;
-	}
+    public void setAttendService(AttendService attendService) {
+        this.attendService = attendService;
+    }
 
-	public void setCproblemService(CProblemService cproblemService) {
-		this.cproblemService = cproblemService;
-	}
+    public ContestService getContestService() {
+        return contestService;
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    public void setContestService(ContestService contestService) {
+        this.contestService = contestService;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public CProblemService getCproblemService() {
+        return cproblemService;
+    }
 
-	public List<Attend> getAttendList() {
-		return attendList;
-	}
+    public void setCproblemService(CProblemService cproblemService) {
+        this.cproblemService = cproblemService;
+    }
 
-	public void setAttendList(List<Attend> attendList) {
-		this.attendList = attendList;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public List<Integer> getPageList() {
-		return pageList;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setPageList(List<Integer> pageList) {
-		this.pageList = pageList;
-	}
+    public List<Attend> getAttendList() {
+        return attendList;
+    }
 
-	public List<CProblem> getCproblemList() {
-		return cproblemList;
-	}
+    public void setAttendList(List<Attend> attendList) {
+        this.attendList = attendList;
+    }
 
-	public void setCproblemList(List<CProblem> cproblemList) {
-		this.cproblemList = cproblemList;
-	}
+    public List<Integer> getPageList() {
+        return pageList;
+    }
 
-	public List<String> getFisrtSolvedUsers() {
-		return fisrtSolvedUsers;
-	}
+    public void setPageList(List<Integer> pageList) {
+        this.pageList = pageList;
+    }
 
-	public void setFisrtSolvedUsers(List<String> fisrtSolvedUsers) {
-		this.fisrtSolvedUsers = fisrtSolvedUsers;
-	}
+    public List<CProblem> getCproblemList() {
+        return cproblemList;
+    }
 
-	public Map<String, List<String>> getAcTimeList() {
-		return acTimeList;
-	}
+    public void setCproblemList(List<CProblem> cproblemList) {
+        this.cproblemList = cproblemList;
+    }
 
-	public void setAcTimeList(Map<String, List<String>> acTimeList) {
-		this.acTimeList = acTimeList;
-	}
+    public List<String> getFisrtSolvedUsers() {
+        return fisrtSolvedUsers;
+    }
 
-	public Map<String, List<Integer>> getAcTimeIntList() {
-		return acTimeIntList;
-	}
+    public void setFisrtSolvedUsers(List<String> fisrtSolvedUsers) {
+        this.fisrtSolvedUsers = fisrtSolvedUsers;
+    }
 
-	public void setAcTimeIntList(Map<String, List<Integer>> acTimeIntList) {
-		this.acTimeIntList = acTimeIntList;
-	}
+    public Map<String, List<String>> getAcTimeList() {
+        return acTimeList;
+    }
 
-	public Map<String, List<Integer>> getWrongSubmits() {
-		return wrongSubmits;
-	}
+    public void setAcTimeList(Map<String, List<String>> acTimeList) {
+        this.acTimeList = acTimeList;
+    }
 
-	public void setWrongSubmits(Map<String, List<Integer>> wrongSubmits) {
-		this.wrongSubmits = wrongSubmits;
-	}
+    public Map<String, List<Integer>> getAcTimeIntList() {
+        return acTimeIntList;
+    }
 
-	public List<String> getPenaltyList() {
-		return penaltyList;
-	}
+    public void setAcTimeIntList(Map<String, List<Integer>> acTimeIntList) {
+        this.acTimeIntList = acTimeIntList;
+    }
 
-	public void setPenaltyList(List<String> penaltyList) {
-		this.penaltyList = penaltyList;
-	}
+    public Map<String, List<Integer>> getWrongSubmits() {
+        return wrongSubmits;
+    }
 
-	public Integer getIntRowCount() {
-		return intRowCount;
-	}
+    public void setWrongSubmits(Map<String, List<Integer>> wrongSubmits) {
+        this.wrongSubmits = wrongSubmits;
+    }
 
-	public void setIntRowCount(Integer intRowCount) {
-		this.intRowCount = intRowCount;
-	}
+    public List<String> getPenaltyList() {
+        return penaltyList;
+    }
 
-	public Integer getPageSize() {
-		return pageSize;
-	}
+    public void setPenaltyList(List<String> penaltyList) {
+        this.penaltyList = penaltyList;
+    }
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-	}
+    public Integer getIntRowCount() {
+        return intRowCount;
+    }
 
-	public Integer getPage() {
-		return page;
-	}
+    public void setIntRowCount(Integer intRowCount) {
+        this.intRowCount = intRowCount;
+    }
 
-	public void setPage(Integer page) {
-		this.page = page;
-	}
+    public Integer getPageSize() {
+        return pageSize;
+    }
 
-	public Integer getContestId() {
-		return contestId;
-	}
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
 
-	public void setContestId(Integer contestId) {
-		this.contestId = contestId;
-	}
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getContestId() {
+        return contestId;
+    }
+
+    public void setContestId(Integer contestId) {
+        this.contestId = contestId;
+    }
 
 }

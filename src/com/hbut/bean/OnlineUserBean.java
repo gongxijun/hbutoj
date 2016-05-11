@@ -1,11 +1,9 @@
 package com.hbut.bean;
 
 
-import java.util.Date;
-
 import org.apache.struts2.json.annotations.JSON;
 
-import com.util.DateUtil;
+import java.util.Date;
 
 public class OnlineUserBean {
 	private String username;
@@ -48,8 +46,8 @@ public class OnlineUserBean {
 
 	public OnlineUserBean() {
 		super();
-		this.loginDate = new Date(System.currentTimeMillis());
-		this.lastAccessTime = new Date(System.currentTimeMillis());
+		this.loginDate = new Date();
+		this.lastAccessTime = new Date();
 		this.statusFlag = 1;
 	}
 

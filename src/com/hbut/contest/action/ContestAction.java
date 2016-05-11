@@ -1,9 +1,6 @@
 package com.hbut.contest.action;
 
 
-
-import java.util.Date;
-
 import com.hbut.contest.service.ContestService;
 import com.hbut.contest.vo.Contest;
 import com.opensymphony.xwork2.ActionContext;
@@ -12,391 +9,394 @@ import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.DateUtil;
 
+import java.util.Date;
+
 public class ContestAction extends ActionSupport {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(ContestAction.class);
-	private ContestService contestService;
-	private Contest contest;
-	private Integer contestId;
-	private String start_date;
-	private Integer shour;
-	private Integer sminute;
-	private String end_date;
-	private Integer ehour;
-	private Integer eminute;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    private static final Logger logger = LoggerFactory.getLogger(ContestAction.class);
+    private ContestService contestService;
+    private Contest contest;
+    private Integer contestId;
+    private String start_date;
+    private Integer shour;
+    private Integer sminute;
+    private String end_date;
+    private Integer ehour;
+    private Integer eminute;
 
-	private String start_reg_date;
-	private Integer shour_reg;
-	private Integer sminute_reg;
-	private String end_reg_date;
-	private Integer ehour_reg;
-	private Integer eminute_reg;
+    private String start_reg_date;
+    private Integer shour_reg;
+    private Integer sminute_reg;
+    private String end_reg_date;
+    private Integer ehour_reg;
+    private Integer eminute_reg;
 
-	public String contestAdd() throws Exception {
-			
-		try {
-			
-			String username = (String) ActionContext.getContext().getSession()
-					.get("session_username");
-			if (null == username) {
-				return LOGIN;
-			}
-			
-			if (contest.getTitle() == null
-					|| contest.getTitle().trim().equals("")) {
-				ActionContext.getContext().put("tip",
-						"Title shouldn't be empty.");
-				return "input";
-			}
-			
-			Date sDate = null;
-			sDate =  DateUtil.StringToDate(start_date + " " + shour + ":"
-					+ sminute + ":00", "yyyy-MM-dd HH:mm:ss");
-		
-			if (sDate == null) {
-				this.addFieldError("start_date", "start_date is invalid");
-				return INPUT;
-			}
-			
-			Date eDate = null;
-			eDate =  DateUtil.StringToDate(end_date + " " + ehour + ":"
-					+ eminute + ":00", "yyyy-MM-dd HH:mm:ss");
-			if (eDate == null) {
-				this.addFieldError("end_date", "end_date is invalid");
-				return INPUT;
-			}
+    public String contestAdd() throws Exception {
 
-			Date sDate_reg = null;
-			sDate_reg =  DateUtil.StringToDate(start_reg_date + " "
-					+ shour_reg + ":" + sminute_reg + ":00",
-					"yyyy-MM-dd HH:mm:ss");
-			
-			if (sDate_reg == null) {
-				this.addFieldError("start_reg_date",
-						"start_reg_date is invalid");
-				return INPUT;
-			}
-			
-			Date eDate_reg = null;
-			eDate_reg =  DateUtil.StringToDate(end_reg_date + " "
-					+ ehour_reg + ":" + eminute_reg + ":00",
-					"yyyy-MM-dd HH:mm:ss");
-			if (eDate_reg == null) {
-				this.addFieldError("end_reg_date", "end_reg_date is invalid");
-				return INPUT;
-			}
-			/**
-			 * 时间段开始时间<结束时间
-			 */
-			
-			if (sDate.after(eDate)) {
-				this.addFieldError("end_date",
-						"End Time must larger than Start Time");
-				return INPUT;
-			}	
-			
-			if (sDate_reg.after(eDate_reg)) {
-				
-				this.addFieldError("end_date_reg",
-						"End Time Register must larger than Start Time Register");
-	
-				return INPUT;
-			}
-			
-			/**
-			 * 注册时间段先于比赛时间段
-			 */
-			
-			if (eDate_reg.after(sDate)) {
-				
-				this.addFieldError("start_date_reg",
-						"start Time Register must larger than end Time Register");		
-			
-				return INPUT;
-			}
-			contest.setCreate_time(
-					new Date(System.currentTimeMillis())
-					);
-			contest.setStart_time(sDate);
-			contest.setEnd_time(eDate);
-			contest.setStart_reg(sDate_reg);
-			contest.setEnd_reg(eDate_reg);
-			contest.setCreate_user(username);
-			contest.setPassword(contest.getPassword().trim());
-			contestService.save(contest);
+        try {
 
-		} catch (Exception e) {
-			// TODO: handle exception
-			logger.error(" contestAdd {}",e);
-			return ERROR;
-		}
+            String username = (String) ActionContext.getContext().getSession()
+                    .get("session_username");
+            if (null == username) {
+                return LOGIN;
+            }
 
-		return SUCCESS;
-	}
+            if (contest.getTitle() == null
+                    || contest.getTitle().trim().equals("")) {
+                ActionContext.getContext().put("tip",
+                        "Title shouldn't be empty.");
+                return "input";
+            }
 
-	public String contestBeforeModify() throws Exception {
-		try {
+            Date sDate = null;
+            sDate = DateUtil.StringToDate(start_date + " " + shour + ":"
+                    + sminute + ":00", "yyyy-MM-dd HH:mm:ss");
 
-			contest = contestService.queryContest(contestId, "ADMIN");
+            if (sDate == null) {
+                this.addFieldError("start_date", "start_date is invalid");
+                return INPUT;
+            }
 
-			start_date = DateUtil.DateToString((java.sql.Date) contest.getStart_time(),
-					"yyyy-MM-dd");
-			end_date = DateUtil.DateToString((java.sql.Date) contest.getEnd_time(),
-					"yyyy-MM-dd");
+            Date eDate = null;
+            eDate = DateUtil.StringToDate(end_date + " " + ehour + ":"
+                    + eminute + ":00", "yyyy-MM-dd HH:mm:ss");
+            if (eDate == null) {
+                this.addFieldError("end_date", "end_date is invalid");
+                return INPUT;
+            }
 
-			shour = contest.getStart_time().getHours();
-			sminute = contest.getStart_time().getMinutes();
+            Date sDate_reg = null;
+            sDate_reg = DateUtil.StringToDate(start_reg_date + " "
+                            + shour_reg + ":" + sminute_reg + ":00",
+                    "yyyy-MM-dd HH:mm:ss");
 
-			ehour = contest.getEnd_time().getHours();
-			eminute = contest.getEnd_time().getMinutes();
+            if (sDate_reg == null) {
+                this.addFieldError("start_reg_date",
+                        "start_reg_date is invalid");
+                return INPUT;
+            }
 
-			start_reg_date = DateUtil.DateToString((java.sql.Date) contest.getStart_reg(),
-					"yyyy-MM-dd");
-			end_reg_date = DateUtil.DateToString((java.sql.Date) contest.getEnd_reg(),
-					"yyyy-MM-dd");
+            Date eDate_reg = null;
+            eDate_reg = DateUtil.StringToDate(end_reg_date + " "
+                            + ehour_reg + ":" + eminute_reg + ":00",
+                    "yyyy-MM-dd HH:mm:ss");
+            if (eDate_reg == null) {
+                this.addFieldError("end_reg_date", "end_reg_date is invalid");
+                return INPUT;
+            }
+            /**
+             * 时间段开始时间<结束时间
+             */
 
-			shour_reg = contest.getStart_reg().getHours();
-			sminute_reg = contest.getStart_reg().getMinutes();
+            if (sDate.after(eDate)) {
+                this.addFieldError("end_date",
+                        "End Time must larger than Start Time");
+                return INPUT;
+            }
 
-			ehour_reg = contest.getEnd_reg().getHours();
-			eminute_reg = contest.getEnd_reg().getMinutes();
+            if (sDate_reg.after(eDate_reg)) {
 
-		} catch (Exception e) {
-			// TODO: handle exception
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+                this.addFieldError("end_date_reg",
+                        "End Time Register must larger than Start Time Register");
 
-	public String contestModify() throws Exception {
-		try {
-			Contest contest_ = new Contest();
-			contest_ = contestService.queryContest(contest.getContest_id(),
-					"ADMIN");
-			if (null == contest_) {
-				return ERROR;
-			}
-			if (contest.getTitle() == null
-					|| contest.getTitle().trim().equals("")) {
-				ActionContext.getContext().put("tip",
-						"Title shouldn't be empty.");
-				return "input";
-			}
-			Date sDate = null;
-			sDate = DateUtil.StringToDate(start_date + " " + shour + ":"
-					+ sminute + ":00", "yyyy-MM-dd HH:mm:ss");
-			if (sDate == null) {
-				this.addFieldError("start_date", "start_date is invalid");
+                return INPUT;
+            }
 
-				return INPUT;
-			}
-			Date eDate = null;
-			eDate = DateUtil.StringToDate(end_date + " " + ehour + ":"
-					+ eminute + ":00", "yyyy-MM-dd HH:mm:ss");
-			if (sDate == null) {
-				this.addFieldError("end_date", "end_date is invalid");
+            /**
+             * 注册时间段先于比赛时间段
+             */
 
-				return INPUT;
-			}
+            if (eDate_reg.after(sDate)) {
 
-			Date sDate_reg = null;
-			sDate_reg =  DateUtil.StringToDate(start_reg_date + " "
-					+ shour_reg + ":" + sminute_reg + ":00",
-					"yyyy-MM-dd HH:mm:ss");
-			if (sDate == null) {
-				this.addFieldError("start_reg_date",
-						"start_reg_date is invalid");
-				return INPUT;
-			}
-			Date eDate_reg = null;
-			eDate_reg =  DateUtil.StringToDate(end_reg_date + " "
-					+ ehour_reg + ":" + eminute_reg + ":00",
-					"yyyy-MM-dd HH:mm:ss");
-			if (sDate == null) {
-				this.addFieldError("end_reg_date", "end_reg_date is invalid");
-				return INPUT;
-			}
+                this.addFieldError("start_date_reg",
+                        "start Time Register must larger than end Time Register");
 
-			if (sDate.after(eDate)) {
-				this.addFieldError("end_date",
-						"End Time must larger than Stant Time");
-				return INPUT;
-			}
+                return INPUT;
+            }
+            contest.setCreate_time(
+                    new Date(System.currentTimeMillis())
+            );
+            contest.setStart_time(sDate);
+            contest.setEnd_time(eDate);
+            contest.setStart_reg(sDate_reg);
+            contest.setEnd_reg(eDate_reg);
+            contest.setCreate_user(username);
+            contest.setPassword(contest.getPassword().trim());
+            contestService.save(contest);
 
-			contest_.setStart_time(sDate);
-			contest_.setEnd_time(eDate);
-			contest_.setStart_reg(sDate_reg);
-			contest_.setEnd_reg(eDate_reg);
-			contest_.setTitle(contest.getTitle());
-			contest_.setDescription(contest.getDescription());
-			contest_.setType(contest.getType());
-			contest_.setPassword(contest.getPassword().trim());
-			contestService.save(contest_);
-		} catch (Exception e) {
-			// TODO: handle exception
-			logger.error("PostContest error: ", e);
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error(" contestAdd {}", e);
+            return ERROR;
+        }
 
-	public String delContest() throws Exception {
-		try {
-			Contest contest_ = new Contest();
-			contest_ = contestService.queryContest(contestId, "ADMIN");
-			if (null == contest_) {
-				return ERROR;
-			}
-			contest_.setDefunct("Y");
-			contestService.save(contest_);
-		} catch (Exception e) {
-			
-			logger.error("delContest error: ", e);
-			// TODO: handle exception
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+        return SUCCESS;
+    }
 
-	public String resumeContest() throws Exception {
-		try {
-			Contest contest_ = new Contest();
-			contest_ = contestService.queryContest(contestId, "ADMIN");
-			if (null == contest_) {
-				return ERROR;
-			}
-			contest_.setDefunct("N");
-			contestService.save(contest_);
-		} catch (Exception e) {
-			// TODO: handle exception
-			logger.error("resumeContest error: ", e);
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+    public String contestBeforeModify() throws Exception {
+        try {
 
-	public String getStart_date() {
-		return start_date;
-	}
+            contest = contestService.queryContest(contestId, "ADMIN");
 
-	public void setStart_date(String startDate) {
-		start_date = startDate;
-	}
+            start_date = DateUtil.DateToString((java.sql.Date) contest.getStart_time(),
+                    "yyyy-MM-dd");
+            end_date = DateUtil.DateToString((java.sql.Date) contest.getEnd_time(),
+                    "yyyy-MM-dd");
 
-	public Integer getShour() {
-		return shour;
-	}
+            shour = contest.getStart_time().getHours();
+            sminute = contest.getStart_time().getMinutes();
 
-	public void setShour(Integer shour) {
-		this.shour = shour;
-	}
+            ehour = contest.getEnd_time().getHours();
+            eminute = contest.getEnd_time().getMinutes();
 
-	public Integer getSminute() {
-		return sminute;
-	}
+            start_reg_date = DateUtil.DateToString((java.sql.Date) contest.getStart_reg(),
+                    "yyyy-MM-dd");
+            end_reg_date = DateUtil.DateToString((java.sql.Date) contest.getEnd_reg(),
+                    "yyyy-MM-dd");
 
-	public void setSminute(Integer sminute) {
-		this.sminute = sminute;
-	}
+            shour_reg = contest.getStart_reg().getHours();
+            sminute_reg = contest.getStart_reg().getMinutes();
 
-	public String getEnd_date() {
-		return end_date;
-	}
+            ehour_reg = contest.getEnd_reg().getHours();
+            eminute_reg = contest.getEnd_reg().getMinutes();
 
-	public void setEnd_date(String endDate) {
-		end_date = endDate;
-	}
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error("contestBeforeModify: {}", e);
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 
-	public Integer getEhour() {
-		return ehour;
-	}
+    public String contestModify() throws Exception {
+        try {
+            Contest contest_ = new Contest();
+            contest_ = contestService.queryContest(contest.getContest_id(),
+                    "ADMIN");
+            if (null == contest_) {
+                return ERROR;
+            }
+            if (contest.getTitle() == null
+                    || contest.getTitle().trim().equals("")) {
+                ActionContext.getContext().put("tip",
+                        "Title shouldn't be empty.");
+                return "input";
+            }
+            Date sDate = null;
+            sDate = DateUtil.StringToDate(start_date + " " + shour + ":"
+                    + sminute + ":00", "yyyy-MM-dd HH:mm:ss");
+            if (sDate == null) {
+                this.addFieldError("start_date", "start_date is invalid");
 
-	public void setEhour(Integer ehour) {
-		this.ehour = ehour;
-	}
+                return INPUT;
+            }
+            Date eDate = null;
+            eDate = DateUtil.StringToDate(end_date + " " + ehour + ":"
+                    + eminute + ":00", "yyyy-MM-dd HH:mm:ss");
+            if (sDate == null) {
+                this.addFieldError("end_date", "end_date is invalid");
 
-	public Integer getEminute() {
-		return eminute;
-	}
+                return INPUT;
+            }
 
-	public void setEminute(Integer eminute) {
-		this.eminute = eminute;
-	}
+            Date sDate_reg = null;
+            sDate_reg = DateUtil.StringToDate(start_reg_date + " "
+                            + shour_reg + ":" + sminute_reg + ":00",
+                    "yyyy-MM-dd HH:mm:ss");
+            if (sDate == null) {
+                this.addFieldError("start_reg_date",
+                        "start_reg_date is invalid");
+                return INPUT;
+            }
+            Date eDate_reg = null;
+            eDate_reg = DateUtil.StringToDate(end_reg_date + " "
+                            + ehour_reg + ":" + eminute_reg + ":00",
+                    "yyyy-MM-dd HH:mm:ss");
+            if (sDate == null) {
+                this.addFieldError("end_reg_date", "end_reg_date is invalid");
+                return INPUT;
+            }
 
-	public ContestService getContestService() {
-		return contestService;
-	}
+            if (sDate.after(eDate)) {
+                this.addFieldError("end_date",
+                        "End Time must larger than Stant Time");
+                return INPUT;
+            }
 
-	public void setContestService(ContestService contestService) {
-		this.contestService = contestService;
-	}
+            contest_.setStart_time(sDate);
+            contest_.setEnd_time(eDate);
+            contest_.setStart_reg(sDate_reg);
+            contest_.setEnd_reg(eDate_reg);
+            contest_.setTitle(contest.getTitle());
+            contest_.setDescription(contest.getDescription());
+            contest_.setType(contest.getType());
+            contest_.setPassword(contest.getPassword().trim());
+            contestService.save(contest_);
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error("PostContest error: ", e);
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 
-	public Contest getContest() {
-		return contest;
-	}
+    public String delContest() throws Exception {
+        try {
+            Contest contest_ = new Contest();
+            contest_ = contestService.queryContest(contestId, "ADMIN");
+            if (null == contest_) {
+                return ERROR;
+            }
+            contest_.setDefunct("Y");
+            contestService.save(contest_);
+        } catch (Exception e) {
 
-	public void setContest(Contest contest) {
-		this.contest = contest;
-	}
+            logger.error("delContest error: ", e);
+            // TODO: handle exception
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 
-	public Integer getContestId() {
-		return contestId;
-	}
+    public String resumeContest() throws Exception {
+        try {
+            Contest contest_ = new Contest();
+            contest_ = contestService.queryContest(contestId, "ADMIN");
+            if (null == contest_) {
+                return ERROR;
+            }
+            contest_.setDefunct("N");
+            contestService.save(contest_);
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error("resumeContest error: ", e);
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 
-	public void setContestId(Integer contestId) {
-		this.contestId = contestId;
-	}
+    public String getStart_date() {
+        return start_date;
+    }
 
-	public String getStart_reg_date() {
-		return start_reg_date;
-	}
+    public void setStart_date(String startDate) {
+        start_date = startDate;
+    }
 
-	public void setStart_reg_date(String startRegDate) {
-		start_reg_date = startRegDate;
-	}
+    public Integer getShour() {
+        return shour;
+    }
 
-	public Integer getShour_reg() {
-		return shour_reg;
-	}
+    public void setShour(Integer shour) {
+        this.shour = shour;
+    }
 
-	public void setShour_reg(Integer shourReg) {
-		shour_reg = shourReg;
-	}
+    public Integer getSminute() {
+        return sminute;
+    }
 
-	public Integer getSminute_reg() {
-		return sminute_reg;
-	}
+    public void setSminute(Integer sminute) {
+        this.sminute = sminute;
+    }
 
-	public void setSminute_reg(Integer sminuteReg) {
-		sminute_reg = sminuteReg;
-	}
+    public String getEnd_date() {
+        return end_date;
+    }
 
-	public String getEnd_reg_date() {
-		return end_reg_date;
-	}
+    public void setEnd_date(String endDate) {
+        end_date = endDate;
+    }
 
-	public void setEnd_reg_date(String endRegDate) {
-		end_reg_date = endRegDate;
-	}
+    public Integer getEhour() {
+        return ehour;
+    }
 
-	public Integer getEhour_reg() {
-		return ehour_reg;
-	}
+    public void setEhour(Integer ehour) {
+        this.ehour = ehour;
+    }
 
-	public void setEhour_reg(Integer ehourReg) {
-		ehour_reg = ehourReg;
-	}
+    public Integer getEminute() {
+        return eminute;
+    }
 
-	public Integer getEminute_reg() {
-		return eminute_reg;
-	}
+    public void setEminute(Integer eminute) {
+        this.eminute = eminute;
+    }
 
-	public void setEminute_reg(Integer eminuteReg) {
-		eminute_reg = eminuteReg;
-	}
+    public ContestService getContestService() {
+        return contestService;
+    }
+
+    public void setContestService(ContestService contestService) {
+        this.contestService = contestService;
+    }
+
+    public Contest getContest() {
+        return contest;
+    }
+
+    public void setContest(Contest contest) {
+        this.contest = contest;
+    }
+
+    public Integer getContestId() {
+        return contestId;
+    }
+
+    public void setContestId(Integer contestId) {
+        this.contestId = contestId;
+    }
+
+    public String getStart_reg_date() {
+        return start_reg_date;
+    }
+
+    public void setStart_reg_date(String startRegDate) {
+        start_reg_date = startRegDate;
+    }
+
+    public Integer getShour_reg() {
+        return shour_reg;
+    }
+
+    public void setShour_reg(Integer shourReg) {
+        shour_reg = shourReg;
+    }
+
+    public Integer getSminute_reg() {
+        return sminute_reg;
+    }
+
+    public void setSminute_reg(Integer sminuteReg) {
+        sminute_reg = sminuteReg;
+    }
+
+    public String getEnd_reg_date() {
+        return end_reg_date;
+    }
+
+    public void setEnd_reg_date(String endRegDate) {
+        end_reg_date = endRegDate;
+    }
+
+    public Integer getEhour_reg() {
+        return ehour_reg;
+    }
+
+    public void setEhour_reg(Integer ehourReg) {
+        ehour_reg = ehourReg;
+    }
+
+    public Integer getEminute_reg() {
+        return eminute_reg;
+    }
+
+    public void setEminute_reg(Integer eminuteReg) {
+        eminute_reg = eminuteReg;
+    }
 
 }

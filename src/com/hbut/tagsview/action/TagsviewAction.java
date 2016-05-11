@@ -5,93 +5,98 @@ import com.hbut.tags.service.TagsService;
 import com.hbut.tagsview.service.TagsviewService;
 import com.hbut.tagsview.vo.Tagsview;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
 public class TagsviewAction extends ActionSupport {
 
-	private TagsviewService tagsviewService;
-	private TagsService tagsService;
-	private Integer problemId;
-	private Integer messageId;
-	private Integer tagId;
 
-	public String saveProblemTags() throws Exception {
+    private static final Logger logger = LoggerFactory.getLogger(TagsviewAction.class);
+    private TagsviewService tagsviewService;
+    private TagsService tagsService;
+    private Integer problemId;
+    private Integer messageId;
+    private Integer tagId;
 
-		try {
+    public String saveProblemTags() throws Exception {
 
-			if (true == tagsviewService.isExistByProblems(tagId, problemId)) {
-				this.addFieldError("tip", "This tag has existed.");
-				return ERROR;
-			}
+        try {
 
-			Tagsview tagsview_ = new Tagsview();
-			tagsview_.setTag_id(tagId);
-			tagsview_.setProblem_id(problemId);
-			tagsviewService.save(tagsview_);
-		} catch (Exception e) {
-			// TODO: handle exception
-			this.addFieldError("tip", "Save tag error.");
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+            if (true == tagsviewService.isExistByProblems(tagId, problemId)) {
+                this.addFieldError("tip", "This tag has existed.");
+                return ERROR;
+            }
 
-	public String saveMessageTags() throws Exception {
+            Tagsview tagsview_ = new Tagsview();
+            tagsview_.setTag_id(tagId);
+            tagsview_.setProblem_id(problemId);
+            tagsviewService.save(tagsview_);
+        } catch (Exception e) {
+            // TODO: handle exception
+            this.addFieldError("tip", "Save tag error.");
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 
-		try {
-			if (true == tagsviewService.isExistByMessages(tagId, messageId)) {
-				this.addFieldError("tip", "This tag has existed.");
-				return ERROR;
-			}
-			Tagsview tagsview_ = new Tagsview();
-			tagsview_.setTag_id(tagId);
-			tagsview_.setMessage_id(messageId);
-			tagsviewService.save(tagsview_);
-		} catch (Exception e) {
-			// TODO: handle exception
-			this.addFieldError("tip", "Save tag error.");
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+    public String saveMessageTags() throws Exception {
 
-	public TagsviewService getTagsviewService() {
-		return tagsviewService;
-	}
+        try {
+            if (true == tagsviewService.isExistByMessages(tagId, messageId)) {
+                this.addFieldError("tip", "This tag has existed.");
+                return ERROR;
+            }
+            Tagsview tagsview_ = new Tagsview();
+            tagsview_.setTag_id(tagId);
+            tagsview_.setMessage_id(messageId);
+            tagsviewService.save(tagsview_);
+        } catch (Exception e) {
+            // TODO: handle exception
+            this.addFieldError("tip", "Save tag error.");
+            logger.error("saveMessageTags: {}", e);
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 
-	public void setTagsviewService(TagsviewService tagsviewService) {
-		this.tagsviewService = tagsviewService;
-	}
+    public TagsviewService getTagsviewService() {
+        return tagsviewService;
+    }
 
-	public TagsService getTagsService() {
-		return tagsService;
-	}
+    public void setTagsviewService(TagsviewService tagsviewService) {
+        this.tagsviewService = tagsviewService;
+    }
 
-	public void setTagsService(TagsService tagsService) {
-		this.tagsService = tagsService;
-	}
+    public TagsService getTagsService() {
+        return tagsService;
+    }
 
-	public Integer getProblemId() {
-		return problemId;
-	}
+    public void setTagsService(TagsService tagsService) {
+        this.tagsService = tagsService;
+    }
 
-	public void setProblemId(Integer problemId) {
-		this.problemId = problemId;
-	}
+    public Integer getProblemId() {
+        return problemId;
+    }
 
-	public Integer getMessageId() {
-		return messageId;
-	}
+    public void setProblemId(Integer problemId) {
+        this.problemId = problemId;
+    }
 
-	public void setMessageId(Integer messageId) {
-		this.messageId = messageId;
-	}
+    public Integer getMessageId() {
+        return messageId;
+    }
 
-	public Integer getTagId() {
-		return tagId;
-	}
+    public void setMessageId(Integer messageId) {
+        this.messageId = messageId;
+    }
 
-	public void setTagId(Integer tagId) {
-		this.tagId = tagId;
-	}
+    public Integer getTagId() {
+        return tagId;
+    }
+
+    public void setTagId(Integer tagId) {
+        this.tagId = tagId;
+    }
 
 }

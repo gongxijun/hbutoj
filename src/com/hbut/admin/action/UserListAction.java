@@ -1,100 +1,102 @@
 package com.hbut.admin.action;
 
+import com.hbut.user.service.UserService;
+import com.hbut.user.vo.User;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hbut.user.service.UserService;
-import com.hbut.user.vo.User;
-
-import org.apache.struts2.json.annotations.JSON;
-
-import com.opensymphony.xwork2.ActionSupport;
-
 public class UserListAction extends ActionSupport {
-	private static final long serialVersionUID = 1L;
-	private UserService userService;
-	private List<User> usersList;
-	private Integer page = 1;
+    private static final long serialVersionUID = 1L;
+    private UserService userService;
+    private List<User> usersList;
+    private Integer page = 1;
 
-	private String order;
-	private List<Integer> pageList;
-	private Integer pageSize = 100;
+    private String order;
+    private List<Integer> pageList;
+    private Integer pageSize = 100;
 
-	public Integer getPageSize() {
-		return pageSize;
-	}
+    private final static Logger logger = LoggerFactory.getLogger(UserListAction.class);
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-	}
+    public Integer getPageSize() {
+        return pageSize;
+    }
 
-	public List<Integer> getPageList() {
-		return pageList;
-	}
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
 
-	public void setPageList(List<Integer> pageList) {
-		this.pageList = pageList;
-	}
+    public List<Integer> getPageList() {
+        return pageList;
+    }
 
-	public List<User> getUsersList() {
-		return usersList;
-	}
+    public void setPageList(List<Integer> pageList) {
+        this.pageList = pageList;
+    }
 
-	public void setUsersList(List<User> usersList) {
-		this.usersList = usersList;
-	}
+    public List<User> getUsersList() {
+        return usersList;
+    }
 
-	public Integer getPage() {
-		return page;
-	}
+    public void setUsersList(List<User> usersList) {
+        this.usersList = usersList;
+    }
 
-	public void setPage(Integer page) {
-		this.page = page;
-	}
+    public Integer getPage() {
+        return page;
+    }
 
-	public String getOrder() {
-		return order;
-	}
+    public void setPage(Integer page) {
+        this.page = page;
+    }
 
-	public void setOrder(String order) {
-		this.order = order;
-	}
+    public String getOrder() {
+        return order;
+    }
 
-	public UserService getUserService() {
-		return userService;
-	}
+    public void setOrder(String order) {
+        this.order = order;
+    }
 
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+    public UserService getUserService() {
+        return userService;
+    }
 
-	public String userList() throws Exception {
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
-		try {
-			if (pageSize > 100) {
-				pageSize = 100;
-			}
-			Integer intRowCount = userService.countUsers();
-			Integer pageCount = ((intRowCount + pageSize - 1) / pageSize);// 计算出总页数
-			if (page < 1) {
-				page = 1;
-			}
-			if (page > pageCount) {
-				page = pageCount;
-			}
-			Integer from = (page - 1) * pageSize;
-			usersList = userService.queryUsers(from, pageSize);
-			List<Integer> volume = new ArrayList<Integer>();
-			for (Integer i = 1; i <= pageCount; i++) {
-				volume.add(i);
-			}
-			pageList = volume;
-		} catch (Exception e) {
-			// TODO: handle exception
-			return ERROR;
-		}
-		// System.out.println(jsonResult);
-		return SUCCESS;
-	}
+    public String userList() throws Exception {
+
+        try {
+            if (pageSize > 100) {
+                pageSize = 100;
+            }
+            Integer intRowCount = userService.countUsers();
+            Integer pageCount = ((intRowCount + pageSize - 1) / pageSize);// 计算出总页数
+            if (page < 1) {
+                page = 1;
+            }
+            if (page > pageCount) {
+                page = pageCount;
+            }
+            Integer from = (page - 1) * pageSize;
+            usersList = userService.queryUsers(from, pageSize);
+            List<Integer> volume = new ArrayList<Integer>();
+            for (Integer i = 1; i <= pageCount; i++) {
+                volume.add(i);
+            }
+            pageList = volume;
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error("内部出错", e);
+            return ERROR;
+        }
+        // System.out.println(jsonResult);
+        return SUCCESS;
+    }
 
 }

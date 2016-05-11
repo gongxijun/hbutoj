@@ -1,162 +1,175 @@
 package com.hbut.contest.problem.action;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.hbut.contest.problem.service.CProblemService;
 import com.hbut.contest.problem.vo.CProblem;
 import com.hbut.contest.service.ContestService;
 import com.hbut.contest.vo.Contest;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProblemAction extends ActionSupport {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private ContestService contestService;
-	private CProblem problem;
-	private Integer problemId = 1000;
-	private String num = "A";
-	private CProblemService cproblemService;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	private Integer contestId = 0;
+    private static final Logger logger = LoggerFactory.getLogger(ProblemAction.class);
 
-	public ContestService getContestService() {
-		return contestService;
-	}
+    private ContestService contestService;
+    private CProblem problem;
+    private Integer problemId = 1000;
+    private String num = "A";
+    private CProblemService cproblemService;
 
-	public void setContestService(ContestService contestService) {
-		this.contestService = contestService;
-	}
+    private Integer contestId = 0;
 
-	public String problemAdd() throws Exception {
-		try {
-			// 需要不重复的题目?
-			CProblem problem_ = new CProblem();
-			// System.out.println(problem.getTitle()+problem.getProblem_id()+problem.getContest_id());
-			problem_.setTitle(problem.getTitle());
-			problem_.setProblem_id(problem.getProblem_id());
-			problem_.setNum(problem.getNum());
-			problem_.setContest_id(problem.getContest_id());
-			problem_.setPoint(problem.getPoint());
-			cproblemService.save(problem_);
+    public ContestService getContestService() {
+        return contestService;
+    }
 
-		} catch (Exception e) {
-			// TODO: handle exception
-			return ERROR;
-		}
+    public void setContestService(ContestService contestService) {
+        this.contestService = contestService;
+    }
 
-		return SUCCESS;
-	}
+    public String problemAdd() throws Exception {
+        try {
+            // 需要不重复的题目?
+            CProblem problem_ = new CProblem();
+            // System.out.println(problem.getTitle()+problem.getProblem_id()+problem.getContest_id());
+            problem_.setTitle(problem.getTitle());
+            problem_.setProblem_id(problem.getProblem_id());
+            problem_.setNum(problem.getNum());
+            problem_.setContest_id(problem.getContest_id());
+            problem_.setPoint(problem.getPoint());
+            cproblemService.save(problem_);
 
-	public String problemBeforeModify() throws Exception {
-		try {
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error("problemAdd: {} ", e);
+            return ERROR;
+        }
 
-			problem = cproblemService.queryProblemByNum(num, contestId);
+        return SUCCESS;
+    }
 
-		} catch (Exception e) {
-			// TODO: handle exception
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+    public String problemBeforeModify() throws Exception {
+        try {
 
-	public String problemModify() throws Exception {
-		try {
+            problem = cproblemService.queryProblemByNum(num, contestId);
 
-			cproblemService.save(problem);
+        } catch (Exception e) {
+            // TODO: handle exception
 
-		} catch (Exception e) {
-			// TODO: handle exception
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+            logger.error("problemBeforeModify: {}", e);
 
-	public String problemDelete() throws Exception {
-		try {
-			Contest contest_ = new Contest();
-			contest_ = contestService.queryContest(contestId, "USER");
-			if (contest_ == null) {
-				return ERROR;
-			}
-			/*
-			 * if (contest_.getStart_time().before(new Date())) {
+            return ERROR;
+        }
+        return SUCCESS;
+    }
+
+    public String problemModify() throws Exception {
+        try {
+
+            cproblemService.save(problem);
+
+        } catch (Exception e) {
+            // TODO: handle exception
+
+            logger.error("problemModify: {}", e);
+            return ERROR;
+        }
+        return SUCCESS;
+    }
+
+    public String problemDelete() throws Exception {
+        try {
+            Contest contest_ = new Contest();
+            contest_ = contestService.queryContest(contestId, "USER");
+            if (contest_ == null) {
+                return ERROR;
+            }
+            /*
+             * if (contest_.getStart_time().before(new Date())) {
 			 * this.addFieldError("tip",
 			 * "you can't delete problem after contest start."); return ERROR; }
 			 */
 
-			List<CProblem> problemList_ = cproblemService
-					.queryProblems(contestId);
-			boolean flag = false;
-			List<String> num_ = new ArrayList<String>();
-			for (CProblem p : problemList_) {
-				num_.add(p.getNum());
-			}
-			for (int i = 0; i < problemList_.size(); i++) {
-				if (flag) {
-					CProblem problem__ = problemList_.get(i);
-					problem__.setNum(num_.get(i - 1));
-					cproblemService.save(problem__);
-				}
-				if (problemList_.get(i).getNum().equals(num) && flag == false) {
-					CProblem problem_ = cproblemService.queryProblemByNum(num,
-							contestId);
-					if (problem_ == null) {
-						this.addFieldError("tip", "No such problem.");
-						return ERROR;
-					}
-					cproblemService.delete(problem_);
-					flag = true;
-				}
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+            List<CProblem> problemList_ = cproblemService
+                    .queryProblems(contestId);
+            boolean flag = false;
+            List<String> num_ = new ArrayList<String>();
+            for (CProblem p : problemList_) {
+                num_.add(p.getNum());
+            }
+            for (int i = 0; i < problemList_.size(); i++) {
+                if (flag) {
+                    CProblem problem__ = problemList_.get(i);
+                    problem__.setNum(num_.get(i - 1));
+                    cproblemService.save(problem__);
+                }
+                if (problemList_.get(i).getNum().equals(num) && flag == false) {
+                    CProblem problem_ = cproblemService.queryProblemByNum(num,
+                            contestId);
+                    if (problem_ == null) {
+                        this.addFieldError("tip", "No such problem.");
+                        return ERROR;
+                    }
+                    cproblemService.delete(problem_);
+                    flag = true;
+                }
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
 
-	public CProblem getProblem() {
-		return problem;
-	}
+            logger.error("problemDelete: {}", e);
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 
-	public void setProblem(CProblem problem) {
-		this.problem = problem;
-	}
+    public CProblem getProblem() {
+        return problem;
+    }
 
-	public String getNum() {
-		return num;
-	}
+    public void setProblem(CProblem problem) {
+        this.problem = problem;
+    }
 
-	public void setNum(String num) {
-		this.num = num;
-	}
+    public String getNum() {
+        return num;
+    }
 
-	public Integer getProblemId() {
-		return problemId;
-	}
+    public void setNum(String num) {
+        this.num = num;
+    }
 
-	public void setProblemId(Integer problemId) {
-		this.problemId = problemId;
-	}
+    public Integer getProblemId() {
+        return problemId;
+    }
 
-	public CProblemService getCproblemService() {
-		return cproblemService;
-	}
+    public void setProblemId(Integer problemId) {
+        this.problemId = problemId;
+    }
 
-	public void setCproblemService(CProblemService cproblemService) {
-		this.cproblemService = cproblemService;
-	}
+    public CProblemService getCproblemService() {
+        return cproblemService;
+    }
 
-	public Integer getContestId() {
-		return contestId;
-	}
+    public void setCproblemService(CProblemService cproblemService) {
+        this.cproblemService = cproblemService;
+    }
 
-	public void setContestId(Integer contestId) {
-		this.contestId = contestId;
-	}
+    public Integer getContestId() {
+        return contestId;
+    }
+
+    public void setContestId(Integer contestId) {
+        this.contestId = contestId;
+    }
 
 }

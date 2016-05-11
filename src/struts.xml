@@ -590,7 +590,7 @@
 			<interceptor-ref name="isLogin"></interceptor-ref>
 			<interceptor-ref name="isAdmin2"></interceptor-ref>
 		</action>
-		<action name="home-edit" class="com.hbut.admin.action.HomeEditAction" method="homeedit">
+		<action name="home-edit" class="com.hbut.admin.action.HomeEditAction" method="homeEdit">
 			<result name="success" >/jsp/admin/home.jsp</result>	
 			<interceptor-ref name="defaultStack"></interceptor-ref>			
 			<interceptor-ref name="isLogin"></interceptor-ref>

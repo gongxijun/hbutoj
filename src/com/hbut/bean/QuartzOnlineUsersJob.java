@@ -1,68 +1,72 @@
 package com.hbut.bean;
 
-import java.sql.Date;
+import com.hbut.user.service.UserService;
+import com.hbut.user.vo.User;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
+import com.util.MyApplicationContextUtil;
+import com.util.OnlineUsers;
+
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import com.hbut.user.service.UserService;
-import com.hbut.user.vo.User;
-import com.util.MyApplicationContextUtil;
-import com.util.OnlineUsers;
-
 public class QuartzOnlineUsersJob {
 
-	public void work() {
-		try {
+    private final static Logger logger = LoggerFactory.getLogger(QuartzOnlineUsersJob.class);
 
-			UserService userService = (UserService) MyApplicationContextUtil
-					.getContext().getBean("userService");
+    public void work() {
+        try {
 
-			Map<String, OnlineUserBean> mou = new HashMap<String, OnlineUserBean>();
-			mou = OnlineUsers.getOnlineUsers();
+            UserService userService = (UserService) MyApplicationContextUtil
+                    .getContext().getBean("userService");
 
-			System.out.println("QuartzOnlineUsersJob start... size="
-					+ mou.size());
+            Map<String, OnlineUserBean> mou = new HashMap<String, OnlineUserBean>();
+            mou = OnlineUsers.getOnlineUsers();
 
-			Set set = mou.keySet();
-			Iterator it = set.iterator();
-			while (it.hasNext()) {
-				String username = (String) it.next();
-				User u = new User();
+            System.out.println("QuartzOnlineUsersJob start... size="
+                    + mou.size());
 
-				System.out.println(username);
-				if (username == null) {
-					System.out.println("null of name " + username);
-					it.remove();
-					continue;
-				}
+            Set set = mou.keySet();
+            Iterator it = set.iterator();
+            while (it.hasNext()) {
+                String username = (String) it.next();
+                User u = new User();
 
-				u = userService.queryUser(username);
-				if (u == null) {
-					System.out.println("null of user " + username);
-					it.remove();
-					continue;
-				}
+                System.out.println(username);
+                if (username == null) {
+                    System.out.println("null of name " + username);
+                    it.remove();
+                    continue;
+                }
 
-				u.setLastaccesstime((Timestamp) mou.get(username)
-						.getLastAccessTime());
-				userService.save(u);
+                u = userService.queryUser(username);
+                if (u == null) {
+                    System.out.println("null of user " + username);
+                    it.remove();
+                    continue;
+                }
+
+                u.setLastaccesstime((Timestamp) mou.get(username)
+                        .getLastAccessTime());
+                userService.save(u);
 
 				/* ���ߵ���Ҫ�޳� */
-				if (mou.get(username).getStatusFlag() == 0) {
-					System.out.println("removeUser " + username
-							+ " , because of offline...");
-					it.remove();
-				}
+                if (mou.get(username).getStatusFlag() == 0) {
+                    System.out.println("removeUser " + username
+                            + " , because of offline...");
+                    it.remove();
+                }
 
-				// System.out.println("Next...");
-			}
+                // System.out.println("Next...");
+            }
 
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("update online users error...");
-		}
-	}
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error(" work Exception", e);
+            System.out.println("update online users error...");
+        }
+    }
 }

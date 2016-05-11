@@ -1,202 +1,206 @@
 package com.hbut.user.action;
 
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.hbut.user.service.UserService;
 import com.hbut.bean.OnlineUserBean;
 import com.hbut.problem.service.ProblemService;
 import com.hbut.problem.vo.Problem;
 import com.hbut.solution.service.SolutionService;
+import com.hbut.user.service.UserService;
 import com.hbut.user.vo.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.DateUtil;
 import com.util.OnlineUsers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProfileAction extends ActionSupport {
-	private static final long serialVersionUID = 1L;
-	private UserService userService;
-	private SolutionService solutionService;
-	private ProblemService problemService;
 
-	private List<Problem> problemSolvedList;
-	private List<Problem> problemTryList;
+    private static final long serialVersionUID = 1L;
+    private static final Logger logger = LoggerFactory.getLogger(ProfileAction.class);
+    private UserService userService;
+    private SolutionService solutionService;
+    private ProblemService problemService;
 
-	private User user;
-	private String username;
-	private Integer rank;
+    private List<Problem> problemSolvedList;
+    private List<Problem> problemTryList;
 
-	private String registerDate;
-	private String lastAccessTime; /* online now , last vist time */
-	private Integer statusFlag; /* 1(online), 0(offline) */
+    private User user;
+    private String username;
+    private Integer rank;
 
-	public String getRegisterDate() {
-		return registerDate;
-	}
+    private String registerDate;
+    private String lastAccessTime;   /* online now , last vist time */
+    private int statusFlag;    /* 1(online), 0(offline) */
 
-	public void setRegisterDate(String registerDate) {
-		this.registerDate = registerDate;
-	}
+    public String getRegisterDate() {
+        return registerDate;
+    }
 
-	public Integer getStatusFlag() {
-		return statusFlag;
-	}
+    public void setRegisterDate(String registerDate) {
+        this.registerDate = registerDate;
+    }
 
-	public void setStatusFlag(Integer statusFlag) {
-		this.statusFlag = statusFlag;
-	}
+    public int getStatusFlag() {
+        return statusFlag;
+    }
 
-	public String getLastAccessTime() {
-		return lastAccessTime;
-	}
+    public void setStatusFlag(int statusFlag) {
+        this.statusFlag = statusFlag;
+    }
 
-	public void setLastAccessTime(String lastAccessTime) {
-		this.lastAccessTime = lastAccessTime;
-	}
+    public String getLastAccessTime() {
+        return lastAccessTime;
+    }
 
-	public Integer getRank() {
-		return rank;
-	}
+    public void setLastAccessTime(String lastAccessTime) {
+        this.lastAccessTime = lastAccessTime;
+    }
 
-	public void setRank(Integer rank) {
-		this.rank = rank;
-	}
+    public Integer getRank() {
+        return rank;
+    }
 
-	public SolutionService getSolutionService() {
-		return solutionService;
-	}
+    public void setRank(Integer rank) {
+        this.rank = rank;
+    }
 
-	public void setSolutionService(SolutionService solutionService) {
-		this.solutionService = solutionService;
-	}
+    public SolutionService getSolutionService() {
+        return solutionService;
+    }
 
-	public ProblemService getProblemService() {
-		return problemService;
-	}
+    public void setSolutionService(SolutionService solutionService) {
+        this.solutionService = solutionService;
+    }
 
-	public void setProblemService(ProblemService problemService) {
-		this.problemService = problemService;
-	}
+    public ProblemService getProblemService() {
+        return problemService;
+    }
 
-	public List<Problem> getProblemSolvedList() {
-		return problemSolvedList;
-	}
+    public void setProblemService(ProblemService problemService) {
+        this.problemService = problemService;
+    }
 
-	public void setProblemSolvedList(List<Problem> problemSolvedList) {
-		this.problemSolvedList = problemSolvedList;
-	}
+    public List<Problem> getProblemSolvedList() {
+        return problemSolvedList;
+    }
 
-	public List<Problem> getProblemTryList() {
-		return problemTryList;
-	}
+    public void setProblemSolvedList(List<Problem> problemSolvedList) {
+        this.problemSolvedList = problemSolvedList;
+    }
 
-	public void setProblemTryList(List<Problem> problemTryList) {
-		this.problemTryList = problemTryList;
-	}
+    public List<Problem> getProblemTryList() {
+        return problemTryList;
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    public void setProblemTryList(List<Problem> problemTryList) {
+        this.problemTryList = problemTryList;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public UserService getUserService() {
-		return userService;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+    public UserService getUserService() {
+        return userService;
+    }
 
-	public String queryUser() throws Exception {
-		try {
-			if (username == null) {
-				username = (String) ActionContext.getContext().getSession()
-						.get("session_username");
-			}
-			if (username == null) {
-				return LOGIN;
-			}
-			user = new User();
-			user = userService.queryUser(username);
-			if (user == null) {
-				this.addFieldError("tip", "No such user!");
-				return ERROR;
-			}
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    public String queryUser() throws Exception {
+
+        try {
+            if (username == null) {
+                username = (String) ActionContext.getContext().getSession()
+                        .get("session_username");
+            }
+            if (username == null) {
+                return LOGIN;
+            }
+            user = new User();
+            user = userService.queryUser(username);
+            if (user == null) {
+                this.addFieldError("tip", "No such user!");
+                return ERROR;
+            }
 
 			/* rank */
-			rank = userService.getUserRank(user);
+            rank = userService.getUserRank(user);
 
 			/* problem solved */
-			String sql = "select DISTINCT s.problem_id from Solution s where s.verdict=5 and s.username='"
-					+ user.getUsername() + "' order by s.problem_id ASC;";
-			List<Object> solvedProblemIdList = new ArrayList<Object>();
-			solvedProblemIdList = solutionService.query(sql);
-			problemSolvedList = new ArrayList<Problem>();
-			for (Object i : solvedProblemIdList) {
-				// System.out.println(i);
-				Problem problem_ = new Problem();
-				problem_ = problemService.queryProblem((Integer) i);
-				if (problem_ != null) {
-					problemSolvedList.add(problem_);
-				}
-			}
+            String sql = "select DISTINCT s.problem_id from Solution s where s.verdict=5 and s.username='"
+                    + user.getUsername() + "' order by s.problem_id ASC;";
+            List<Object> solvedProblemIdList = new ArrayList<Object>();
+            solvedProblemIdList = solutionService.query(sql);
+            problemSolvedList = new ArrayList<Problem>();
+            for (Object i : solvedProblemIdList) {
+                // System.out.println(i);
+                Problem problem_ = new Problem();
+                problem_ = problemService.queryProblem((Integer) i);
+                if (problem_ != null) {
+                    problemSolvedList.add(problem_);
+                }
+            }
 
 			/* problem try */
-			sql = "select distinct s.problem_id from Solution s where "
-					+ "s.username='" + user.getUsername()
-					+ "' group by s.problem_id "
-					+ "having SUM(s.verdict=5)<1 order by s.problem_id ASC;";
+            sql = "select distinct s.problem_id from Solution s where "
+                    + "s.username='" + user.getUsername()
+                    + "' group by s.problem_id "
+                    + "having SUM(s.verdict=5)<1 order by s.problem_id ASC;";
 
-			List<Object> tryProblemIdList = new ArrayList<Object>();
-			tryProblemIdList = solutionService.query(sql);
-			problemTryList = new ArrayList<Problem>();
-			for (Object i : tryProblemIdList) {
-				// System.out.println(i);
-				Problem problem_ = new Problem();
-				problem_ = problemService.queryProblem((Integer) i);
-				if (problem_ != null) {
-					problemTryList.add(problem_);
-				}
-			}
+            List<Object> tryProblemIdList = new ArrayList<Object>();
+            tryProblemIdList = solutionService.query(sql);
+            problemTryList = new ArrayList<Problem>();
+            for (Object i : tryProblemIdList) {
+                // System.out.println(i);
+                Problem problem_ = new Problem();
+                problem_ = problemService.queryProblem((Integer) i);
+                if (problem_ != null) {
+                    problemTryList.add(problem_);
+                }
+            }
 
-			registerDate = new String();
-			registerDate = DateUtil.toFriendlyDate((Date) user.getRegdate());
-			/* lastAccestTime */
-			lastAccessTime = new String();
-			OnlineUserBean ou = new OnlineUserBean();
-			ou = OnlineUsers.getUser(username);
-			if (null != ou) {
-				lastAccessTime = DateUtil
-						.toFriendlyDate((Date) ou.getLastAccessTime());
-				user.setLastaccesstime( ou.getLastAccessTime());
-				if (1 == ou.getStatusFlag()) {
-					statusFlag = 1;
-				} else {
-					statusFlag = 0;
-				}
-			} else {
-				lastAccessTime = DateUtil.toFriendlyDate((Date) user
-						.getLastaccesstime());
-				statusFlag = 0;
-			}
+            registerDate = new String();
+            registerDate = DateUtil.toFriendlyDate(user.getRegdate());
+            /* lastAccestTime */
+            lastAccessTime = new String();
+            OnlineUserBean ou = new OnlineUserBean();
+            ou = OnlineUsers.getUser(username);
+            if (null != ou) {
+                lastAccessTime = DateUtil
+                        .toFriendlyDate(ou.getLastAccessTime());
+                user.setLastaccesstime(ou.getLastAccessTime());
+                if (1 == ou.getStatusFlag()) {
+                    statusFlag = 1;
+                } else {
+                    statusFlag = 0;
+                }
+            } else {
+                lastAccessTime = DateUtil.toFriendlyDate(user.getLastaccesstime());
+                statusFlag = 0;
+            }
 
-		} catch (Exception e) {
-			// TODO: handle exception
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error("queryUser: {}", e);
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 }

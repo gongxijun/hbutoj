@@ -1,347 +1,349 @@
 package com.hbut.admin.action;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
-
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.json.annotations.JSON;
-import org.hibernate.jdbc.Expectation;
-import org.json.simple.JSONObject;
-
-import com.hbut.user.service.UserService;
 import com.hbut.contest.problem.service.CProblemService;
 import com.hbut.contest.service.ContestService;
-import com.hbut.contest.vo.Contest;
 import com.hbut.problem.service.ProblemService;
 import com.hbut.solution.service.SolutionService;
 import com.hbut.solution.vo.Solution;
 import com.hbut.solution_source.service.Solution_sourceService;
 import com.hbut.solution_source.vo.Solution_source;
-import com.hbut.user.vo.User;
+import com.hbut.user.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.Config;
 import com.util.StreamHandler;
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.json.annotations.JSON;
+import org.json.simple.JSONObject;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Solution_sourceAction extends ActionSupport {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	private Solution_sourceService solutionSourceService;
-	private SolutionService solutionService;
-	private ProblemService problemService;
-	private CProblemService cproblemService;
-	private ContestService contestService;
-	private UserService userService;
+    private Solution_sourceService solutionSourceService;
+    private SolutionService solutionService;
+    private ProblemService problemService;
+    private CProblemService cproblemService;
+    private ContestService contestService;
+    private UserService userService;
 
-	public UserService getUserService() {
-		return userService;
-	}
+    private final static Logger logger = LoggerFactory.getLogger(Solution_sourceAction.class);
 
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+    public UserService getUserService() {
+        return userService;
+    }
 
-	private Integer solutionId = 0;
-	private Solution_source solutionSource;
-	private Solution solution;
-	private String problemTitle;
-	private String verdict;
-	private String problemId;
-	private String className;
-	private String contestTitle;
-	private String judgeLog;
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
-	public String getJudgeLog() {
-		return judgeLog;
-	}
+    private Integer solutionId = 0;
+    private Solution_source solutionSource;
+    private Solution solution;
+    private String problemTitle;
+    private String verdict;
+    private String problemId;
+    private String className;
+    private String contestTitle;
+    private String judgeLog;
 
-	public void setJudgeLog(String judgeLog) {
-		this.judgeLog = judgeLog;
-	}
+    public String getJudgeLog() {
+        return judgeLog;
+    }
 
-	public String getContestTitle() {
-		return contestTitle;
-	}
+    public void setJudgeLog(String judgeLog) {
+        this.judgeLog = judgeLog;
+    }
 
-	public void setContestTitle(String contestTitle) {
-		this.contestTitle = contestTitle;
-	}
+    public String getContestTitle() {
+        return contestTitle;
+    }
 
-	public String getClassName() {
-		return className;
-	}
+    public void setContestTitle(String contestTitle) {
+        this.contestTitle = contestTitle;
+    }
 
-	public void setClassName(String className) {
-		this.className = className;
-	}
+    public String getClassName() {
+        return className;
+    }
 
-	public String getProblemId() {
-		return problemId;
-	}
+    public void setClassName(String className) {
+        this.className = className;
+    }
 
-	public void setProblemId(String problemId) {
-		this.problemId = problemId;
-	}
+    public String getProblemId() {
+        return problemId;
+    }
 
-	public String getVerdict() {
-		return verdict;
-	}
+    public void setProblemId(String problemId) {
+        this.problemId = problemId;
+    }
 
-	public void setVerdict(String verdict) {
-		this.verdict = verdict;
-	}
+    public String getVerdict() {
+        return verdict;
+    }
 
-	public String solutionSource() throws Exception {
+    public void setVerdict(String verdict) {
+        this.verdict = verdict;
+    }
 
-		try {
-			Solution_source solutionSource_ = new Solution_source();
-			solutionSource_ = solutionSourceService
-					.querySolutionSource(solutionId);
-			if (null == solutionSource_) {
-				ActionContext.getContext().put("tip",
-						"No such solution source.");
-				return ERROR;
-			}
-			Solution solution_ = new Solution();
-			solution_ = solutionService.querySolution(solutionId);
-			if (null == solution_) {
-				ActionContext.getContext().put("tip", "No such solution");
-				return ERROR;
-			}
+    public String solutionSource() throws Exception {
 
-			String username = (String) ActionContext.getContext().getSession()
-					.get("session_username");
-			if (username == null) {
-				ActionContext.getContext().put("tip", "No such contest.");
-				return LOGIN;
-			}
+        try {
+            Solution_source solutionSource_ = new Solution_source();
+            solutionSource_ = solutionSourceService
+                    .querySolutionSource(solutionId);
+            if (null == solutionSource_) {
+                ActionContext.getContext().put("tip",
+                        "No such solution source.");
+                return ERROR;
+            }
+            Solution solution_ = new Solution();
+            solution_ = solutionService.querySolution(solutionId);
+            if (null == solution_) {
+                ActionContext.getContext().put("tip", "No such solution");
+                return ERROR;
+            }
 
-			String problemTitle_ = new String();
-			problemId = new String();
-			if (solution_.getContest_id() > 0) {
-				problemId = cproblemService.queryProblemByPid(
-						solution_.getProblem_id(), solution_.getContest_id())
-						.getNum();
-				problemTitle_ = cproblemService.queryProblemByPid(
-						solution_.getProblem_id(), solution_.getContest_id())
-						.getTitle();
+            String username = (String) ActionContext.getContext().getSession()
+                    .get("session_username");
+            if (username == null) {
+                ActionContext.getContext().put("tip", "No such contest.");
+                return LOGIN;
+            }
 
-			} else {
-				problemId = solution_.getProblem_id().toString();
-				problemTitle_ = problemService.queryProblem(
-						solution_.getProblem_id()).getTitle();
-			}
+            String problemTitle_ = new String();
+            problemId = new String();
+            if (solution_.getContest_id() > 0) {
+                problemId = cproblemService.queryProblemByPid(
+                        solution_.getProblem_id(), solution_.getContest_id())
+                        .getNum();
+                problemTitle_ = cproblemService.queryProblemByPid(
+                        solution_.getProblem_id(), solution_.getContest_id())
+                        .getTitle();
 
-			// System.out.println(problemId+problemTitle_);
+            } else {
+                problemId = solution_.getProblem_id().toString();
+                problemTitle_ = problemService.queryProblem(
+                        solution_.getProblem_id()).getTitle();
+            }
 
-			if (null == problemTitle_) {
-				ActionContext.getContext().put("tip", "No such problem.");
-				return ERROR;
-			}
-			solution = solution_;
-			solutionSource = solutionSource_;
-			problemTitle = problemTitle_;
-			verdict = getText("verdict" + solution_.getVerdict());
+            // System.out.println(problemId+problemTitle_);
 
-			String className_[] = { "cpp", "cpp", "cpp", "cpp", "java",
-					"csharp", "fsharp", "delphi", "python", "ruby", "perl",
-					"lua", "tcl", "pike", "haskell", "php", "bf", "bf", "go",
-					"scala", "jscript", "groovy" };
+            if (null == problemTitle_) {
+                ActionContext.getContext().put("tip", "No such problem.");
+                return ERROR;
+            }
+            solution = solution_;
+            solutionSource = solutionSource_;
+            problemTitle = problemTitle_;
+            verdict = getText("verdict" + solution_.getVerdict());
 
-			className = "brush:" + className_[solution.getLanguage() - 1] + ";";
+            String className_[] = {"cpp", "cpp", "cpp", "cpp", "java",
+                    "csharp", "fsharp", "delphi", "python", "ruby", "perl",
+                    "lua", "tcl", "pike", "haskell", "php", "bf", "bf", "go",
+                    "scala", "jscript", "groovy"};
 
-			try {
-				File file;
-				judgeLog = new String();
-				file = new File(Config.getValue("OJ_JUDGE_LOG") + "judge-log-"
-						+ solutionId + ".log");
-				judgeLog = StreamHandler.read(file);
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
+            className = "brush:" + className_[solution.getLanguage() - 1] + ";";
 
-			return SUCCESS;
-		} catch (Exception e) {
-			// TODO: handle exception
-			return ERROR;
-		}
-	}
+            try {
+                File file;
+                judgeLog = new String();
+                file = new File(Config.getValue("OJ_JUDGE_LOG") + "judge-log-"
+                        + solutionId + ".log");
+                judgeLog = StreamHandler.read(file);
+            } catch (Exception e) {
+                // TODO: handle exception
+                logger.error("内部出错", e);
+            }
 
-	public void outString(String str) {
-		try {
-			PrintWriter out = ServletActionContext.getResponse().getWriter();
-			out.write(str);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+            return SUCCESS;
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error("内部出错", e);
+            return ERROR;
+        }
+    }
 
-	public String JsonSolutionSource() throws IOException {
-		String username = (String) ActionContext.getContext().getSession()
-				.get("session_username");
-		if (username == null) {
-			outString(getError("need login!"));
-			return null;
-		}
+    public void outString(String str) {
+        try {
+            PrintWriter out = ServletActionContext.getResponse().getWriter();
+            out.write(str);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-		Solution_source solutionSource_ = new Solution_source();
-		solutionSource_ = solutionSourceService.querySolutionSource(solutionId);
-		if (null == solutionSource_) {
-			outString(getError("No such solution source."));
-			return null;
-		}
-		Solution solution_ = new Solution();
-		solution_ = solutionService.querySolution(solutionId);
-		if (null == solution_) {
-			outString(getError("No such solution!"));
-			return null;
-		}
+    public String JsonSolutionSource() throws IOException {
+        String username = (String) ActionContext.getContext().getSession()
+                .get("session_username");
+        if (username == null) {
+            outString(getError("need login!"));
+            return null;
+        }
 
-		String problemTitle_ = new String();
-		problemId = new String();
-		if (solution_.getContest_id() > 0) {
-			problemId = cproblemService.queryProblemByPid(
-					solution_.getProblem_id(), solution_.getContest_id())
-					.getNum();
-			problemTitle_ = cproblemService.queryProblemByPid(
-					solution_.getProblem_id(), solution_.getContest_id())
-					.getTitle();
+        Solution_source solutionSource_ = new Solution_source();
+        solutionSource_ = solutionSourceService.querySolutionSource(solutionId);
+        if (null == solutionSource_) {
+            outString(getError("No such solution source."));
+            return null;
+        }
+        Solution solution_ = new Solution();
+        solution_ = solutionService.querySolution(solutionId);
+        if (null == solution_) {
+            outString(getError("No such solution!"));
+            return null;
+        }
 
-		} else {
-			problemId = solution_.getProblem_id().toString();
-			problemTitle_ = problemService.queryProblem(
-					solution_.getProblem_id()).getTitle();
-		}
+        String problemTitle_ = new String();
+        problemId = new String();
+        if (solution_.getContest_id() > 0) {
+            problemId = cproblemService.queryProblemByPid(
+                    solution_.getProblem_id(), solution_.getContest_id())
+                    .getNum();
+            problemTitle_ = cproblemService.queryProblemByPid(
+                    solution_.getProblem_id(), solution_.getContest_id())
+                    .getTitle();
 
-		// System.out.println(problemId+problemTitle_);
+        } else {
+            problemId = solution_.getProblem_id().toString();
+            problemTitle_ = problemService.queryProblem(
+                    solution_.getProblem_id()).getTitle();
+        }
 
-		if (null == problemTitle_) {
-			outString(getError("No such problem."));
-			return null;
-		}
-		solution = solution_;
-		solutionSource = solutionSource_;
-		problemTitle = problemTitle_;
-		verdict = getText("verdict" + solution_.getVerdict());
+        // System.out.println(problemId+problemTitle_);
 
-		String className_[] = { "cpp", "cpp", "cpp", "cpp", "java", "csharp",
-				"fsharp", "delphi", "python", "ruby", "perl", "lua", "tcl",
-				"pike", "haskell", "php", "bf", "bf", "go", "scala", "jscript",
-				"groovy" };
+        if (null == problemTitle_) {
+            outString(getError("No such problem."));
+            return null;
+        }
+        solution = solution_;
+        solutionSource = solutionSource_;
+        problemTitle = problemTitle_;
+        verdict = getText("verdict" + solution_.getVerdict());
 
-		className = "brush:" + className_[solution.getLanguage() - 1] + ";";
+        String className_[] = {"cpp", "cpp", "cpp", "cpp", "java", "csharp",
+                "fsharp", "delphi", "python", "ruby", "perl", "lua", "tcl",
+                "pike", "haskell", "php", "bf", "bf", "go", "scala", "jscript",
+                "groovy"};
 
-		try {
-			File file;
-			judgeLog = new String();
-			file = new File(Config.getValue("OJ_JUDGE_LOG") + "judge-log-"
-					+ solutionId + ".log");
-			judgeLog = StreamHandler.read(file);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+        className = "brush:" + className_[solution.getLanguage() - 1] + ";";
 
-		JSONObject obj = new JSONObject();
+        try {
+            File file;
+            judgeLog = new String();
+            file = new File(Config.getValue("OJ_JUDGE_LOG") + "judge-log-"
+                    + solutionId + ".log");
+            judgeLog = StreamHandler.read(file);
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error("内部出错", e);
+        }
 
-		obj.put("error", 0);
-		obj.put("source", solution);
-		obj.put("solutionSource", solutionSource);
-		obj.put("problemTitle", problemTitle);
-		obj.put("problemId", problemId);
-		obj.put("solutionId", solutionId);
-		obj.put("verdict", verdict);
-		obj.put("className", className);
-		obj.put("contestTitle", contestTitle);
-		obj.put("judgeLog", judgeLog);
-		obj.put("message", "Operate Success...");
-		outString(obj.toJSONString());
-		return null;
-	}
+        JSONObject obj = new JSONObject();
 
-	private String getError(String message) {
-		JSONObject obj = new JSONObject();
-		obj.put("error", 1);
-		obj.put("message", message);
-		return obj.toJSONString();
-	}
+        obj.put("error", 0);
+        obj.put("source", solution);
+        obj.put("solutionSource", solutionSource);
+        obj.put("problemTitle", problemTitle);
+        obj.put("problemId", problemId);
+        obj.put("solutionId", solutionId);
+        obj.put("verdict", verdict);
+        obj.put("className", className);
+        obj.put("contestTitle", contestTitle);
+        obj.put("judgeLog", judgeLog);
+        obj.put("message", "Operate Success...");
+        outString(obj.toJSONString());
+        return null;
+    }
 
-	public CProblemService getCproblemService() {
-		return cproblemService;
-	}
+    private String getError(String message) {
+        JSONObject obj = new JSONObject();
+        obj.put("error", 1);
+        obj.put("message", message);
+        return obj.toJSONString();
+    }
 
-	public void setCproblemService(CProblemService cproblemService) {
-		this.cproblemService = cproblemService;
-	}
+    public CProblemService getCproblemService() {
+        return cproblemService;
+    }
 
-	public Solution_sourceService getSolutionSourceService() {
-		return solutionSourceService;
-	}
+    public void setCproblemService(CProblemService cproblemService) {
+        this.cproblemService = cproblemService;
+    }
 
-	public void setSolutionSourceService(
-			Solution_sourceService solutionSourceService) {
-		this.solutionSourceService = solutionSourceService;
-	}
+    public Solution_sourceService getSolutionSourceService() {
+        return solutionSourceService;
+    }
 
-	public Integer getSolutionId() {
-		return solutionId;
-	}
+    public void setSolutionSourceService(
+            Solution_sourceService solutionSourceService) {
+        this.solutionSourceService = solutionSourceService;
+    }
 
-	public void setSolutionId(Integer solutionId) {
-		this.solutionId = solutionId;
-	}
+    public Integer getSolutionId() {
+        return solutionId;
+    }
 
-	public Solution_source getSolutionSource() {
-		return solutionSource;
-	}
+    public void setSolutionId(Integer solutionId) {
+        this.solutionId = solutionId;
+    }
 
-	public void setSolutionSource(Solution_source solutionSource) {
-		this.solutionSource = solutionSource;
-	}
+    public Solution_source getSolutionSource() {
+        return solutionSource;
+    }
 
-	public SolutionService getSolutionService() {
-		return solutionService;
-	}
+    public void setSolutionSource(Solution_source solutionSource) {
+        this.solutionSource = solutionSource;
+    }
 
-	public void setSolutionService(SolutionService solutionService) {
-		this.solutionService = solutionService;
-	}
+    public SolutionService getSolutionService() {
+        return solutionService;
+    }
 
-	public ProblemService getProblemService() {
-		return problemService;
-	}
+    public void setSolutionService(SolutionService solutionService) {
+        this.solutionService = solutionService;
+    }
 
-	public void setProblemService(ProblemService problemService) {
-		this.problemService = problemService;
-	}
+    public ProblemService getProblemService() {
+        return problemService;
+    }
 
-	public Solution getSolution() {
-		return solution;
-	}
+    public void setProblemService(ProblemService problemService) {
+        this.problemService = problemService;
+    }
 
-	public void setSolution(Solution solution) {
-		this.solution = solution;
-	}
+    public Solution getSolution() {
+        return solution;
+    }
 
-	public String getProblemTitle() {
-		return problemTitle;
-	}
+    public void setSolution(Solution solution) {
+        this.solution = solution;
+    }
 
-	public void setProblemTitle(String problemTitle) {
-		this.problemTitle = problemTitle;
-	}
+    public String getProblemTitle() {
+        return problemTitle;
+    }
 
-	@JSON(deserialize = false, serialize = false)
-	public ContestService getContestService() {
-		return contestService;
-	}
+    public void setProblemTitle(String problemTitle) {
+        this.problemTitle = problemTitle;
+    }
 
-	public void setContestService(ContestService contestService) {
-		this.contestService = contestService;
-	}
+    @JSON(deserialize = false, serialize = false)
+    public ContestService getContestService() {
+        return contestService;
+    }
+
+    public void setContestService(ContestService contestService) {
+        this.contestService = contestService;
+    }
 }
