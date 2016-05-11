@@ -29,13 +29,13 @@ import com.util.Tools;
 
 public class Test {
 
-	/**
-	 * @param args
-	 * @throws Exception
-	 */
-	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-		/*
+    /**
+     * @param args
+     * @throws Exception
+     */
+    public static void main(String[] args) throws Exception {
+        // TODO Auto-generated method stub
+        /*
 		 * String html = ""; HttpClient httpClient = new HttpClient(); GetMethod
 		 * getMethod = new
 		 * GetMethod("http://acm.hdu.edu.cn/showproblem.php?pid=1000");
@@ -50,49 +50,49 @@ public class Test {
 		 * System.out.println(html);
 		 */
 
-		try {
-			URL url = new URL("http://acm.hdu.edu.cn/showproblem.php?pid=1000");
-			BufferedReader reader = new BufferedReader(new InputStreamReader(
-					url.openStream()));
-			String line;
-			String content = new String();
+        try {
+            URL url = new URL("http://acm.hdu.edu.cn/showproblem.php?pid=1000");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(
+                    url.openStream()));
+            String line;
+            String content = new String();
 
-			while ((line = reader.readLine()) != null) {
-				// ...
-				// System.out.println(line);
-				content += line;
-			}
-			reader.close();
+            while ((line = reader.readLine()) != null) {
+                // ...
+                // System.out.println(line);
+                content += line;
+            }
+            reader.close();
 
-			content = content.replaceAll("src=[^'\"]*?/images",
-					"src=http://acm.hdu.edu.cn/data/images");
-			content = content.replaceAll("src='[^'\"]*?/images",
-					"src='http://acm.hdu.edu.cn/data/images");
-			content = content.replaceAll("src=\"[^'\"]*?/images",
-					"src=\"http://acm.hdu.edu.cn/data/images");
-			// System.out.println(tLine);
+            content = content.replaceAll("src=[^'\"]*?/images",
+                    "src=http://acm.hdu.edu.cn/data/images");
+            content = content.replaceAll("src='[^'\"]*?/images",
+                    "src='http://acm.hdu.edu.cn/data/images");
+            content = content.replaceAll("src=\"[^'\"]*?/images",
+                    "src=\"http://acm.hdu.edu.cn/data/images");
+            // System.out.println(tLine);
 
-			System.out.println(Tools.regFind(content,
-					"color:#1A5CC8'>([\\s\\S]*?)</h1>").trim());
-			System.out.println(Tools.regFind(content, "(\\d*) MS"));
-			System.out.println(Tools.regFind(content, "/(\\d*) K"));
-			System.out
-					.println(Tools
-							.regFind(content,
-									"Problem Description</div>([\\s\\S]*?)<br><[^<>]*?panel_title[^<>]*?>"));
-			System.out.println(Tools.regFind(content,
-					"Input</div>([\\s\\S]*?)<br><[^<>]*?panel_title[^<>]*?>"));
-			System.out.println(Tools.regFind(content,
-					"Output</div>([\\s\\S]*?)<br><[^<>]*?panel_title[^<>]*?>"));
-			System.out
-					.println(Tools
-							.regFind(content,
-									"Sample Input</div>([\\s\\S]*?)<br><[^<>]*?panel_title[^<>]*?>"));
-			System.out
-					.println(Tools
-							.regFind(
-									content,
-									"Sample Output</div>([\\s\\S]*?)(<br><[^<>]*?panel_title[^<>]*?>|<[^<>]*?><[^<>]*?><i>Hint)"));
+            System.out.println(Tools.regFind(content,
+                    "color:#1A5CC8'>([\\s\\S]*?)</h1>").trim());
+            System.out.println(Tools.regFind(content, "(\\d*) MS"));
+            System.out.println(Tools.regFind(content, "/(\\d*) K"));
+            System.out
+                    .println(Tools
+                            .regFind(content,
+                                    "Problem Description</div>([\\s\\S]*?)<br><[^<>]*?panel_title[^<>]*?>"));
+            System.out.println(Tools.regFind(content,
+                    "Input</div>([\\s\\S]*?)<br><[^<>]*?panel_title[^<>]*?>"));
+            System.out.println(Tools.regFind(content,
+                    "Output</div>([\\s\\S]*?)<br><[^<>]*?panel_title[^<>]*?>"));
+            System.out
+                    .println(Tools
+                            .regFind(content,
+                                    "Sample Input</div>([\\s\\S]*?)<br><[^<>]*?panel_title[^<>]*?>"));
+            System.out
+                    .println(Tools
+                            .regFind(
+                                    content,
+                                    "Sample Output</div>([\\s\\S]*?)(<br><[^<>]*?panel_title[^<>]*?>|<[^<>]*?><[^<>]*?><i>Hint)"));
 			/*
 			 * problem.setTimeLimit(Integer.parseInt(Tools.regFind(html,
 			 * "(\\d*) MS")));
@@ -120,18 +120,18 @@ public class Test {
 			 * problem.getOriginProb());
 			 */
 
-			// String path = ServletActionContext.getRequest()
-			// .getSession().getServletContext().getRealPath("/");
-			// File f = new File(path + "otheroj.json");
+            // String path = ServletActionContext.getRequest()
+            // .getSession().getServletContext().getRealPath("/");
+            // File f = new File(path + "otheroj.json");
 
-			// StreamHandler.write(f,content);
+            // StreamHandler.write(f,content);
 
-		} catch (MalformedURLException e) {
-			// ...
+        } catch (MalformedURLException e) {
+            // ...
 
-		} catch (IOException e) {
-			// ...
-		}
+        } catch (IOException e) {
+            // ...
+        }
 
 		/*
 		 * List<Integer> contestTimes = new ArrayList<Integer>(); List<Integer>
@@ -207,7 +207,7 @@ public class Test {
 		 * p.matcher("solo+"); if(m.matches()==false){
 		 * System.out.println("用户名输入错误!"); }else System.out.println("用户名输入正确!");
 		 */
-	}
-	
+    }
+
 
 }

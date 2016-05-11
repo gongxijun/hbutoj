@@ -1,582 +1,588 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
 
-	<bean id="dataSource"
-		class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName"
-			value="com.mysql.jdbc.Driver">
-		</property>
-		<property name="url"
-			value="jdbc:mysql://localhost:3306/hbutoj?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull">
-		</property>
-		<property name="username" value="root"></property>
-		<property name="password" value="gxjun"></property>
-	</bean>
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-		<property name="dataSource">
-			<ref bean="dataSource" />
-		</property>
-		<property name="hibernateProperties">
-			<props>
-				<!-- 指定使用方言 -->
-				<prop key="hibernate.dialect">
-					org.hibernate.dialect.MySQLDialect
-				</prop>
-				<!-- 是否在控制台输出sql语句 -->
-				<prop key="show_sql">true</prop>
-<!--				<prop key="hibernate.hbm2ddl.auto">update</prop>-->
-<!--				<prop key="hibernate.jdbc.batch_size">20</prop>-->
-			</props>
-		</property>
-		<property name="mappingResources">
-			<list>
-				<value>com/hbut/user/vo/User.hbm.xml</value>
-				<value>com/hbut/message/vo/Message.hbm.xml</value>
-				<value>com/hbut/problem/vo/Problem.hbm.xml</value>
-				<value>com/hbut/solution/vo/Solution.hbm.xml</value>
-				<value>com/hbut/solution_source/vo/Solution_source.hbm.xml</value>
-				<value>com/hbut/compileinfo/vo/CompileInfo.hbm.xml</value>
-				<value>com/hbut/contest/vo/Contest.hbm.xml</value>
-				<value>com/hbut/contest/problem/vo/CProblem.hbm.xml</value>
-				<value>com/hbut/contest/attend/vo/Attend.hbm.xml</value>
-				<value>com/hbut/mail/vo/Mail.hbm.xml</value>
-				<value>com/hbut/vote/vo/Vote.hbm.xml</value>
-				<value>com/hbut/tags/vo/Tags.hbm.xml</value>
-				<value>com/hbut/tagsview/vo/Tagsview.hbm.xml</value>
-				<value>com/hbut/privilege/vo/Privilege.hbm.xml</value>
-				<value>com/hbut/news/vo/News.hbm.xml</value>
-			</list>
-		</property>
-	</bean>
-	<!-- 定义事务管理 -->
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<!-- 这个bean主要是为了得到ApplicationContext 所以它不需要其它属性-->
-     <bean class="com.util.MyApplicationContextUtil"></bean>
-     
-	<bean name="uploadBean" class="com.hbut.common.action.UploadAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="onlineUserBean" class="com.hbut.listener.OnlineHttpSessionListener" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="localeBean" class="com.hbut.common.action.LocaleAction" scope="prototype">	
-	</bean>
-	<bean name="beforSubmitBean" class="com.hbut.common.action.SubmitAction" scope="prototype">	
-		<property name="userService" ref="userService" />
-	</bean>
-		<bean name="contestBeforeSubmitBean" class="com.hbut.common.action.ContestSubmitAction" scope="prototype">
-		<property name="contestService" ref="contestService" />
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="searchBean" class="com.hbut.common.action.SearchAction" scope="prototype">	
-		<property name="userService" ref="userService" />
-		<property name="problemService" ref="problemService" />
-		<property name="messageService" ref="messageService" />
-	</bean>
-	<!-- User -->
-	<bean id="userService"
-		class="com.hbut.user.service.UserServiceImpl">
-		<property name="userDao" ref="userDao" />
-	</bean>
-	<bean id="userDao" class="com.hbut.user.dao.UserDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="listUserBean" class="com.hbut.user.action.UserAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="passwordRecoveryBean" class="com.hbut.common.action.FindPasswordAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="registerBean" class="com.hbut.common.action.RegisterAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="settingsBean" class="com.hbut.user.action.SettingsUserAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="modifyUserBean" class="com.hbut.user.action.ModifyUserAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="loginBean" class="com.hbut.common.action.LoginAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="jsonLoginBean" class="com.hbut.common.action.JsonLoginAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="getUsersBean" class="com.hbut.user.action.UserListAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="getUserBean" class="com.hbut.user.action.UserAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="profileBean" class="com.hbut.user.action.ProfileAction" scope="prototype">
-		<property name="userService" ref="userService" />
-		<property name="solutionService" ref="solutionService" />
-		<property name="problemService" ref="problemService" />
-	</bean>
-	<!--End User -->
-	
-	<bean name="standingsBean" class="com.hbut.user.action.StandingsAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<!-- Vote -->
-	<bean id="voteService" class="com.hbut.vote.service.VoteServiceImpl">
-		<property name="voteDao" ref="voteDao" />
-	</bean>
-	<bean id="voteDao" class="com.hbut.vote.dao.VoteDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<!-- End Vote -->
-	<!-- Message -->
-	<bean id="messageService" class="com.hbut.message.service.MessageServiceImpl">
-		<property name="messageDao" ref="messageDao" />
-	</bean>
-	<bean id="messageDao" class="com.hbut.message.dao.MessageDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="MessagesBean" class="com.hbut.message.action.MessageAction" scope="prototype">
-			<property name="userService" ref="userService" />
-		<property name="messageService" ref="messageService" />
-		<property name="tagsviewService" ref="tagsviewService" />
-		<property name="tagsService" ref="tagsService" />
-	</bean>
-	<bean name="messagesListBean" class="com.hbut.message.action.MessageListAction" scope="prototype">
-			<property name="userService" ref="userService" />
-		<property name="messageService" ref="messageService" />
-	</bean>
-	<bean name="latestMessagesBean" class="com.hbut.message.action.JsonLatestMessageAction" scope="prototype">
-		<property name="messageService" ref="messageService" />
-	</bean>
-	<bean name="recentActionBean" class="com.hbut.message.action.LatestMessageListAction" scope="prototype">
-		<property name="messageService" ref="messageService" />
-	</bean>
-	<!-- 
-	<bean name="adminRecentActionBean" class="com.hbut.message.action.RecentActionAction" scope="prototype">
-		<property name="messageService" ref="messageService" />
-	</bean>
-	 -->
-	<bean name="postMessageBean" class="com.hbut.message.action.PostMessageAction" scope="prototype"><!-- prototype每次都new一个，要不会造成对象共享  -->
-		<property name="messageService" ref="messageService" />
-		<property name="tagsviewService" ref="tagsviewService" />
-		<property name="tagsService" ref="tagsService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="messageVoteBean" class="com.hbut.message.action.JsonMessageVoteAction" scope="prototype"><!-- prototype每次都new一个，要不会造成对象共享  -->
-		<property name="messageService" ref="messageService" />
-		<property name="voteService" ref="voteService" />
-	</bean>
-	<!-- Problem -->
-	<bean id="problemService" class="com.hbut.problem.service.ProblemServiceImpl">
-		<property name="problemDao" ref="problemDao" />
-	</bean>
-	<bean id="problemDao" class="com.hbut.problem.dao.ProblemDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="problemListBean" class="com.hbut.problem.action.ProblemListAction" scope="prototype">
-		<property name="problemService" ref="problemService" />
-		<property name="solutionService" ref="solutionService" />
-		<property name="tagsviewService" ref="tagsviewService" />
-		<property name="tagsService" ref="tagsService" />
-	</bean>
-	<bean name="jsonProblemListBean" class="com.hbut.problem.action.JsonProblemListAction" scope="prototype">
-		<property name="problemService" ref="problemService" />
-	</bean>
-	<bean name="problemShowBean" class="com.hbut.problem.action.ProblemShowAction" scope="prototype">
-		<property name="problemService" ref="problemService" />
-		<property name="tagsviewService" ref="tagsviewService" />
-		<property name="tagsService" ref="tagsService" />
-	</bean>
-	<bean name="problemAddBean" class="com.hbut.problem.action.ProblemAction" scope="prototype">
-		<property name="problemService" ref="problemService" />
-		<property name="tagsviewService" ref="tagsviewService" />
-		<property name="tagsService" ref="tagsService" />
-	</bean>
-	<bean name="problemBeforeModifyBean" class="com.hbut.problem.action.ProblemAction" scope="prototype">
-		<property name="problemService" ref="problemService" />
-		<property name="tagsviewService" ref="tagsviewService" />
-		<property name="tagsService" ref="tagsService" />
-	</bean>
-	<bean name="problemModifyBean" class="com.hbut.problem.action.ProblemAction" scope="prototype">
-		<property name="problemService" ref="problemService" />
-		<property name="tagsviewService" ref="tagsviewService" />
-		<property name="tagsService" ref="tagsService" />
-	</bean>
-	
-	
-	<!-- Solution -->
-	<bean id="solutionService" class="com.hbut.solution.service.SolutionServiceImpl">
-		<property name="solutionDao" ref="solutionDao" />
-		
-	</bean>
-	<bean id="solutionDao" class="com.hbut.solution.dao.SolutionDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="solutionListBean" class="com.hbut.solution.action.SolutionListAction" scope="prototype">
-		<property name="solutionService" ref="solutionService" />
-		<property name="problemService" ref="problemService" />
-		<property name="contestService" ref="contestService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="submitBean" class="com.hbut.solution.action.SubmitionAction" scope="prototype">
-		<property name="solutionService" ref="solutionService" />
-		<property name="problemService" ref="problemService" />
-		<property name="solutionSourceService" ref="solutionSourceService" />
-	</bean>
-	<bean name="contestSolutionListBean" class="com.hbut.solution.action.ContestSolutionListAction" scope="prototype">
-		<property name="solutionService" ref="solutionService" />
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="contestService" ref="contestService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="jsonStatusBean" class="com.hbut.solution.action.JsonStatusAction" scope="prototype">
-		<property name="solutionService" ref="solutionService" />
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="contestService" ref="contestService" />
-	</bean>
-	<bean name="jsonSolutionListBean" class="com.hbut.solution.action.JsonSolutionListAction" scope="prototype">
-		<property name="solutionService" ref="solutionService" />
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="contestService" ref="contestService" />
-	</bean>
-	<bean name="contestSubmitBean" class="com.hbut.solution.action.ContestSubmitionAction" scope="prototype">
-		<property name="solutionService" ref="solutionService" />
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="solutionSourceService" ref="solutionSourceService" />
-		<property name="contestService" ref="contestService" />
-	</bean>
-	<bean name="solutionStatisticBean" class="com.hbut.solution.action.SolutionStatisticAction" scope="prototype">
-		<property name="solutionService" ref="solutionService" />
-		<property name="problemService" ref="problemService" />
-		<property name="contestService" ref="contestService" />
-	</bean>
-	<bean name="StatisticBean" class="com.hbut.solution.action.StatisticAction" scope="prototype">
-		<property name="solutionService" ref="solutionService" />
-		<property name="problemService" ref="problemService" />
-		<property name="contestService" ref="contestService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	
-<!-- Compile Error -->
-	<bean id="compileInfoService" class="com.hbut.compileinfo.service.CompileInfoServiceImpl">
-		<property name="compileInfoDao" ref="compileInfoDao" />
-	</bean>
-	<bean id="compileInfoDao" class="com.hbut.compileinfo.dao.CompileInfoDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="compileInfoBean" class="com.hbut.compileinfo.action.CompileInfoAction" scope="prototype">
-		<property name="compileInfoService" ref="compileInfoService" />
-	</bean>
-	<bean name="jsonCompileInfoBean" class="com.hbut.compileinfo.action.JsonCompileInfoAction" scope="prototype">
-		<property name="compileInfoService" ref="compileInfoService" />
-	</bean>
-	
-<!-- Solution source -->
-	<bean id="solutionSourceService" class="com.hbut.solution_source.service.Solution_sourceServiceImpl">
-		<property name="solutionSourceDao" ref="solutionSourceDao" />
-	</bean>
-	<bean id="solutionSourceDao" class="com.hbut.solution_source.dao.Solution_sourceDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="solutionSourceBean" class="com.hbut.solution_source.action.Solution_sourceAction" scope="prototype">
-		<property name="solutionSourceService" ref="solutionSourceService" />
-		<property name="solutionService" ref="solutionService" />
-		<property name="problemService" ref="problemService" />
-		<property name="contestService" ref="contestService" />
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="jsonSolutionSourceBean" class="com.hbut.solution_source.action.JsonSolution_sourceAction" scope="prototype">
-		<property name="solutionSourceService" ref="solutionSourceService" />
-		<property name="solutionService" ref="solutionService" />
-		<property name="problemService" ref="problemService" />
-		<property name="contestService" ref="contestService" />
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<!-- Contest -->
-	<bean id="contestService" class="com.hbut.contest.service.ContestServiceImpl">
-		<property name="contestDao" ref="contestDao" />
-		
-	</bean>
-	<bean id="contestDao" class="com.hbut.contest.dao.ContestDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="contestListBean" class="com.hbut.contest.action.ContestListAction" scope="prototype">
-		<property name="contestService" ref="contestService" />
-		<property name="attendService" ref="attendService" />
-	</bean>
-	<bean name="contestShowBean" class="com.hbut.contest.action.ContestShowAction" scope="prototype">
-		<property name="solutionService" ref="solutionService" />
-		<property name="contestService" ref="contestService" />
-		<property name="cproblemService" ref="cproblemService" />
-	</bean>
-	<bean name="contestBean" class="com.hbut.contest.action.ContestAction" scope="prototype">
-		<property name="contestService" ref="contestService" />
-	</bean>
-	<bean name="contestInterceptorBean" class="com.hbut.common.interceptor.ContestInterceptor" scope="prototype">
-		<property name="contestService" ref="contestService" />
-	</bean>
-	<bean name="IsContestRegisterInterceptorBean" class="com.hbut.common.interceptor.IsContestRegisterInterceptor" scope="prototype">
-		<property name="contestService" ref="contestService" />
-		<property name="attendService" ref="attendService" />
-	</bean>
+    <bean id="dataSource"
+          class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName"
+                  value="com.mysql.jdbc.Driver">
+        </property>
+        <property name="url"
+                  value="jdbc:mysql://localhost:3306/hbutoj?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull">
+        </property>
+        <property name="username" value="root"></property>
+        <property name="password" value="gxjun"></property>
+    </bean>
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <!-- 指定使用方言 -->
+                <prop key="hibernate.dialect">
+                    org.hibernate.dialect.MySQLDialect
+                </prop>
+                <!-- 是否在控制台输出sql语句 -->
+                <prop key="show_sql">true</prop>
+                <!--				<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+                <!--				<prop key="hibernate.jdbc.batch_size">20</prop>-->
+            </props>
+        </property>
+        <property name="mappingResources">
+            <list>
+                <value>com/hbut/user/vo/User.hbm.xml</value>
+                <value>com/hbut/message/vo/Message.hbm.xml</value>
+                <value>com/hbut/problem/vo/Problem.hbm.xml</value>
+                <value>com/hbut/solution/vo/Solution.hbm.xml</value>
+                <value>com/hbut/solution_source/vo/Solution_source.hbm.xml</value>
+                <value>com/hbut/compileinfo/vo/CompileInfo.hbm.xml</value>
+                <value>com/hbut/contest/vo/Contest.hbm.xml</value>
+                <value>com/hbut/contest/problem/vo/CProblem.hbm.xml</value>
+                <value>com/hbut/contest/attend/vo/Attend.hbm.xml</value>
+                <value>com/hbut/mail/vo/Mail.hbm.xml</value>
+                <value>com/hbut/vote/vo/Vote.hbm.xml</value>
+                <value>com/hbut/tags/vo/Tags.hbm.xml</value>
+                <value>com/hbut/tagsview/vo/Tagsview.hbm.xml</value>
+                <value>com/hbut/privilege/vo/Privilege.hbm.xml</value>
+                <value>com/hbut/news/vo/News.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 定义事务管理 -->
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!-- 这个bean主要是为了得到ApplicationContext 所以它不需要其它属性-->
+    <bean class="com.util.MyApplicationContextUtil"></bean>
 
-	
-		<!--Contest Problem -->
-	<bean id="cproblemService" class="com.hbut.contest.problem.service.CProblemServiceImpl">
-		<property name="cproblemDao" ref="cproblemDao" />
-	</bean>
-	<bean id="cproblemDao" class="com.hbut.contest.problem.dao.CProblemDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="cproblemShowBean" class="com.hbut.contest.problem.action.ProblemShowAction" scope="prototype">
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="problemService" ref="problemService" />
-	</bean>
-	<bean name="cproblemAddBean" class="com.hbut.contest.problem.action.ProblemAction" scope="prototype">
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="contestService" ref="contestService" />
-	</bean>
-	<bean name="cproblemBeforeModifyBean" class="com.hbut.contest.problem.action.ProblemAction" scope="prototype">
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="contestService" ref="contestService" />
-	</bean>
-	<bean name="cproblemModifyBean" class="com.hbut.contest.problem.action.ProblemAction" scope="prototype">
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="contestService" ref="contestService" />
-	</bean>
-		<bean name="cproblemDeleteBean" class="com.hbut.contest.problem.action.ProblemAction" scope="prototype">
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="contestService" ref="contestService" />
-	</bean>
-	<bean name="jsoncproblemListBean" class="com.hbut.contest.problem.action.JsonProblemListAction" scope="prototype">
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="contestService" ref="contestService" />
-	</bean>
-	
-	<!--Contest Attend -->
-	<bean id="attendService" class="com.hbut.contest.attend.service.AttendServiceImpl">
-		<property name="attendDao" ref="attendDao" />
-	</bean>
-	<bean id="attendDao" class="com.hbut.contest.attend.dao.AttendDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="registerContestBean" class="com.hbut.contest.attend.action.RegisterContestAction" scope="prototype">
-		<property name="attendService" ref="attendService" />
-		<property name="contestService" ref="contestService" />
-	</bean>
-	<bean name="contestUnRegisterBean" class="com.hbut.contest.attend.action.UnRegisterContestAction" scope="prototype">
-		<property name="attendService" ref="attendService" />
-		<property name="contestService" ref="contestService" />
-	</bean>
-	<bean name="contestStandingsBean" class="com.hbut.contest.attend.action.ContestStandingsAction" scope="prototype">
-		<property name="attendService" ref="attendService" />
-		<property name="contestService" ref="contestService" />
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="contestRegistrantsBean" class="com.hbut.contest.attend.action.ContestRegistrantsAction" scope="prototype">
-		<property name="attendService" ref="attendService" />
-		<property name="contestService" ref="contestService" />
-		<property name="userService" ref="userService" />
-	</bean>
+    <bean name="uploadBean" class="com.hbut.common.action.UploadAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="onlineUserBean" class="com.hbut.listener.OnlineHttpSessionListener" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="localeBean" class="com.hbut.common.action.LocaleAction" scope="prototype">
+    </bean>
+    <bean name="beforSubmitBean" class="com.hbut.common.action.SubmitAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="contestBeforeSubmitBean" class="com.hbut.common.action.ContestSubmitAction" scope="prototype">
+        <property name="contestService" ref="contestService"/>
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="searchBean" class="com.hbut.common.action.SearchAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+        <property name="problemService" ref="problemService"/>
+        <property name="messageService" ref="messageService"/>
+    </bean>
+    <!-- User -->
+    <bean id="userService"
+          class="com.hbut.user.service.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <bean id="userDao" class="com.hbut.user.dao.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="listUserBean" class="com.hbut.user.action.UserAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="passwordRecoveryBean" class="com.hbut.common.action.FindPasswordAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="registerBean" class="com.hbut.common.action.RegisterAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="settingsBean" class="com.hbut.user.action.SettingsUserAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="modifyUserBean" class="com.hbut.user.action.ModifyUserAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="loginBean" class="com.hbut.common.action.LoginAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="jsonLoginBean" class="com.hbut.common.action.JsonLoginAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="getUsersBean" class="com.hbut.user.action.UserListAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="getUserBean" class="com.hbut.user.action.UserAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="profileBean" class="com.hbut.user.action.ProfileAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+        <property name="solutionService" ref="solutionService"/>
+        <property name="problemService" ref="problemService"/>
+    </bean>
+    <!--End User -->
 
-	<!-- admin -->
-	<bean name="adminUserListBean" class="com.hbut.admin.action.UserListAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="adminProblemListBean" class="com.hbut.admin.action.ProblemListAction" scope="prototype">
-		<property name="problemService" ref="problemService" />
-	</bean>
-	<bean name="adminContestListBean" class="com.hbut.admin.action.ContestListAction" scope="prototype">
-		<property name="contestService" ref="contestService" />
-		<property name="attendService" ref="attendService" />
-	</bean>
-		<bean name="adminContestShowBean" class="com.hbut.admin.action.ContestShowAction" scope="prototype">
-		<property name="contestService" ref="contestService" />
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="problemService" ref="problemService" />
-	</bean>
-		<bean name="adminProblemShowBean" class="com.hbut.admin.action.ProblemShowAction" scope="prototype">
-		<property name="problemService" ref="problemService" />
-	</bean>
-	<bean name="rejudgeBean" class="com.hbut.admin.action.ReJudgeAction" scope="prototype">
-		<property name="solutionService" ref="solutionService" />
-	</bean>
-	<bean name="adminSolutionsBean" class="com.hbut.admin.action.SolutionListAction" scope="prototype">
-		<property name="solutionService" ref="solutionService" />
-		<property name="problemService" ref="problemService" />
-		<property name="contestService" ref="contestService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="adminSolutionSourceBean" class="com.hbut.admin.action.Solution_sourceAction" scope="prototype">
-		<property name="solutionSourceService" ref="solutionSourceService" />
-		<property name="solutionService" ref="solutionService" />
-		<property name="problemService" ref="problemService" />
-		<property name="contestService" ref="contestService" />
-		<property name="cproblemService" ref="cproblemService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<!-- Mail -->
-	<bean id="mailService" class="com.hbut.mail.service.MailServiceImpl">
-		<property name="mailDao" ref="mailDao" />
-	</bean>
-	<bean id="mailDao" class="com.hbut.mail.dao.MailDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="MailBean" class="com.hbut.mail.action.MailAction" scope="prototype">
-		<property name="mailService" ref="mailService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="postMailBean" class="com.hbut.mail.action.PostMailAction" scope="prototype">
-		<property name="mailService" ref="mailService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="newMailCountBean" class="com.hbut.mail.action.JsonNewMailCountAction" scope="prototype">
-		<property name="mailService" ref="mailService" />
-	</bean>
-	<bean name="newMailBean" class="com.hbut.mail.action.NewMailAction" scope="prototype">
-		<property name="userService" ref="userService" />
-	</bean>
-	
-	<!-- Tags -->
-	<bean id="tagsService" class="com.hbut.tags.service.TagsServiceImpl">
-		<property name="tagsDao" ref="tagsDao" />
-	</bean>
-	<bean id="tagsDao" class="com.hbut.tags.dao.TagsDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="jsonTagsListBean" class="com.hbut.tags.action.JsonTagsListAction" scope="prototype">
-		<property name="tagsService" ref="tagsService" />
-	</bean>
-	<!-- End Tags -->
-	
-	<!-- Tags -->
-	<bean id="tagsviewService" class="com.hbut.tagsview.service.TagsviewServiceImpl">
-		<property name="tagsviewDao" ref="tagsviewDao" />
-	</bean>
-	<bean id="tagsviewDao" class="com.hbut.tagsview.dao.TagsviewDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<!-- End Tags -->
-	
-	<!-- Privilege -->
-	<bean id="privilegeService" class="com.hbut.privilege.service.PrivilegeServiceImpl">
-		<property name="privilegeDao" ref="privilegeDao" />
-	</bean>
-	<bean id="privilegeDao" class="com.hbut.privilege.dao.PrivilegeDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="privilegeBean" class="com.hbut.privilege.action.PrivilegeAction" scope="prototype">
-		<property name="privilegeService" ref="privilegeService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	<bean name="IsNoEditAdminInterceptorBean" class="com.hbut.common.interceptor.IsNoEditAdminInterceptor" scope="prototype">
-		<property name="privilegeService" ref="privilegeService" />
-	</bean>
-	<bean name="IsAdminInterceptorBean" class="com.hbut.common.interceptor.IsAdminInterceptor" scope="prototype">
-		<property name="privilegeService" ref="privilegeService" />
-	</bean>
-	<bean name="IsHeadInterceptorBean" class="com.hbut.common.interceptor.IsHeadInterceptor" scope="prototype">
-		<property name="privilegeService" ref="privilegeService" />
-	</bean>
-	<!-- End Privilege -->
-	<!-- News -->
-	<bean id="newsService" class="com.hbut.news.service.NewsServiceImpl">
-		<property name="newsDao" ref="newsDao" />
-	</bean>
-	<bean id="newsDao" class="com.hbut.news.dao.NewsDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean name="newsBean" class="com.hbut.news.action.NewsAction" scope="prototype">
-		<property name="newsService" ref="newsService" />
-	</bean>
-	<bean name="postNewsBean" class="com.hbut.news.action.PostNewsAction" scope="prototype">
-		<property name="newsService" ref="newsService" />
-	</bean>
-	<bean name="newsListBean" class="com.hbut.news.action.NewsListAction" scope="prototype">
-		<property name="newsService" ref="newsService" />
-	</bean>
-	
-	<bean name="userTipBean" class="com.hbut.common.action.UserInfoTipAction" scope="prototype">
-		<property name="messageService" ref="messageService" />
-		<property name="userService" ref="userService" />
-	</bean>
-	
-	
-	
-	
-	<!-- 要调用的工作类 -->  
-        <bean id="quartzJob" class="com.hbut.bean.QuartzJob"></bean>  
-        <!-- 定义调用对象和调用对象的方法 -->  
-        <bean id="jobtask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
-            <!-- 调用的类 -->  
-            <property name="targetObject">  
-                <ref bean="quartzJob"/>  
-            </property>  
-            <!-- 调用类中的方法 -->  
-            <property name="targetMethod">  
-                <value>work</value>  
-            </property>  
-        </bean>  
-   
-        <!-- 定义触发时间 per 30 minutes  -->  
-        <bean id="doTime" class="org.springframework.scheduling.quartz.CronTriggerBean">  
-            <property name="jobDetail">  
-                <ref bean="jobtask"/>  
-            </property>  
-            <!-- cron表达式 -->  
-            <property name="cronExpression">  
-                <value>0 30 * * * ?</value>  
-            </property>  
-        </bean>  
-        <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->  
-        <bean id="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">    
-            <property name="triggers">  
-                <list>  
-                    <ref bean="doTime"/>  
-                </list>  
-            </property>  
-        </bean>  
+    <bean name="standingsBean" class="com.hbut.user.action.StandingsAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <!-- Vote -->
+    <bean id="voteService" class="com.hbut.vote.service.VoteServiceImpl">
+        <property name="voteDao" ref="voteDao"/>
+    </bean>
+    <bean id="voteDao" class="com.hbut.vote.dao.VoteDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!-- End Vote -->
+    <!-- Message -->
+    <bean id="messageService" class="com.hbut.message.service.MessageServiceImpl">
+        <property name="messageDao" ref="messageDao"/>
+    </bean>
+    <bean id="messageDao" class="com.hbut.message.dao.MessageDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="MessagesBean" class="com.hbut.message.action.MessageAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+        <property name="messageService" ref="messageService"/>
+        <property name="tagsviewService" ref="tagsviewService"/>
+        <property name="tagsService" ref="tagsService"/>
+    </bean>
+    <bean name="messagesListBean" class="com.hbut.message.action.MessageListAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+        <property name="messageService" ref="messageService"/>
+    </bean>
+    <bean name="latestMessagesBean" class="com.hbut.message.action.JsonLatestMessageAction" scope="prototype">
+        <property name="messageService" ref="messageService"/>
+    </bean>
+    <bean name="recentActionBean" class="com.hbut.message.action.LatestMessageListAction" scope="prototype">
+        <property name="messageService" ref="messageService"/>
+    </bean>
+    <!--
+    <bean name="adminRecentActionBean" class="com.hbut.message.action.RecentActionAction" scope="prototype">
+        <property name="messageService" ref="messageService" />
+    </bean>
+     -->
+    <bean name="postMessageBean" class="com.hbut.message.action.PostMessageAction"
+          scope="prototype"><!-- prototype每次都new一个，要不会造成对象共享  -->
+        <property name="messageService" ref="messageService"/>
+        <property name="tagsviewService" ref="tagsviewService"/>
+        <property name="tagsService" ref="tagsService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="messageVoteBean" class="com.hbut.message.action.JsonMessageVoteAction"
+          scope="prototype"><!-- prototype每次都new一个，要不会造成对象共享  -->
+        <property name="messageService" ref="messageService"/>
+        <property name="voteService" ref="voteService"/>
+    </bean>
+    <!-- Problem -->
+    <bean id="problemService" class="com.hbut.problem.service.ProblemServiceImpl">
+        <property name="problemDao" ref="problemDao"/>
+    </bean>
+    <bean id="problemDao" class="com.hbut.problem.dao.ProblemDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="problemListBean" class="com.hbut.problem.action.ProblemListAction" scope="prototype">
+        <property name="problemService" ref="problemService"/>
+        <property name="solutionService" ref="solutionService"/>
+        <property name="tagsviewService" ref="tagsviewService"/>
+        <property name="tagsService" ref="tagsService"/>
+    </bean>
+    <bean name="jsonProblemListBean" class="com.hbut.problem.action.JsonProblemListAction" scope="prototype">
+        <property name="problemService" ref="problemService"/>
+    </bean>
+    <bean name="problemShowBean" class="com.hbut.problem.action.ProblemShowAction" scope="prototype">
+        <property name="problemService" ref="problemService"/>
+        <property name="tagsviewService" ref="tagsviewService"/>
+        <property name="tagsService" ref="tagsService"/>
+    </bean>
+    <bean name="problemAddBean" class="com.hbut.problem.action.ProblemAction" scope="prototype">
+        <property name="problemService" ref="problemService"/>
+        <property name="tagsviewService" ref="tagsviewService"/>
+        <property name="tagsService" ref="tagsService"/>
+    </bean>
+    <bean name="problemBeforeModifyBean" class="com.hbut.problem.action.ProblemAction" scope="prototype">
+        <property name="problemService" ref="problemService"/>
+        <property name="tagsviewService" ref="tagsviewService"/>
+        <property name="tagsService" ref="tagsService"/>
+    </bean>
+    <bean name="problemModifyBean" class="com.hbut.problem.action.ProblemAction" scope="prototype">
+        <property name="problemService" ref="problemService"/>
+        <property name="tagsviewService" ref="tagsviewService"/>
+        <property name="tagsService" ref="tagsService"/>
+    </bean>
 
-	<!-- online users -->
-		<bean id="QuartzOnlineUsersJob" class="com.hbut.bean.QuartzOnlineUsersJob"></bean>  
-        <!-- 定义调用对象和调用对象的方法 -->  
-        <bean id="jobtaskOnlineUsers" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
-            <!-- 调用的类 -->  
-            <property name="targetObject">  
-                <ref bean="QuartzOnlineUsersJob"/>  
-            </property>  
-            <!-- 调用类中的方法 -->  
-            <property name="targetMethod">  
-                <value>work</value>  
-            </property>  
-        </bean>  
-   
-        <!-- 定义触发时间 per 1 minutes  -->  
-        <bean id="doTimeOnlineUsers" class="org.springframework.scheduling.quartz.CronTriggerBean">  
-            <property name="jobDetail">  
-                <ref bean="jobtaskOnlineUsers"/>  
-            </property>  
-            <!-- cron表达式 -->  
-            <property name="cronExpression">  
-                <value>0 0,15,30,45 * * * ?</value>  
-            </property>  
-        </bean>  
-        <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->  
-        <bean id="startQuertzOnlineUsers" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">    
-            <property name="triggers">  
-                <list>  
-                    <ref bean="doTimeOnlineUsers"/>  
-                </list>  
-            </property>  
-        </bean>  
+
+    <!-- Solution -->
+    <bean id="solutionService" class="com.hbut.solution.service.SolutionServiceImpl">
+        <property name="solutionDao" ref="solutionDao"/>
+
+    </bean>
+    <bean id="solutionDao" class="com.hbut.solution.dao.SolutionDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="solutionListBean" class="com.hbut.solution.action.SolutionListAction" scope="prototype">
+        <property name="solutionService" ref="solutionService"/>
+        <property name="problemService" ref="problemService"/>
+        <property name="contestService" ref="contestService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="submitBean" class="com.hbut.solution.action.SubmitionAction" scope="prototype">
+        <property name="solutionService" ref="solutionService"/>
+        <property name="problemService" ref="problemService"/>
+        <property name="solutionSourceService" ref="solutionSourceService"/>
+    </bean>
+    <bean name="contestSolutionListBean" class="com.hbut.solution.action.ContestSolutionListAction" scope="prototype">
+        <property name="solutionService" ref="solutionService"/>
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="contestService" ref="contestService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="jsonStatusBean" class="com.hbut.solution.action.JsonStatusAction" scope="prototype">
+        <property name="solutionService" ref="solutionService"/>
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="jsonSolutionListBean" class="com.hbut.solution.action.JsonSolutionListAction" scope="prototype">
+        <property name="solutionService" ref="solutionService"/>
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="contestSubmitBean" class="com.hbut.solution.action.ContestSubmitionAction" scope="prototype">
+        <property name="solutionService" ref="solutionService"/>
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="solutionSourceService" ref="solutionSourceService"/>
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="solutionStatisticBean" class="com.hbut.solution.action.SolutionStatisticAction" scope="prototype">
+        <property name="solutionService" ref="solutionService"/>
+        <property name="problemService" ref="problemService"/>
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="StatisticBean" class="com.hbut.solution.action.StatisticAction" scope="prototype">
+        <property name="solutionService" ref="solutionService"/>
+        <property name="problemService" ref="problemService"/>
+        <property name="contestService" ref="contestService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+
+    <!-- Compile Error -->
+    <bean id="compileInfoService" class="com.hbut.compileinfo.service.CompileInfoServiceImpl">
+        <property name="compileInfoDao" ref="compileInfoDao"/>
+    </bean>
+    <bean id="compileInfoDao" class="com.hbut.compileinfo.dao.CompileInfoDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="compileInfoBean" class="com.hbut.compileinfo.action.CompileInfoAction" scope="prototype">
+        <property name="compileInfoService" ref="compileInfoService"/>
+    </bean>
+    <bean name="jsonCompileInfoBean" class="com.hbut.compileinfo.action.JsonCompileInfoAction" scope="prototype">
+        <property name="compileInfoService" ref="compileInfoService"/>
+    </bean>
+
+    <!-- Solution source -->
+    <bean id="solutionSourceService" class="com.hbut.solution_source.service.Solution_sourceServiceImpl">
+        <property name="solutionSourceDao" ref="solutionSourceDao"/>
+    </bean>
+    <bean id="solutionSourceDao" class="com.hbut.solution_source.dao.Solution_sourceDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="solutionSourceBean" class="com.hbut.solution_source.action.Solution_sourceAction" scope="prototype">
+        <property name="solutionSourceService" ref="solutionSourceService"/>
+        <property name="solutionService" ref="solutionService"/>
+        <property name="problemService" ref="problemService"/>
+        <property name="contestService" ref="contestService"/>
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="jsonSolutionSourceBean" class="com.hbut.solution_source.action.JsonSolution_sourceAction"
+          scope="prototype">
+        <property name="solutionSourceService" ref="solutionSourceService"/>
+        <property name="solutionService" ref="solutionService"/>
+        <property name="problemService" ref="problemService"/>
+        <property name="contestService" ref="contestService"/>
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <!-- Contest -->
+    <bean id="contestService" class="com.hbut.contest.service.ContestServiceImpl">
+        <property name="contestDao" ref="contestDao"/>
+
+    </bean>
+    <bean id="contestDao" class="com.hbut.contest.dao.ContestDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="contestListBean" class="com.hbut.contest.action.ContestListAction" scope="prototype">
+        <property name="contestService" ref="contestService"/>
+        <property name="attendService" ref="attendService"/>
+    </bean>
+    <bean name="contestShowBean" class="com.hbut.contest.action.ContestShowAction" scope="prototype">
+        <property name="solutionService" ref="solutionService"/>
+        <property name="contestService" ref="contestService"/>
+        <property name="cproblemService" ref="cproblemService"/>
+    </bean>
+    <bean name="contestBean" class="com.hbut.contest.action.ContestAction" scope="prototype">
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="contestInterceptorBean" class="com.hbut.common.interceptor.ContestInterceptor" scope="prototype">
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="IsContestRegisterInterceptorBean" class="com.hbut.common.interceptor.IsContestRegisterInterceptor"
+          scope="prototype">
+        <property name="contestService" ref="contestService"/>
+        <property name="attendService" ref="attendService"/>
+    </bean>
+
+
+    <!--Contest Problem -->
+    <bean id="cproblemService" class="com.hbut.contest.problem.service.CProblemServiceImpl">
+        <property name="cproblemDao" ref="cproblemDao"/>
+    </bean>
+    <bean id="cproblemDao" class="com.hbut.contest.problem.dao.CProblemDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="cproblemShowBean" class="com.hbut.contest.problem.action.ProblemShowAction" scope="prototype">
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="problemService" ref="problemService"/>
+    </bean>
+    <bean name="cproblemAddBean" class="com.hbut.contest.problem.action.ProblemAction" scope="prototype">
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="cproblemBeforeModifyBean" class="com.hbut.contest.problem.action.ProblemAction" scope="prototype">
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="cproblemModifyBean" class="com.hbut.contest.problem.action.ProblemAction" scope="prototype">
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="cproblemDeleteBean" class="com.hbut.contest.problem.action.ProblemAction" scope="prototype">
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="jsoncproblemListBean" class="com.hbut.contest.problem.action.JsonProblemListAction" scope="prototype">
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="contestService" ref="contestService"/>
+    </bean>
+
+    <!--Contest Attend -->
+    <bean id="attendService" class="com.hbut.contest.attend.service.AttendServiceImpl">
+        <property name="attendDao" ref="attendDao"/>
+    </bean>
+    <bean id="attendDao" class="com.hbut.contest.attend.dao.AttendDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="registerContestBean" class="com.hbut.contest.attend.action.RegisterContestAction" scope="prototype">
+        <property name="attendService" ref="attendService"/>
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="contestUnRegisterBean" class="com.hbut.contest.attend.action.UnRegisterContestAction" scope="prototype">
+        <property name="attendService" ref="attendService"/>
+        <property name="contestService" ref="contestService"/>
+    </bean>
+    <bean name="contestStandingsBean" class="com.hbut.contest.attend.action.ContestStandingsAction" scope="prototype">
+        <property name="attendService" ref="attendService"/>
+        <property name="contestService" ref="contestService"/>
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="contestRegistrantsBean" class="com.hbut.contest.attend.action.ContestRegistrantsAction"
+          scope="prototype">
+        <property name="attendService" ref="attendService"/>
+        <property name="contestService" ref="contestService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+
+    <!-- admin -->
+    <bean name="adminUserListBean" class="com.hbut.admin.action.UserListAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="adminProblemListBean" class="com.hbut.admin.action.ProblemListAction" scope="prototype">
+        <property name="problemService" ref="problemService"/>
+    </bean>
+    <bean name="adminContestListBean" class="com.hbut.admin.action.ContestListAction" scope="prototype">
+        <property name="contestService" ref="contestService"/>
+        <property name="attendService" ref="attendService"/>
+    </bean>
+    <bean name="adminContestShowBean" class="com.hbut.admin.action.ContestShowAction" scope="prototype">
+        <property name="contestService" ref="contestService"/>
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="problemService" ref="problemService"/>
+    </bean>
+    <bean name="adminProblemShowBean" class="com.hbut.admin.action.ProblemShowAction" scope="prototype">
+        <property name="problemService" ref="problemService"/>
+    </bean>
+    <bean name="rejudgeBean" class="com.hbut.admin.action.ReJudgeAction" scope="prototype">
+        <property name="solutionService" ref="solutionService"/>
+    </bean>
+    <bean name="adminSolutionsBean" class="com.hbut.admin.action.SolutionListAction" scope="prototype">
+        <property name="solutionService" ref="solutionService"/>
+        <property name="problemService" ref="problemService"/>
+        <property name="contestService" ref="contestService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="adminSolutionSourceBean" class="com.hbut.admin.action.Solution_sourceAction" scope="prototype">
+        <property name="solutionSourceService" ref="solutionSourceService"/>
+        <property name="solutionService" ref="solutionService"/>
+        <property name="problemService" ref="problemService"/>
+        <property name="contestService" ref="contestService"/>
+        <property name="cproblemService" ref="cproblemService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <!-- Mail -->
+    <bean id="mailService" class="com.hbut.mail.service.MailServiceImpl">
+        <property name="mailDao" ref="mailDao"/>
+    </bean>
+    <bean id="mailDao" class="com.hbut.mail.dao.MailDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="MailBean" class="com.hbut.mail.action.MailAction" scope="prototype">
+        <property name="mailService" ref="mailService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="postMailBean" class="com.hbut.mail.action.PostMailAction" scope="prototype">
+        <property name="mailService" ref="mailService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="newMailCountBean" class="com.hbut.mail.action.JsonNewMailCountAction" scope="prototype">
+        <property name="mailService" ref="mailService"/>
+    </bean>
+    <bean name="newMailBean" class="com.hbut.mail.action.NewMailAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+
+    <!-- Tags -->
+    <bean id="tagsService" class="com.hbut.tags.service.TagsServiceImpl">
+        <property name="tagsDao" ref="tagsDao"/>
+    </bean>
+    <bean id="tagsDao" class="com.hbut.tags.dao.TagsDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="jsonTagsListBean" class="com.hbut.tags.action.JsonTagsListAction" scope="prototype">
+        <property name="tagsService" ref="tagsService"/>
+    </bean>
+    <!-- End Tags -->
+
+    <!-- Tags -->
+    <bean id="tagsviewService" class="com.hbut.tagsview.service.TagsviewServiceImpl">
+        <property name="tagsviewDao" ref="tagsviewDao"/>
+    </bean>
+    <bean id="tagsviewDao" class="com.hbut.tagsview.dao.TagsviewDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!-- End Tags -->
+
+    <!-- Privilege -->
+    <bean id="privilegeService" class="com.hbut.privilege.service.PrivilegeServiceImpl">
+        <property name="privilegeDao" ref="privilegeDao"/>
+    </bean>
+    <bean id="privilegeDao" class="com.hbut.privilege.dao.PrivilegeDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="privilegeBean" class="com.hbut.privilege.action.PrivilegeAction" scope="prototype">
+        <property name="privilegeService" ref="privilegeService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="IsNoEditAdminInterceptorBean" class="com.hbut.common.interceptor.IsNoEditAdminInterceptor"
+          scope="prototype">
+        <property name="privilegeService" ref="privilegeService"/>
+    </bean>
+    <bean name="IsAdminInterceptorBean" class="com.hbut.common.interceptor.IsAdminInterceptor" scope="prototype">
+        <property name="privilegeService" ref="privilegeService"/>
+    </bean>
+    <bean name="IsHeadInterceptorBean" class="com.hbut.common.interceptor.IsHeadInterceptor" scope="prototype">
+        <property name="privilegeService" ref="privilegeService"/>
+    </bean>
+    <!-- End Privilege -->
+    <!-- News -->
+    <bean id="newsService" class="com.hbut.news.service.NewsServiceImpl">
+        <property name="newsDao" ref="newsDao"/>
+    </bean>
+    <bean id="newsDao" class="com.hbut.news.dao.NewsDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="newsBean" class="com.hbut.news.action.NewsAction" scope="prototype">
+        <property name="newsService" ref="newsService"/>
+    </bean>
+    <bean name="postNewsBean" class="com.hbut.news.action.PostNewsAction" scope="prototype">
+        <property name="newsService" ref="newsService"/>
+    </bean>
+    <bean name="newsListBean" class="com.hbut.news.action.NewsListAction" scope="prototype">
+        <property name="newsService" ref="newsService"/>
+    </bean>
+
+    <bean name="userTipBean" class="com.hbut.common.action.UserInfoTipAction" scope="prototype">
+        <property name="messageService" ref="messageService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+
+
+    <!-- 要调用的工作类 -->
+    <bean id="quartzJob" class="com.hbut.bean.QuartzJob"></bean>
+    <!-- 定义调用对象和调用对象的方法 -->
+    <bean id="jobtask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <!-- 调用的类 -->
+        <property name="targetObject">
+            <ref bean="quartzJob"/>
+        </property>
+        <!-- 调用类中的方法 -->
+        <property name="targetMethod">
+            <value>work</value>
+        </property>
+    </bean>
+
+    <!-- 定义触发时间 per 30 minutes  -->
+    <bean id="doTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="jobtask"/>
+        </property>
+        <!-- cron表达式 -->
+        <property name="cronExpression">
+            <value>0 30 * * * ?</value>
+        </property>
+    </bean>
+    <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->
+    <bean id="startQuertz" lazy-init="false" autowire="no"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="doTime"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- online users -->
+    <bean id="QuartzOnlineUsersJob" class="com.hbut.bean.QuartzOnlineUsersJob"></bean>
+    <!-- 定义调用对象和调用对象的方法 -->
+    <bean id="jobtaskOnlineUsers" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <!-- 调用的类 -->
+        <property name="targetObject">
+            <ref bean="QuartzOnlineUsersJob"/>
+        </property>
+        <!-- 调用类中的方法 -->
+        <property name="targetMethod">
+            <value>work</value>
+        </property>
+    </bean>
+
+    <!-- 定义触发时间 per 1 minutes  -->
+    <bean id="doTimeOnlineUsers" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="jobtaskOnlineUsers"/>
+        </property>
+        <!-- cron表达式 -->
+        <property name="cronExpression">
+            <value>0 0,15,30,45 * * * ?</value>
+        </property>
+    </bean>
+    <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->
+    <bean id="startQuertzOnlineUsers" lazy-init="false" autowire="no"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="doTimeOnlineUsers"/>
+            </list>
+        </property>
+    </bean>
 
 </beans>

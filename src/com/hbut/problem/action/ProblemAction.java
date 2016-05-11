@@ -11,8 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ProblemAction extends ActionSupport {
@@ -61,7 +61,7 @@ public class ProblemAction extends ActionSupport {
                 return "input";
             }
 
-            problem.setCreate_date(new Timestamp(System.currentTimeMillis()));
+            problem.setCreate_date(new Date());
             problemService.save(problem);
 
             tags = new ArrayList<String>();
@@ -94,7 +94,7 @@ public class ProblemAction extends ActionSupport {
                     // no such tag
                     tag_ = new Tags();
                     tag_.setCreate_user(username);
-                    tag_.setIndate(new Timestamp(System.currentTimeMillis()));
+                    tag_.setIndate(new Date());
                     tag_.setName(t_);
                     tagsService.save(tag_);
                 }
@@ -226,7 +226,7 @@ public class ProblemAction extends ActionSupport {
                     // no such tag
                     tag_ = new Tags();
                     tag_.setCreate_user(username);
-                    tag_.setIndate(new Timestamp(System.currentTimeMillis()));
+                    tag_.setIndate(new Date());
                     tag_.setName(t_);
                     tagsService.save(tag_);
                 }

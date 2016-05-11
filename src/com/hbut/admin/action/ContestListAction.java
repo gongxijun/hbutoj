@@ -1,127 +1,123 @@
 package com.hbut.admin.action;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.hibernate.mapping.Array;
-
 import com.hbut.contest.attend.service.AttendService;
 import com.hbut.contest.service.ContestService;
 import com.hbut.contest.vo.Contest;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContestListAction extends ActionSupport {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	/**
-	 * 
-	 */
-	private ContestService contestService;
-	private AttendService attendService;
-	private Integer page = 1; // ended
-	private List<Integer> pageList; // ended
-	private String order;
-	private Integer pageSize = 100; // ended
-	private Integer intRowCount = 0; // ended
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private ContestService contestService;
+    private AttendService attendService;
+    private Integer page = 1; // ended
+    private List<Integer> pageList; // ended
+    private String order;
+    private Integer pageSize = 100; // ended
+    private Integer intRowCount = 0; // ended
 
-	private List<Contest> contestList;
+    private List<Contest> contestList;
 
-	public List<Contest> getContestList() {
-		return contestList;
-	}
+    public List<Contest> getContestList() {
+        return contestList;
+    }
 
-	public void setContestList(List<Contest> contestList) {
-		this.contestList = contestList;
-	}
+    public void setContestList(List<Contest> contestList) {
+        this.contestList = contestList;
+    }
 
-	public String contestSet() throws Exception {
+    public String contestSet() throws Exception {
 
-		if (pageSize > 100) {
-			pageSize = 100;
-		}
-		intRowCount = contestService.countContests(0, "ADMIN");
+        if (pageSize > 100) {
+            pageSize = 100;
+        }
+        intRowCount = contestService.countContests(0, "ADMIN");
 
-		Integer pageCount = ((intRowCount + pageSize - 1) / pageSize);// �������ҳ��
+        Integer pageCount = ((intRowCount + pageSize - 1) / pageSize);// �������ҳ��
 
-		if (page < 1) {
-			page = 1;
-		}
-		if (page > pageCount) {
-			page = pageCount;
-		}
-		Integer from = (page - 1) * pageSize;
-		contestList = contestService.queryContests(from, pageSize, 0, order,
-				"ADMIN");
+        if (page < 1) {
+            page = 1;
+        }
+        if (page > pageCount) {
+            page = pageCount;
+        }
+        Integer from = (page - 1) * pageSize;
+        contestList = contestService.queryContests(from, pageSize, 0, order,
+                "ADMIN");
 
-		List<Integer> volume = new ArrayList<Integer>();
-		for (Integer i = 1; i <= pageCount; i++) {
-			volume.add(i);
-		}
+        List<Integer> volume = new ArrayList<Integer>();
+        for (Integer i = 1; i <= pageCount; i++) {
+            volume.add(i);
+        }
 
-		pageList = volume;
+        pageList = volume;
 
-		return SUCCESS;
-	}
+        return SUCCESS;
+    }
 
-	public ContestService getContestService() {
-		return contestService;
-	}
+    public ContestService getContestService() {
+        return contestService;
+    }
 
-	public void setContestService(ContestService contestService) {
-		this.contestService = contestService;
-	}
+    public void setContestService(ContestService contestService) {
+        this.contestService = contestService;
+    }
 
-	public AttendService getAttendService() {
-		return attendService;
-	}
+    public AttendService getAttendService() {
+        return attendService;
+    }
 
-	public void setAttendService(AttendService attendService) {
-		this.attendService = attendService;
-	}
+    public void setAttendService(AttendService attendService) {
+        this.attendService = attendService;
+    }
 
-	public Integer getPage() {
-		return page;
-	}
+    public Integer getPage() {
+        return page;
+    }
 
-	public void setPage(Integer page) {
-		this.page = page;
-	}
+    public void setPage(Integer page) {
+        this.page = page;
+    }
 
-	public List<Integer> getPageList() {
-		return pageList;
-	}
+    public List<Integer> getPageList() {
+        return pageList;
+    }
 
-	public void setPageList(List<Integer> pageList) {
-		this.pageList = pageList;
-	}
+    public void setPageList(List<Integer> pageList) {
+        this.pageList = pageList;
+    }
 
-	public String getOrder() {
-		return order;
-	}
+    public String getOrder() {
+        return order;
+    }
 
-	public void setOrder(String order) {
-		this.order = order;
-	}
+    public void setOrder(String order) {
+        this.order = order;
+    }
 
-	public Integer getPageSize() {
-		return pageSize;
-	}
+    public Integer getPageSize() {
+        return pageSize;
+    }
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-	}
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
 
-	public Integer getIntRowCount() {
-		return intRowCount;
-	}
+    public Integer getIntRowCount() {
+        return intRowCount;
+    }
 
-	public void setIntRowCount(Integer intRowCount) {
-		this.intRowCount = intRowCount;
-	}
+    public void setIntRowCount(Integer intRowCount) {
+        this.intRowCount = intRowCount;
+    }
 
 }

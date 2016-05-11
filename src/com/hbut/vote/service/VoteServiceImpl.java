@@ -5,29 +5,29 @@ import com.hbut.vote.vo.Vote;
 
 public class VoteServiceImpl implements VoteService {
 
-	private VoteDAO voteDao;
+    private VoteDAO voteDao;
 
-	public VoteDAO getVoteDao() {
-		return voteDao;
-	}
+    public VoteDAO getVoteDao() {
+        return voteDao;
+    }
 
-	public void setVoteDao(VoteDAO voteDao) {
-		this.voteDao = voteDao;
-	}
+    public void setVoteDao(VoteDAO voteDao) {
+        this.voteDao = voteDao;
+    }
 
-	public Integer getVotes(Integer messageId) {
-		// TODO Auto-generated method stub
-		return voteDao.getVotes(messageId);
-	}
+    public Integer getVotes(Integer messageId) {
+        // TODO Auto-generated method stub
+        return voteDao.getVotes(messageId);
+    }
 
-	public boolean isVoteBefore(String username, Integer messageId) {
-		// TODO Auto-generated method stub
-		return voteDao.isVoteBefore(username, messageId);
-	}
+    public boolean isVoteBefore(String username, Integer messageId) {
+        // TODO Auto-generated method stub
+        return voteDao.isVoteBefore(username, messageId);
+    }
 
-	public void save(Vote vote) {
-		// TODO Auto-generated method stub
-		voteDao.save(vote);
-	}
+    public void save(Vote vote) {
+        // TODO Auto-generated method stub
+        voteDao.save(vote);
+    }
 
 }

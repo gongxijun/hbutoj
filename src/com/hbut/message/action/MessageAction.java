@@ -14,7 +14,6 @@ import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.Html2Text;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -389,7 +388,7 @@ public class MessageAction extends ActionSupport {
             message_.setContent(content);
             message_.setTitle(title);
             message_.setCreate_user(createUser);
-            message_.setIn_date(new Timestamp(System.currentTimeMillis()));
+            message_.setIn_date(new Date());
 
             message = message_;
             // System.out.println(message_.getModule_id()+" "+

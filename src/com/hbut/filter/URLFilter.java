@@ -1,30 +1,28 @@
 package com.hbut.filter;
 
-import java.io.IOException;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 public class URLFilter implements Filter {
 
-	public void init(FilterConfig arg0) throws ServletException {
-		System.out.println("Filter 初始化");
-	}
+    private static Logger logger = LoggerFactory.getLogger(URLFilter.class);
 
-	public void doFilter(ServletRequest req, ServletResponse res,
-			FilterChain chain) throws IOException, ServletException {
-		HttpServletRequest request = (HttpServletRequest) req;
-		System.out.println("URL = " + request.getContextPath());
-		// System.out.println("鎷︽埅 URI="+request.getRequestURI());
-		chain.doFilter(req, res);
-	}
+    public void init(FilterConfig arg0) throws ServletException {
+        logger.info("Filter 初始化");
+    }
 
-	public void destroy() {
-		System.out.println("Filter 已关闭");
-	}
+    public void doFilter(ServletRequest req, ServletResponse res,
+                         FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest) req;
+        logger.info("URL = " + request.getContextPath());
+        chain.doFilter(req, res);
+    }
+
+    public void destroy() {
+        logger.info("Filter 已关闭");
+    }
 }

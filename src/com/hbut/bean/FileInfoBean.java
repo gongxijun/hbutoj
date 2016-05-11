@@ -1,32 +1,32 @@
 package com.hbut.bean;
 
 public class FileInfoBean {
-	private String fileName;
-	private String fileSize;
-	private String fileDate;
+    private String fileName;
+    private String fileSize;
+    private String fileDate;
 
-	public String getFileDate() {
-		return fileDate;
-	}
+    public String getFileDate() {
+        return fileDate;
+    }
 
-	public void setFileDate(String fileDate) {
-		this.fileDate = fileDate;
-	}
+    public void setFileDate(String fileDate) {
+        this.fileDate = fileDate;
+    }
 
-	public String getFileName() {
-		return fileName;
-	}
+    public String getFileName() {
+        return fileName;
+    }
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 
-	public String getFileSize() {
-		return fileSize;
-	}
+    public String getFileSize() {
+        return fileSize;
+    }
 
-	public void setFileSize(String fileSize) {
-		this.fileSize = fileSize;
-	}
+    public void setFileSize(String fileSize) {
+        this.fileSize = fileSize;
+    }
 
 }

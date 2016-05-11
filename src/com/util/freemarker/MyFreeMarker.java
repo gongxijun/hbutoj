@@ -35,7 +35,7 @@ public class MyFreeMarker {
         // this.getClass().getClassLoader().getResource("/").getPath();
 
         Writer out = new OutputStreamWriter(new FileOutputStream(templatesPath
-                + "\\templates\\" + desName), "GBK");
+                + "\\templates\\" + desName), "utf-8");
         t.process(objMap, out);
     }
 

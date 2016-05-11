@@ -1,23 +1,23 @@
 package com.hbut.bean;
 
 public class StatisticBean {
-	private long x;
-	private Integer y;
+    private long x;
+    private Integer y;
 
-	public long getX() {
-		return x;
-	}
+    public long getX() {
+        return x;
+    }
 
-	public void setX(long i) {
-		this.x = i;
-	}
+    public void setX(long i) {
+        this.x = i;
+    }
 
-	public int getY() {
-		return y;
-	}
+    public int getY() {
+        return y;
+    }
 
-	public void setY(Integer y) {
-		this.y = y;
-	}
+    public void setY(Integer y) {
+        this.y = y;
+    }
 
 }

@@ -72,7 +72,7 @@ public class SubmitionAction extends ActionSupport {
             solution_.setProblem_id(problemId);
             solution_.setLanguage(language);
 
-            solution_.setSubmit_date((java.sql.Date) dt);
+            solution_.setSubmit_date(dt);
             solution_.setCode_length(source.length());
 
             solution = solution_;

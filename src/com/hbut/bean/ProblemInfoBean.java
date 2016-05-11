@@ -1,23 +1,23 @@
 package com.hbut.bean;
 
 public class ProblemInfoBean {
-	private Integer problemId;
-	private String title;
+    private Integer problemId;
+    private String title;
 
-	public Integer getProblemId() {
-		return problemId;
-	}
+    public Integer getProblemId() {
+        return problemId;
+    }
 
-	public void setProblemId(Integer problemId) {
-		this.problemId = problemId;
-	}
+    public void setProblemId(Integer problemId) {
+        this.problemId = problemId;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
 }

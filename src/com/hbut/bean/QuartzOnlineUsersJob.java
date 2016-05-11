@@ -7,7 +7,6 @@ import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.MyApplicationContextUtil;
 import com.util.OnlineUsers;
 
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -49,14 +48,13 @@ public class QuartzOnlineUsersJob {
                     continue;
                 }
 
-                u.setLastaccesstime((Timestamp) mou.get(username)
+                u.setLastaccesstime(mou.get(username)
                         .getLastAccessTime());
                 userService.save(u);
 
-				/* ���ߵ���Ҫ�޳� */
+				/*判段是否在线*/
                 if (mou.get(username).getStatusFlag() == 0) {
-                    System.out.println("removeUser " + username
-                            + " , because of offline...");
+                    logger.info("removeUser " + username + " , because of offline...");
                     it.remove();
                 }
 
@@ -65,8 +63,7 @@ public class QuartzOnlineUsersJob {
 
         } catch (Exception e) {
             // TODO: handle exception
-            logger.error(" work Exception", e);
-            System.out.println("update online users error...");
+            logger.error(" update online users error...", e);
         }
     }
 }

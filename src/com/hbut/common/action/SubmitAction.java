@@ -1,6 +1,5 @@
 package com.hbut.common.action;
 
-import java.util.Map;
 import com.hbut.user.service.UserService;
 import com.hbut.user.vo.User;
 import com.opensymphony.xwork2.ActionContext;
@@ -8,62 +7,64 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
+import java.util.Map;
+
 public class SubmitAction extends ActionSupport {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8183005531295919951L;
-	private static final Logger logger =LoggerFactory.getLogger(SubmitAction.class);
-	private Integer problemId;
-	private Integer language;
-	private UserService userService;
-	private Map<String, String> languageMap;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 8183005531295919951L;
+    private static final Logger logger = LoggerFactory.getLogger(SubmitAction.class);
+    private Integer problemId;
+    private Integer language;
+    private UserService userService;
+    private Map<String, String> languageMap;
 
-	public Map<String, String> getLanguageMap() {
-		return languageMap;
-	}
+    public Map<String, String> getLanguageMap() {
+        return languageMap;
+    }
 
-	public void setLanguageMap(Map<String, String> languageMap) {
-		this.languageMap = languageMap;
-	}
+    public void setLanguageMap(Map<String, String> languageMap) {
+        this.languageMap = languageMap;
+    }
 
-	public Integer getLanguage() {
-		return language;
-	}
+    public Integer getLanguage() {
+        return language;
+    }
 
-	public void setLanguage(Integer language) {
-		this.language = language;
-	}
+    public void setLanguage(Integer language) {
+        this.language = language;
+    }
 
-	public UserService getUserService() {
-		return userService;
-	}
+    public UserService getUserService() {
+        return userService;
+    }
 
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
-	public Integer getProblemId() {
-		return problemId;
-	}
+    public Integer getProblemId() {
+        return problemId;
+    }
 
-	public void setProblemId(Integer problemId) {
-		this.problemId = problemId;
-	}
+    public void setProblemId(Integer problemId) {
+        this.problemId = problemId;
+    }
 
-	public String execute() throws Exception {
-		try {
-			String username = (String) ActionContext.getContext().getSession()
-					.get("session_username");
-			if (null == username || "".equals(username)) {
-				return LOGIN;
-			}
-			User user_ = userService.queryUser(username);
-			language = user_.getLanguage();
+    public String execute() throws Exception {
+        try {
+            String username = (String) ActionContext.getContext().getSession()
+                    .get("session_username");
+            if (null == username || "".equals(username)) {
+                return LOGIN;
+            }
+            User user_ = userService.queryUser(username);
+            language = user_.getLanguage();
 
 			/*
-			 * Integer count = Integer.parseInt(getText("languageCount"));
+             * Integer count = Integer.parseInt(getText("languageCount"));
 			 * 
 			 * languageMap = new HashMap<String, String>(); Integer j = new
 			 * Integer(1); for(Integer i=1;i<=count&&j<50;){ try { String
@@ -74,12 +75,12 @@ public class SubmitAction extends ActionSupport {
 			 * 
 			 * } catch (Exception e) { // TODO: handle exception } j++; }
 			 */
-			// System.out.println(count);
-		} catch (Exception e) {
-			// TODO: handle exception
-			logger.error(ERROR, e);
-			return ERROR;
-		}
-		return SUCCESS;
-	}
+            // System.out.println(count);
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error(ERROR, e);
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 }

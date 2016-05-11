@@ -12,126 +12,126 @@ import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
 public class StandingsAction extends ActionSupport {
-	
-	private static final long serialVersionUID = 1L;
-	private final Logger logger =LoggerFactory.getLogger(StandingsAction.class); 
-	private UserService userService;
-	private List<User> usersList;
-	private Integer page = 1;
 
-	private String order;
-	private List<Integer> pageList;
-	private Integer pageSize = 100;
-	private Integer pageCount = 0;
+    private static final long serialVersionUID = 1L;
+    private final Logger logger = LoggerFactory.getLogger(StandingsAction.class);
+    private UserService userService;
+    private List<User> usersList;
+    private Integer page = 1;
 
-	public Integer getPageCount() {
-		return pageCount;
-	}
+    private String order;
+    private List<Integer> pageList;
+    private Integer pageSize = 100;
+    private Integer pageCount = 0;
 
-	public void setPageCount(Integer pageCount) {
-		this.pageCount = pageCount;
-	}
+    public Integer getPageCount() {
+        return pageCount;
+    }
 
-	public Integer getPageSize() {
-		return pageSize;
-	}
+    public void setPageCount(Integer pageCount) {
+        this.pageCount = pageCount;
+    }
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-	}
+    public Integer getPageSize() {
+        return pageSize;
+    }
 
-	public List<Integer> getPageList() {
-		return pageList;
-	}
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
 
-	public void setPageList(List<Integer> pageList) {
-		this.pageList = pageList;
-	}
+    public List<Integer> getPageList() {
+        return pageList;
+    }
 
-	public List<User> getUsersList() {
-		return usersList;
-	}
+    public void setPageList(List<Integer> pageList) {
+        this.pageList = pageList;
+    }
 
-	public void setUsersList(List<User> usersList) {
-		this.usersList = usersList;
-	}
+    public List<User> getUsersList() {
+        return usersList;
+    }
 
-	public Integer getPage() {
-		return page;
-	}
+    public void setUsersList(List<User> usersList) {
+        this.usersList = usersList;
+    }
 
-	public void setPage(Integer page) {
-		this.page = page;
-	}
+    public Integer getPage() {
+        return page;
+    }
 
-	public String getOrder() {
-		return order;
-	}
+    public void setPage(Integer page) {
+        this.page = page;
+    }
 
-	public void setOrder(String order) {
-		this.order = order;
-	}
+    public String getOrder() {
+        return order;
+    }
 
-	public UserService getUserService() {
-		return userService;
-	}
+    public void setOrder(String order) {
+        this.order = order;
+    }
 
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+    public UserService getUserService() {
+        return userService;
+    }
 
-	public String standings() throws Exception {
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
-		try {
-			if (pageSize > 100) {
-				pageSize = 100;
-			}
-			Integer intRowCount = userService.countUsers();
-			pageCount = ((intRowCount + pageSize - 1) / pageSize);// 计算出总页数
-			if (page < 1) {
-				page = 1;
-			}
-			if (page > pageCount) {
-				page = pageCount;
-			}
-			Integer from = (page - 1) * pageSize;
-			usersList = userService.getStandings(from, pageSize, order);
-			List<Integer> volume = new ArrayList<Integer>();
-			if (pageCount < 7) {
-				for (Integer i = 1; i <= pageCount; i++) {
-					volume.add(i);
-				}
-			} else {
-				volume.add(1);
-				if (page > 4) {
-					volume.add(0); // 省略号
-				}
-				Integer start_i = new Integer(2);
-				Integer end_i = new Integer(pageCount - 1);
-				if (page - 2 > 2) {
-					start_i = page - 2;
-				}
-				if (page + 2 < pageCount) {
-					end_i = page + 2;
-				}
+    public String standings() throws Exception {
 
-				for (Integer i = start_i; i <= end_i; i++) {
-					volume.add(i);
-				}
-				if (page < pageCount - 3) {
-					volume.add(0); // 省略号
-				}
+        try {
+            if (pageSize > 100) {
+                pageSize = 100;
+            }
+            Integer intRowCount = userService.countUsers();
+            pageCount = ((intRowCount + pageSize - 1) / pageSize);// 计算出总页数
+            if (page < 1) {
+                page = 1;
+            }
+            if (page > pageCount) {
+                page = pageCount;
+            }
+            Integer from = (page - 1) * pageSize;
+            usersList = userService.getStandings(from, pageSize, order);
+            List<Integer> volume = new ArrayList<Integer>();
+            if (pageCount < 7) {
+                for (Integer i = 1; i <= pageCount; i++) {
+                    volume.add(i);
+                }
+            } else {
+                volume.add(1);
+                if (page > 4) {
+                    volume.add(0); // 省略号
+                }
+                Integer start_i = new Integer(2);
+                Integer end_i = new Integer(pageCount - 1);
+                if (page - 2 > 2) {
+                    start_i = page - 2;
+                }
+                if (page + 2 < pageCount) {
+                    end_i = page + 2;
+                }
 
-				volume.add(pageCount);
-			}
-			pageList = volume;
-		} catch (Exception e) {
-			// TODO: handle exception
-			logger.error("unknown error {}", e);
-			return ERROR;
-		}
-		// System.out.println(jsonResult);
-		return SUCCESS;
-	}
+                for (Integer i = start_i; i <= end_i; i++) {
+                    volume.add(i);
+                }
+                if (page < pageCount - 3) {
+                    volume.add(0); // 省略号
+                }
+
+                volume.add(pageCount);
+            }
+            pageList = volume;
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error("unknown error {}", e);
+            return ERROR;
+        }
+        // System.out.println(jsonResult);
+        return SUCCESS;
+    }
 
 }

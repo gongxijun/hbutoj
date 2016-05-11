@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import org.apache.struts2.json.annotations.JSON;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class JsonMessageVoteAction extends ActionSupport {
 

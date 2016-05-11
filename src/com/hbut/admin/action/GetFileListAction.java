@@ -1,61 +1,68 @@
 package com.hbut.admin.action;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.Config;
 import com.util.StreamHandler;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GetFileListAction extends ActionSupport {
-	private static final long serialVersionUID = -29181731L;
-	private String type;
-	private String path;
 
-	public String getType() {
-		return type;
-	}
+    private static final long serialVersionUID = -29181731L;
+    private static final Logger logger = LoggerFactory.getLogger(GetFileListAction.class);
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    private String type;
+    private String path;
 
-	public String getPath() {
-		return path;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setPath(String path) {
-		this.path = path;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	private List<String> inputFilesName;
+    public String getPath() {
+        return path;
+    }
 
-	public List<String> getInputFilesName() {
-		return inputFilesName;
-	}
+    public void setPath(String path) {
+        this.path = path;
+    }
 
-	public void setInputFilesName(List<String> inputFilesName) {
-		this.inputFilesName = inputFilesName;
-	}
+    private List<String> inputFilesName;
 
-	public String fileList() {
+    public List<String> getInputFilesName() {
+        return inputFilesName;
+    }
 
-		try {
-			String[] inN = StreamHandler.getFilesNameList(Config.getValue(type)
-					+ path);
+    public void setInputFilesName(List<String> inputFilesName) {
+        this.inputFilesName = inputFilesName;
+    }
 
-			inputFilesName = new ArrayList<String>();
+    public String fileList() {
 
-			if (inN != null)
-				for (int i = 0; i < inN.length; i++) {
-					inputFilesName.add(inN[i]);
-					// System.out.println(inN[i]);
-				}
-			return SUCCESS;
-		} catch (Exception e) {
-			return "error";
-		}
+        try {
+            String[] inN = StreamHandler.getFilesNameList(Config.getValue(type)
+                    + path);
 
-	}
+            inputFilesName = new ArrayList<String>();
+
+            if (inN != null)
+                for (int i = 0; i < inN.length; i++) {
+                    inputFilesName.add(inN[i]);
+                    // System.out.println(inN[i]);
+                }
+            return SUCCESS;
+        } catch (Exception e) {
+
+            logger.error("fileList 获取配置信息错误", e);
+            return "error";
+        }
+
+    }
 
 }

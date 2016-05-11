@@ -6,7 +6,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
-import java.sql.Timestamp;
+import java.util.Date;
+
 
 public class TagsAction extends ActionSupport {
 
@@ -20,7 +21,7 @@ public class TagsAction extends ActionSupport {
 
         try {
             Tags tags_ = new Tags();
-            tags_.setIndate(new Timestamp(System.currentTimeMillis()));
+            tags_.setIndate(new Date());
             tags_.setName(tagsName);
             tagsService.save(tags_);
         } catch (Exception e) {

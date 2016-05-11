@@ -188,7 +188,7 @@ public class User implements java.io.Serializable {
 
     public void setLastaccesstime(Date lastaccesstime) {
         /*
-		 * try { SimpleDateFormat sdformat = new
+         * try { SimpleDateFormat sdformat = new
 		 * SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");//24小时制 String LgTime =
 		 * sdformat.format(lastaccesstime); SimpleDateFormat sp = new
 		 * SimpleDateFormat("yyyy-MM-dd-hh-mm-ss"); this.lastaccesstime =
