@@ -94,21 +94,21 @@ public class PostMailAction extends ActionSupport {
 
             try {
                 /* 提醒用户注册邮箱 */
-                MailUtil sendmail = new MailUtil();
-                sendmail.setHost(Config.getValue("MAIL_HOST")); // 发邮件服务器
-                sendmail.setUserName(Config.getValue("MAIL_USERNAME")); // 用户名
-                sendmail.setPassWord(Config.getValue("MAIL_PSW")); // 密码
-                sendmail.setTo(user_.getEmail()); // 发送到
-                sendmail.setFrom(Config.getValue("MAIL_FROM")); // 发送邮箱
-                sendmail.setSubject(title); // 标题
+                MailUtil sendMail = new MailUtil();
+                sendMail.setHost(Config.getValue("MAIL_HOST")); // 发邮件服务器
+                sendMail.setUserName(Config.getValue("MAIL_USERNAME")); // 用户名
+                sendMail.setPassWord(Config.getValue("MAIL_PSW")); // 密码
+                sendMail.setTo(user_.getEmail()); // 发送到
+                sendMail.setFrom(Config.getValue("MAIL_FROM")); // 发送邮箱
+                sendMail.setSubject(title); // 标题
                 String content_ = new String();
                 content_ = "Hi! " + username + " , new mail from " + username
                         + "\n " + Config.getValue("DOMAIN") + "/mails/"
                         + mail_.getMail_id() + "\n\n"
                         + Html2Text.RemoveHtml(content);
 
-                sendmail.setContent(content_); // 邮件内容
-                sendmail.sendMail();
+                sendMail.setContent(content_); // 邮件内容
+                sendMail.sendMail();
             } catch (Exception e) {
                 // TODO: handle exception
                 System.out.println("send mail fail via new-mail");
