@@ -5,11 +5,15 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
 public class IsHeadInterceptor extends AbstractInterceptor {
     private static final long serialVersionUID = -5718204L;
 
+    private static final Logger logger = LoggerFactory.getLogger(IsNoEditAdminInterceptor.class);
     private PrivilegeService privilegeService;
+
 
     public PrivilegeService getPrivilegeService() {
         return privilegeService;
@@ -34,6 +38,9 @@ public class IsHeadInterceptor extends AbstractInterceptor {
             }
         }
         actionContext.put("tip", "You have no privilege!");
+        //todo 提示错误信息
+        logger.info("用户{} :操作权限越界.", username);
         return ActionSupport.ERROR;
     }
+
 }

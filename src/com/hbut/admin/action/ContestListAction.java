@@ -17,6 +17,7 @@ public class ContestListAction extends ActionSupport {
     /**
      *
      */
+
     private ContestService contestService;
     private AttendService attendService;
     private Integer page = 1; // ended
@@ -42,7 +43,7 @@ public class ContestListAction extends ActionSupport {
         }
         intRowCount = contestService.countContests(0, "ADMIN");
 
-        Integer pageCount = ((intRowCount + pageSize - 1) / pageSize);// �������ҳ��
+        Integer pageCount = ((intRowCount + pageSize - 1) / pageSize);// 统计页面数量
 
         if (page < 1) {
             page = 1;

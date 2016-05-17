@@ -1,12 +1,18 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s" %>
+
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String basePath = request.getScheme() +
+            "://" + request.getServerName() +
+            ":" + request.getServerPort() +
+            path + "/";
 %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <html>
+
 <head>
     <base href="<%=basePath%>">
     <title>Contest <s:property value="contest.title"/></title>
@@ -37,7 +43,9 @@
             <div class="roundbox-rt">&nbsp;</div>
 
             <div class="top-link" style="border-bottom: 1px solid #b9b9b9;">
-                <div class="title-sidebox" style="width: 100%"><s:text name="sidebar.infobox"/></div>
+                <div class="title-sidebox" style="width: 100%">
+                    <s:text name="sidebar.infobox"/>
+                </div>
             </div>
             <div class="" style="margin: 6px;font-size: 12px;word-wrap:break-word;">
                 <pre><s:property value="contest.description" escape="flase"/></pre>

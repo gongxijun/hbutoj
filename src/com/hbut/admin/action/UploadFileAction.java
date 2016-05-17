@@ -74,13 +74,16 @@ public class UploadFileAction extends ActionSupport {
                     File destFile = new File(root, fileFileName.get(i));
                     // System.out.println("FileName:"+destFile.getName());
                     OutputStream os = new FileOutputStream(destFile); // 创建文件流对象
+
                     // 进行文件流写入
                     byte[] buffer = new byte[300];
                     int length = 0;
+
                     while ((length = is.read(buffer)) > 0) {
                         // System.out.println("buffer:"+buffer);
                         os.write(buffer, 0, length);
                     }
+
                     os.flush();
                     is.close();
                     os.close();

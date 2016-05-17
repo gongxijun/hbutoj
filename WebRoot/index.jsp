@@ -15,8 +15,9 @@
     <meta http-equiv="keywords" content="湖北工业大学,OJ,HBUT,ACM,OnlineJudge,JAVA,C++,Program Contest">
     <meta http-equiv="description" content="HUBEI University of Technology Online Judge System for ACM">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="Shortcut Icon" href="img/ico/favicon.ico" type="image/x-icon" />
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
-    <script type="text/javascript" src="js/gdoj.js"></script>
+    <script type="text/javascript" src="js/hbutoj.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
                     $("#s_type u").bind("click", function () {

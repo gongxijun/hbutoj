@@ -46,7 +46,7 @@ public class SolutionDaoImpl extends HibernateDaoSupport implements SolutionDAO 
 
         // sql = "select s from Solution s";
 
-        Query q = (Query) session.createQuery(sql);
+        Query q = session.createQuery(sql);
         q.setFirstResult(from);
         if (!pageSize.equals(-1)) {
             q.setMaxResults(pageSize);

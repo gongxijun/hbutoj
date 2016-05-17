@@ -20,17 +20,22 @@ public class ProblemShowAction extends ActionSupport {
 
     public String problemShow() throws Exception {
         try {
+
             problem = problemService.queryProblem(problemId);
 
             if (null == problem) {
+
                 ActionContext.getContext().put("tip", "No such problem.");
                 return ERROR;
+
             }
 
         } catch (Exception e) {
+
             // TODO: handle exception
             logger.error("内部出错", e);
             return ERROR;
+
         }
 
         return SUCCESS;

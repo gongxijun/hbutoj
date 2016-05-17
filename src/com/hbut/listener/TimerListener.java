@@ -1,17 +1,20 @@
 package com.hbut.listener;
 
 import com.hbut.thread.TimerThread;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 public class TimerListener implements ServletContextListener {
 
+    private static final Logger logger = LoggerFactory.getLogger(TimerListener.class);
     private TimerThread timerThead = new TimerThread();
 
     public void contextDestroyed(ServletContextEvent arg0) {
         // TODO Auto-generated method stub
-        System.out.println("TimerThead. Close..");
+        logger.info("TimerThead. Close..");
     }
 
     public void contextInitialized(ServletContextEvent arg0) {
@@ -20,10 +23,10 @@ public class TimerListener implements ServletContextListener {
             // MyApplicationContextUtil.getContext().get;
             timerThead.setDaemon(true);
             timerThead.start();
-            System.out.println("----TimerThead Has Been Initialized----");
+            logger.info("----TimerThead Has Been Initialized----");
 
         } catch (Exception e) {
-            System.out.println("----Start TimerThead Error----");
+            logger.info("----Start TimerThead Error----");
         }
     }
 

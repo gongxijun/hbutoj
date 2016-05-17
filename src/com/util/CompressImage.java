@@ -1,12 +1,14 @@
 package com.util;
 
-import com.sun.image.codec.jpeg.*;
-
-import java.awt.image.BufferedImage;
-import java.io.*;
-import javax.imageio.*;
-
+import com.sun.image.codec.jpeg.ImageFormatException;
+import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class CompressImage {
     /**
@@ -57,8 +59,8 @@ public class CompressImage {
 
     public static void main(String[] args) {
         Generate(
-                "D:\\Tomcat5\\webapps\\gdoj\\image\\userphoto\\ACSolo\\ACSolo.jpg",
-                "D:\\Tomcat5\\webapps\\gdoj\\image\\userphoto\\ACSolo", "AC_s",
+                "D:\\github\\hbut\\XiJun.Gong.jpg",
+                "D:\\github\\hbut\\", "AC_s",
                 80);
     }
 }

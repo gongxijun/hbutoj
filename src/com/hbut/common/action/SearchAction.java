@@ -40,7 +40,7 @@ public class SearchAction extends ActionSupport {
 
         try {
 
-            // word=new String(word_.getBytes("UTF8"), "ISO8859_1");
+             //word=new String(word.getBytes("UTF8"), "ISO8859_1");
 
             // System.out.println(word+" "+word_);
 
@@ -49,7 +49,6 @@ public class SearchAction extends ActionSupport {
                 return INPUT;
             }
             String word_ = word;
-
             userList = new ArrayList<User>();
             problemList = new ArrayList<Problem>();
             messageList = new ArrayList<Message>();

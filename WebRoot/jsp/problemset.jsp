@@ -51,8 +51,8 @@
                 </div>
                 <div class="right" style="margin:0 24px 0 0px;">
                     <a href="problemset?ORDER=<s:property value="order"/>&OJ=" style="text-decoration: none;"> ALL </a>|
-                    <a href="problemset?ORDER=<s:property value="order"/>&OJ=GUET" style="text-decoration: none;">
-                        GUET </a>|
+                    <a href="problemset?ORDER=<s:property value="order"/>&OJ=PKU" style="text-decoration: none;">
+                        PKU </a>|
                     <a href="problemset?ORDER=<s:property value="order"/>&OJ=HDU" style="text-decoration: none;">
                         HDU </a>
                 </div>
@@ -66,13 +66,14 @@
                         <th class="id left-item"><s:text name="problemid"/></th>
                         <th class="title"><s:text name="problem"/></th>
                         <th class="solved">
-                            <s:if test="order=='BY_SOLVED_ASC'"><a
-                                    href="problemset?ORDER=BY_SOLVED_DESC&OJ=<s:property value="ojName"/>"
-                                    style="color: #000;text-decoration: none;">
-                                <s:text name="solved"/><img alt="Sort desc." title="Sort desc."
-                                                            src="img/order/tablesorter-desc.gif"
-                                                            style="vertical-align: middle;">
-                            </a></s:if>
+                            <s:if test="order=='BY_SOLVED_ASC'">
+                                <a
+                                        href="problemset?ORDER=BY_SOLVED_DESC&OJ=<s:property value="ojName"/>"
+                                        style="color: #000;text-decoration: none;">
+                                    <s:text name="solved"/><img alt="Sort desc." title="Sort desc."
+                                                                src="img/order/tablesorter-desc.gif"
+                                                                style="vertical-align: middle;">
+                                </a></s:if>
                             <s:elseif test="order=='BY_SOLVED_DESC'"><a
                                     href="problemset?ORDER=BY_SOLVED_ASC&OJ=<s:property value="ojName"/>"
                                     style="color: #000;text-decoration: none;">

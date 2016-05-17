@@ -211,7 +211,7 @@ public class MailUtil {
             // 向Multipart添加MimeMessage
             msg.setContent(mp);
             msg.setSentDate(new Date());
-            // 发送邮件
+            // 发送邮件dadasdasdasd
             Transport.send(msg);
 
         } catch (MessagingException mex) {

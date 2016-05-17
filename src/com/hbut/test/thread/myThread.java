@@ -1,9 +1,9 @@
 package com.hbut.test.thread;
 
-import java.io.IOException;
-
 import com.hbut.user.service.UserService;
 import com.util.MyApplicationContextUtil;
+
+import java.io.IOException;
 
 public class myThread extends Thread {
 
@@ -34,7 +34,7 @@ public class myThread extends Thread {
                 System.out.println("Start judge..." + runId
                         + ", and Queue left " + JudgeQueue.getsize());
                 // .......start
-                String[] cmd = {"D:/Program Files (x86)/Workspaces/MyEclipse 10/acmoj/gdoj.git/trunk/OJ/Client.exe", Integer.toString(runId)};
+                String[] cmd = {"D:/github/OJ/Client.exe", Integer.toString(runId)};
                 try {
                     Runtime.getRuntime().exec(cmd);
                 } catch (IOException e) {

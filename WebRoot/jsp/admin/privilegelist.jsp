@@ -14,7 +14,7 @@
     <meta http-equiv="keywords" content="GUET,ACM,OnlineJudge,JAVA,C++,Program Contest">
     <meta http-equiv="description" content="GuiLin University of Electronic Technology Online Judge System for ACM">
     <link href="css/styles.css" type="text/css" rel="stylesheet">
-
+    <link rel="Shortcut Icon" href="../../img/ico/favicon.ico" type="image/x-icon" />
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="js/gdoj.js"></script>
     <link type="text/css" rel="stylesheet" href="js/ckeditor/plugins/syntaxhighlight/styles/shCore.css"/>

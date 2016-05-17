@@ -1,5 +1,9 @@
 package com.util;
 
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
+import org.junit.Test;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,15 +16,15 @@ import java.util.zip.ZipInputStream;
 /**
  * 解压ZIP压缩文件到指定的目录
  *
- * @author LanP
- * @since 2012-3-13 8:57:18
+ * @author XiJun.Gong
+ * @since 2015-11-13 8:57:18
  */
 public final class ZipToFile {
     /**
      * 缓存区大小默认20480
      */
     private final static int FILE_BUFFER_SIZE = 20480;
-
+    private final static Logger logger = LoggerFactory.getLogger(ZipToFile.class);
     private ZipToFile() {
 
     }
@@ -43,14 +47,14 @@ public final class ZipToFile {
 
         // zipFile = new ZipFile(file, "GBK");
 
-        System.out.println(">>>>>>解压文件【" + zipFilePath + "/" + zipFileName
-                + "】到【" + targetFileDir + "】目录下<<<<<<");
+            logger.info(">>>>>>解压文件【" + zipFilePath + "/" + zipFileName
+                    + "】到【" + targetFileDir + "】目录下<<<<<<");
         if (false == file.exists()) {
-            System.out.println(">>>>>>压缩文件【" + zipFilePath + "/" + zipFileName
+            logger.info(">>>>>>压缩文件【" + zipFilePath + "/" + zipFileName
                     + "】不存在<<<<<<");
             return false;
         } else if (0 == file.length()) {
-            System.out.println(">>>>>>压缩文件【" + zipFilePath + "/" + zipFileName
+            logger.info(">>>>>>压缩文件【" + zipFilePath + "/" + zipFileName
                     + "】大小为0不需要解压<<<<<<");
             return false;
         } else {
@@ -218,9 +222,10 @@ public final class ZipToFile {
     }
 
     /**
-     * 测试用的Main方法
+     * 测试用的Test方法
      */
-    public static void main(String[] args) {
+    @Test
+    public static void Test(String[] args) {
         String zipFilePath = "d:\\tmp";
         String zipFileName = "test.zip";
         String targetFileDir = "d:\\tmp";

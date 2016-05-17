@@ -156,30 +156,40 @@ public class Solution_sourceAction extends ActionSupport {
             className = "brush:" + className_[solution.getLanguage() - 1] + ";";
 
             try {
+
                 File file;
                 judgeLog = new String();
                 file = new File(Config.getValue("OJ_JUDGE_LOG") + "judge-log-"
                         + solutionId + ".log");
                 judgeLog = StreamHandler.read(file);
+
             } catch (Exception e) {
+
                 // TODO: handle exception
                 logger.error("内部出错", e);
+
             }
 
             return SUCCESS;
+
         } catch (Exception e) {
+
             // TODO: handle exception
             logger.error("内部出错", e);
             return ERROR;
+
         }
+
     }
 
     public void outString(String str) {
         try {
+
             PrintWriter out = ServletActionContext.getResponse().getWriter();
             out.write(str);
+
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("outString异常: {}..",e);
         }
     }
 
@@ -220,11 +230,12 @@ public class Solution_sourceAction extends ActionSupport {
                     solution_.getProblem_id()).getTitle();
         }
 
-        // System.out.println(problemId+problemTitle_);
 
         if (null == problemTitle_) {
+
             outString(getError("No such problem."));
             return null;
+
         }
         solution = solution_;
         solutionSource = solutionSource_;
@@ -239,14 +250,18 @@ public class Solution_sourceAction extends ActionSupport {
         className = "brush:" + className_[solution.getLanguage() - 1] + ";";
 
         try {
+
             File file;
             judgeLog = new String();
             file = new File(Config.getValue("OJ_JUDGE_LOG") + "judge-log-"
                     + solutionId + ".log");
             judgeLog = StreamHandler.read(file);
+
         } catch (Exception e) {
+
             // TODO: handle exception
             logger.error("内部出错", e);
+
         }
 
         JSONObject obj = new JSONObject();
@@ -264,13 +279,16 @@ public class Solution_sourceAction extends ActionSupport {
         obj.put("message", "Operate Success...");
         outString(obj.toJSONString());
         return null;
+
     }
 
     private String getError(String message) {
+
         JSONObject obj = new JSONObject();
         obj.put("error", 1);
         obj.put("message", message);
         return obj.toJSONString();
+
     }
 
     public CProblemService getCproblemService() {

@@ -263,14 +263,19 @@ public class ContestAction extends ActionSupport {
     }
 
     public String resumeContest() throws Exception {
+
         try {
+
             Contest contest_ = new Contest();
             contest_ = contestService.queryContest(contestId, "ADMIN");
+
             if (null == contest_) {
                 return ERROR;
             }
+
             contest_.setDefunct("N");
             contestService.save(contest_);
+
         } catch (Exception e) {
             // TODO: handle exception
             logger.error("resumeContest error: ", e);

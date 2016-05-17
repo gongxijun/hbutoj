@@ -54,7 +54,6 @@ public class GetFileListAction extends ActionSupport {
             if (inN != null)
                 for (int i = 0; i < inN.length; i++) {
                     inputFilesName.add(inN[i]);
-                    // System.out.println(inN[i]);
                 }
             return SUCCESS;
         } catch (Exception e) {

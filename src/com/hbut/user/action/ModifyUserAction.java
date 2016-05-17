@@ -104,7 +104,10 @@ public class ModifyUserAction extends ActionSupport {
 
             if (null == username) {
                 error = "Your must login first.";
+
+                logger.info(error);
                 success = false;
+
                 return LOGIN;
             }
             /*
@@ -118,7 +121,7 @@ public class ModifyUserAction extends ActionSupport {
 			 */
 
 			/*
-			 * try { if (null ==
+             * try { if (null ==
 			 * user.getEmail()||"".equals(user.getEmail().trim())) {
 			 * this.addFieldError("user.email", "Your email is invalid"); error
 			 * = "Email shouldn't be empty."; success = false; return INPUT; } }
@@ -136,8 +139,12 @@ public class ModifyUserAction extends ActionSupport {
             }
 
             if (null == old_password) {
+
                 this.addFieldError("old_password", "Input your password first.");
                 error = "Input your password first.";
+
+                logger.info(error);
+
                 success = false;
                 return INPUT;
             }
@@ -146,16 +153,19 @@ public class ModifyUserAction extends ActionSupport {
             user_ = userService.checkLogin(username, old_password);
 
             if (user_ == null) {
+
                 this.addFieldError("old_password", "Your password is invalid");
                 error = "Your password is invalid.";
                 success = false;
+                logger.info(error);
                 return INPUT;
+
             }
             Date birDay = null;
             if (birthday != null) {
 
                 birDay = (Date) DateUtil.StringToDate(birthday, "yyyy-MM-dd");
-				/*
+                /*
 				 * if(birDay==null){ this.addFieldError("birthday",
 				 * "birthday is invalid"); error="birthday is invalid."; success
 				 * = false; return INPUT; }
@@ -184,6 +194,7 @@ public class ModifyUserAction extends ActionSupport {
                                 "Confirm new password mismatched.");
                         error = "Confirm new password mismatched.";
                         success = false;
+                        logger.info(error);
                         return INPUT;
                     } else {
                         this.getUser().setPassword(password);
@@ -210,6 +221,7 @@ public class ModifyUserAction extends ActionSupport {
             } else {
                 error = "unknon error!";
                 success = false;
+                logger.info(error);
                 return INPUT;
             }
         } catch (Exception e) {

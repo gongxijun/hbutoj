@@ -81,18 +81,23 @@ public class ReJudgeAction extends ActionSupport {
             }
 
             List<Integer> language_ = new ArrayList<Integer>();
+
             try {
+
                 File f = new File(Config.getValue("OJ_LANG_PATH"));
                 DocumentBuilderFactory factory = DocumentBuilderFactory
                         .newInstance();
+
                 DocumentBuilder builder = factory.newDocumentBuilder();
                 Document doc = builder.parse(f);
                 NodeList nl = doc.getElementsByTagName("VALUE");
+
                 for (int i = 0; i < nl.getLength(); i++) {
                     // language[i+1]=doc.getElementsByTagName("LANG").item(i).getFirstChild().getNodeValue();
                     language_.add(Integer.parseInt(doc
                             .getElementsByTagName("ID").item(i).getFirstChild()
                             .getNodeValue()));
+
                 }
 
             } catch (Exception e) {
@@ -116,10 +121,12 @@ public class ReJudgeAction extends ActionSupport {
                 i.setTime(0);
                 i.setMemory(0);
                 solutionService.save(i);
-                String[] cmd = {Config.getValue("OJ_PATH") + "Client.exe",
+                String[] cmd = {
+                        Config.getValue("OJ_PATH") + "Client.exe",
                         Integer.toString(i.getSolution_id()),
                         Integer.toString(i.getLanguage()),
-                        Config.getValue("OJ_INI_PATH")};
+                        Config.getValue("OJ_INI_PATH")
+                };
 
                 try {
                     Runtime.getRuntime().exec(cmd);

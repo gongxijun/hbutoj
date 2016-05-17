@@ -1,15 +1,14 @@
 package com.hbut.common.action;
 
 import com.hbut.test.thread.JudgeQueue;
-
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
 public class QueueAction extends ActionSupport {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 3552864426020089250L;
+    private static final Logger logger = LoggerFactory.getLogger(QueueAction.class);
     private Integer solutionId;
 
     public Integer getSolutionId() {
@@ -23,7 +22,7 @@ public class QueueAction extends ActionSupport {
     public String execute() throws Exception {
 
         JudgeQueue.addGCC(solutionId);
-        System.out.println("Push one , size=" + JudgeQueue.getsize());
+        logger.info("Push one , size=" + JudgeQueue.getsize());
         return SUCCESS;
     }
 }

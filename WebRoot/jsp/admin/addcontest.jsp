@@ -3,7 +3,9 @@
 <%@ taglib uri="/struts-dojo-tags" prefix="sx" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":"
+            + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
@@ -16,7 +18,7 @@
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,JAVA,C++,Program Contest">
     <meta http-equiv="description" content="HBUT Online Judge System for ACM">
     <link href="css/styles.css" type="text/css" rel="stylesheet">
-
+    <link rel="Shortcut Icon" href="../../img/ico/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="js/hbutoj.js"></script>
 

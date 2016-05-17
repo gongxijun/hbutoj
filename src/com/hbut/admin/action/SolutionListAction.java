@@ -40,6 +40,7 @@ public class SolutionListAction extends ActionSupport {
     }
 
     public void setContestService(ContestService contestService) {
+
         this.contestService = contestService;
     }
 
@@ -73,6 +74,7 @@ public class SolutionListAction extends ActionSupport {
 
             sql_count = "select count(s.solution_id) from Solution s";
             sql_query = "select s from Solution s";
+
             if (pageSize > 100) {
                 pageSize = 100;
             }

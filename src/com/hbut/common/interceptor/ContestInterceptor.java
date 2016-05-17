@@ -33,7 +33,6 @@ public class ContestInterceptor extends AbstractInterceptor {
             ActionContext actionContext = invocation.getInvocationContext();
             Integer contestId = (Integer) actionContext.getValueStack()
                     .findValue("contestId");
-            // System.out.println("++++contestId="+contestId);
             if (contestId == null) {
                 return "error";
             }
@@ -53,11 +52,14 @@ public class ContestInterceptor extends AbstractInterceptor {
             } else {
                 return invocation.invoke();
             }
+
         } catch (Exception e) {
             // TODO: handle exception
+
             ActionContext.getContext().put("tip", "Operation error!");
             logger.error("Operation error: {}", e);
             return "error";
+
         }
     }
 }

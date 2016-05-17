@@ -7,6 +7,7 @@ import freemarker.template.TemplateException;
 
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class MyFreeMarker {
 
@@ -21,7 +22,6 @@ public class MyFreeMarker {
         }
 
         Configuration cfg = new Configuration();
-        cfg = new Configuration();
         try {
             cfg.setDirectoryForTemplateLoading(new File(templatesPath
                     + "\\templates"));
@@ -55,22 +55,22 @@ public class MyFreeMarker {
         System.out.println(System.getProperty("user.dir"));
 
         List<LatestTopicBean> topi = new ArrayList<LatestTopicBean>();
-        LatestTopicBean l = new LatestTopicBean();
-        l.setUsername("Koko");
-        l.setTopicId(11);
-        l.setTitle("Hello");
-        l.setDate(new Date());
-        topi.add(l);
-        LatestTopicBean l2 = new LatestTopicBean();
-        l2.setUsername("Solo");
-        l2.setTopicId(12);
-        l2.setTitle("Hello world");
-        l2.setDate(new Date());
-        topi.add(l2);
-        Map map = new HashMap();
+        LatestTopicBean latestTopicBean = new LatestTopicBean();
+        latestTopicBean.setUsername("Koko");
+        latestTopicBean.setTopicId(11);
+        latestTopicBean.setTitle("Hello");
+        latestTopicBean.setDate(new Date());
+        topi.add(latestTopicBean);
+        LatestTopicBean latestTopicBean1 = new LatestTopicBean();
+        latestTopicBean1.setUsername("Solo");
+        latestTopicBean1.setTopicId(12);
+        latestTopicBean1.setTitle("Hello world");
+        latestTopicBean1.setDate(new Date());
+        topi.add(latestTopicBean1);
+        Map map = new ConcurrentHashMap();
         map.put("topics", topi);
         // String path = System.getProperty("user.dir");
-        // generator("D:\\tomcat6\\webapps\\gdoj\\WEB-INF","latesttopic.ftl","latesttopic.html","topics",map);
+        // generator("D:\\tomcat6\\webapps\\hbut\\WEB-INF","latesttopic.ftl","latesttopic.html","topics",map);
         System.out.println("Successfull................");
     }
 }

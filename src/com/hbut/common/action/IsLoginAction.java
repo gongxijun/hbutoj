@@ -8,7 +8,6 @@ public class IsLoginAction {
     public void execute() throws Exception {
         String username = (String) ActionContext.getContext().getSession()
                 .get("session_username");
-        // System.out.println("----"+ServletActionContext.getRequest().getRequestURL());
         if (null != username) {
             // actionContext.put("tip","Login");
             ServletActionContext.getResponse().getWriter().print(1);

@@ -2,9 +2,120 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="f78f2d0c-9188-46af-9179-1ea0be0bef95" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebRoot/img/ico/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebRoot/lib/guava-18.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/admin/action/AdminAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/admin/action/AdminAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/util/CompressImage.java" afterPath="$PROJECT_DIR$/src/com/util/CompressImage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/contest/action/ContestAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/contest/action/ContestAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/common/interceptor/ContestInterceptor.java" afterPath="$PROJECT_DIR$/src/com/hbut/common/interceptor/ContestInterceptor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/admin/action/ContestListAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/admin/action/ContestListAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/admin/action/GetFileListAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/admin/action/GetFileListAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/common/interceptor/IsHeadInterceptor.java" afterPath="$PROJECT_DIR$/src/com/hbut/common/interceptor/IsHeadInterceptor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/common/action/IsLoginAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/common/action/IsLoginAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/common/interceptor/IsNoEditAdminInterceptor.java" afterPath="$PROJECT_DIR$/src/com/hbut/common/interceptor/IsNoEditAdminInterceptor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/common/action/JsonLoginAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/common/action/JsonLoginAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/solution_source/action/JsonSolution_sourceAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/solution_source/action/JsonSolution_sourceAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/test/thread/JudgeQueue.java" afterPath="$PROJECT_DIR$/src/com/hbut/test/thread/JudgeQueue.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/common/action/LocaleAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/common/action/LocaleAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/test/thread/MailUtil.java" afterPath="$PROJECT_DIR$/src/com/hbut/test/thread/MailUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/util/MailUtil.java" afterPath="$PROJECT_DIR$/src/com/util/MailUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/message/action/MessageAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/message/action/MessageAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/user/action/ModifyUserAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/user/action/ModifyUserAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/util/freemarker/MyFreeMarker.java" afterPath="$PROJECT_DIR$/src/com/util/freemarker/MyFreeMarker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/news/action/NewsListAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/news/action/NewsListAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/listener/OnlineHttpSessionListener.java" afterPath="$PROJECT_DIR$/src/com/hbut/listener/OnlineHttpSessionListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/mail/action/PostMailAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/mail/action/PostMailAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/message/action/PostMessageAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/message/action/PostMessageAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/privilege/dao/PrivilegeDAO.java" afterPath="$PROJECT_DIR$/src/com/hbut/privilege/dao/PrivilegeDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/admin/action/ProblemListAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/admin/action/ProblemListAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/admin/action/ProblemShowAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/admin/action/ProblemShowAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/common/action/QueueAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/common/action/QueueAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/admin/action/ReJudgeAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/admin/action/ReJudgeAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/common/action/RegisterAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/common/action/RegisterAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/common/action/SearchAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/common/action/SearchAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/admin/action/ShowFileContentAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/admin/action/ShowFileContentAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/solution/dao/SolutionDaoImpl.java" afterPath="$PROJECT_DIR$/src/com/hbut/solution/dao/SolutionDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/admin/action/SolutionListAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/admin/action/SolutionListAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/admin/action/Solution_sourceAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/admin/action/Solution_sourceAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/listener/TimerListener.java" afterPath="$PROJECT_DIR$/src/com/hbut/listener/TimerListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/admin/action/UploadFileAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/admin/action/UploadFileAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/admin/action/UserListAction.java" afterPath="$PROJECT_DIR$/src/com/hbut/admin/action/UserListAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/util/ZipToFile.java" afterPath="$PROJECT_DIR$/src/com/util/ZipToFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/addcontest.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/addcontest.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/addmessage.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/addmessage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/addproblem.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/addproblem.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/chart.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/chart.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config.properties" afterPath="$PROJECT_DIR$/src/config.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/contestedit.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/contestedit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/contestlist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/contestlist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/contest/contestlist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/contest/contestlist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/contestshow.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/contestshow.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/contest/contestshow.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/contest/contestshow.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/error.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/error.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hbutoj.iml" afterPath="$PROJECT_DIR$/hbutoj.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/hbutoj_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/hbutoj_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/head.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/head.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/home.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/home.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/index.jsp" afterPath="$PROJECT_DIR$/WebRoot/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/index.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/lib12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/lib12.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/login.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/loginEx.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/loginEx.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/mailnew.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/mailnew.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/mailrecvlist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/mailrecvlist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/mailsendlist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/mailsendlist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/mailshow.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/mailshow.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/messageedit.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/messageedit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/messagenew.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/messagenew.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/messageshow.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/messageshow.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/messageslist-7-10.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/messageslist-7-10.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/messageslist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/messageslist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/messageslist_.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/messageslist_.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/modifyuser.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/modifyuser.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hbut/test/thread/myThread.java" afterPath="$PROJECT_DIR$/src/com/hbut/test/thread/myThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/newsedit.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/newsedit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/newslist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/newslist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/newslist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/newslist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/newsnew.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/newsnew.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/newsshow.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/newsshow.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/newsshow.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/newsshow.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/contest/other_oj.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/contest/other_oj.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/password-recovery.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/password-recovery.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/privilegelist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/privilegelist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/problemedit.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/problemedit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/problemset.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/problemset.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/problemset.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/problemset.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/problemshow.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/problemshow.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/problemshow.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/problemshow.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/contest/problemshow.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/contest/problemshow.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/profile.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/profile.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/recentaction.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/recentaction.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/register.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/register.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/contest/registrantslist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/contest/registrantslist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/searchlist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/searchlist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/showfile.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/showfile.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/showpath.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/showpath.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/standings.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/standings.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/contest/standings.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/contest/standings.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/statistic.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/statistic.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/status.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/status.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/status.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/status.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/contest/status.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/contest/status.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/css/styles.css" afterPath="$PROJECT_DIR$/WebRoot/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/submitsolution.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/submitsolution.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/success.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/success.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/switch.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/switch.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/testfilelist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/testfilelist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/token.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/token.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/unknownurl.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/unknownurl.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/admin/userlist.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/admin/userlist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/viewcompileerror.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/viewcompileerror.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/jsp/viewsource.jsp" afterPath="$PROJECT_DIR$/WebRoot/jsp/viewsource.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gdoj.iws" />
@@ -32,50 +143,113 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="gdoj" />
+    <favorites_list name="hbutoj" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CalcRating.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/util/CalcRating.java">
+      <file leaf-file-name="JudgeQueue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hbut/test/thread/JudgeQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2180">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="454" max-vertical-offset="900">
+              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#319#328#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TagsAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hbut/tags/action/TagsAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="694" max-vertical-offset="1140">
+              <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TagsService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hbut/tags/service/TagsService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="560">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContestSubmitAction.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/hbut/common/action/ContestSubmitAction.java">
+      <file leaf-file-name="TagsServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hbut/tags/service/TagsServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62565446" vertical-offset="1501" max-vertical-offset="2380">
-              <caret line="93" column="58" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1040">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JsonSolution_sourceAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hbut/solution_source/action/JsonSolution_sourceAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="5240">
+              <caret line="121" column="38" selection-start-line="121" selection-start-column="23" selection-end-line="121" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Solution_sourceAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hbut/solution_source/action/Solution_sourceAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="4840">
+              <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewsAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hbut/news/action/NewsAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1834" max-vertical-offset="2280">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewsListAction.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/hbut/news/action/NewsListAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.5303867" vertical-offset="2637" max-vertical-offset="3180">
+              <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="37" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1035#1036#0" expanded="true" />
-                <element signature="e#1066#1067#0" expanded="true" />
-                <element signature="e#1115#1116#0" expanded="true" />
-                <element signature="e#1155#1156#0" expanded="true" />
-                <element signature="e#1198#1199#0" expanded="true" />
-                <element signature="e#1232#1233#0" expanded="true" />
-                <element signature="e#1291#1292#0" expanded="true" />
-                <element signature="e#1337#1338#0" expanded="true" />
-                <element signature="e#1369#1370#0" expanded="true" />
-                <element signature="e#1397#1398#0" expanded="true" />
-                <element signature="e#1615#1616#0" expanded="true" />
-                <element signature="e#1661#1662#0" expanded="true" />
-                <element signature="e#1712#1713#0" expanded="true" />
-                <element signature="e#1750#1751#0" expanded="true" />
-                <element signature="e#1821#1822#0" expanded="true" />
-                <element signature="e#1875#1876#0" expanded="true" />
-                <element signature="e#1924#1925#0" expanded="true" />
-                <element signature="e#1961#1962#0" expanded="true" />
-                <element signature="e#2029#2030#0" expanded="true" />
-                <element signature="e#2081#2082#0" expanded="true" />
-                <element signature="e#2118#2119#0" expanded="true" />
-                <element signature="e#2150#2151#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hbut/test/thread/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="3880">
+              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testthread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hbut/test/thread/testthread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,57 +262,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/hbut/problem/action/JsonProblemListAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/problem/action/ProblemListAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/problem/action/ProblemShowAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution/action/ContestSolutionListAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution/action/ContestSubmitionAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution/action/JsonSolutionListAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution/action/JsonStatusAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution/action/SolutionListAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution/action/SolutionStatisticAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution/action/StatisticAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution_source/action/JsonSolution_sourceAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution_source/action/Solution_sourceAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/tagsview/action/TagsviewAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/thread/TimerThread.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/user/action/ModifyUserAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/user/action/SettingsUserAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/user/action/UserAction.java" />
-        <option value="$PROJECT_DIR$/src/com/util/Tools.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/mail/vo/Mail.java" />
-        <option value="$PROJECT_DIR$/src/com/util/DateUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/user/vo/User.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/bean/OnlineUserBean.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/user/action/ProfileAction.java" />
-        <option value="$PROJECT_DIR$/WebRoot/WEB-INF/templates/homedefault.html" />
-        <option value="$PROJECT_DIR$/WebRoot/WEB-INF/templates/topusers.html" />
-        <option value="$PROJECT_DIR$/WebRoot/WEB-INF/templates/sidebarex.html" />
-        <option value="$PROJECT_DIR$/WebRoot/WEB-INF/templates/latesttopic.html" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution/action/SubmitionAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution/vo/Solution.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/vote/vo/Vote.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/vote/vo/Vote.hbm.xml" />
-        <option value="$PROJECT_DIR$/src/com/hbut/user/vo/User.hbm.xml" />
-        <option value="$PROJECT_DIR$/src/com/hbut/tags/action/TagsAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/tags/vo/Tags.hbm.xml" />
-        <option value="$PROJECT_DIR$/src/com/hbut/solution/vo/Solution.hbm.xml" />
-        <option value="$PROJECT_DIR$/src/com/hbut/problem/action/ProblemAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/problem/vo/Problem.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/problem/vo/Problem.hbm.xml" />
-        <option value="$PROJECT_DIR$/src/com/hbut/news/vo/News.hbm.xml" />
-        <option value="$PROJECT_DIR$/src/com/hbut/message/action/JsonMessageVoteAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/message/action/MessageAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/message/action/PostMessageAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/message/vo/Message.hbm.xml" />
-        <option value="$PROJECT_DIR$/src/com/hbut/mail/vo/Mail.hbm.xml" />
-        <option value="$PROJECT_DIR$/src/com/hbut/listener/JudgeListener.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/filter/URLFilter.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/common/action/JsonLoginAction.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/bean/QuartzOnlineUsersJob.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/admin/action/GetFileListAction.java" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/messageslist_.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/modifyuser.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/newsshow.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/password-recovery.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/recentaction.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/register.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/standings.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/statistic.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/status.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/submitsolution.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/success.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/token.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/unknownurl.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/viewcompileerror.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/viewsource.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/contestshow.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/contestlist.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/contestedit.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/home.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/index.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/newsedit.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/newslist.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/newsnew.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/newsshow.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/privilegelist.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/problemedit.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/problemshow.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/problemset.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/showfile.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/showpath.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/status.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/switch.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/testfilelist.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/userlist.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/contest/other_oj.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/contest/problemshow.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/contest/standings.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/contest/status.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/addcontest.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/admin/addproblem.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/contest/contestlist.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/contest/registrantslist.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/addmessage.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/head.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/jsp/newslist.jsp" />
         <option value="$PROJECT_DIR$/src/com/util/freemarker/MyFreeMarker.java" />
-        <option value="$PROJECT_DIR$/src/com/hbut/mail/action/PostMailAction.java" />
+        <option value="$PROJECT_DIR$/src/com/hbut/test/thread/MailUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/hbut/test/thread/myThread.java" />
+        <option value="$PROJECT_DIR$/src/com/hbut/test/thread/JudgeQueue.java" />
+        <option value="$PROJECT_DIR$/src/com/hbut/solution_source/action/JsonSolution_sourceAction.java" />
+        <option value="$PROJECT_DIR$/src/com/hbut/news/action/NewsListAction.java" />
       </list>
     </option>
   </component>
@@ -186,6 +360,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -235,92 +410,9 @@
               <option name="myItemId" value="com" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hbutoj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hbutoj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hbut" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hbutoj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hbutoj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hbut" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hbutoj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hbutoj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hbut" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="action" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -335,24 +427,90 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/WebRoot/js/ke/jsp/lib" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="options.lastSelected" value="File.Encoding" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="LayoutCode.rearrangeEntries" value="false" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="head&#9;FILE&#9;file://D:/github/hbutoj/out/artifacts/hbutoj_war_exploded/jsp/head.jsp&#10;Sear&#9;FILE&#9;file://D:/github/hbutoj/src/com/hbut/common/action/SearchAction.java" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github\hbutoj\WebRoot\img\ico" />
+      <recent name="D:\github\hbutoj\WebRoot" />
+      <recent name="D:\github\hbutoj\WebRoot\lib" />
       <recent name="D:\Program Files (x86)\Workspaces\MyEclipse 10\acmoj\gdoj.git\trunk\gdoj\WebRoot\WEB-INF\lib" />
       <recent name="D:\Program Files (x86)\Workspaces\MyEclipse 10\acmoj\gdoj.git\trunk\gdoj\WebRoot\lib" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.hbut">
+    <configuration default="false" name="IsHeadInterceptor.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.hbut.common.interceptor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="hbutoj" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.hbut.common.interceptor" />
+      <option name="MAIN_CLASS_NAME" value="com.hbut.common.interceptor.IsHeadInterceptor" />
+      <option name="METHOD_NAME" value="main" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="IsHeadInterceptor.testMain" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.hbut.common.interceptor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="hbutoj" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.hbut.common.interceptor" />
+      <option name="MAIN_CLASS_NAME" value="com.hbut.common.interceptor.IsHeadInterceptor" />
+      <option name="METHOD_NAME" value="testMain" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -510,6 +668,7 @@
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/WebRoot/lib/guava-18.0.jar" />
       <envs />
       <method />
     </configuration>
@@ -691,6 +850,7 @@
     </configuration>
     <configuration default="false" name="hbut" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" editBeforeRun="true" APPLICATION_SERVER_NAME="Tomcat 6.0.29" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/hbut" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="hbutoj:war exploded">
@@ -761,14 +921,23 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method>
+        <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="hbutoj:war exploded" />
         </option>
       </method>
     </configuration>
-    <list size="1">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.hbut" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.IsHeadInterceptor.main" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.IsHeadInterceptor.testMain" />
     </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.IsHeadInterceptor.testMain" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.IsHeadInterceptor.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SliceManager">
@@ -790,7 +959,12 @@
       <workItem from="1462875643313" duration="16445000" />
       <workItem from="1462932164136" duration="11188000" />
       <workItem from="1462956691388" duration="5274000" />
-      <workItem from="1463037856577" duration="6816000" />
+      <workItem from="1463037856577" duration="11202000" />
+      <workItem from="1463237175481" duration="4798000" />
+      <workItem from="1463311307112" duration="582000" />
+      <workItem from="1463316326865" duration="527000" />
+      <workItem from="1463364377855" duration="21461000" />
+      <workItem from="1463448902432" duration="8657000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1462878245423</created>
@@ -810,11 +984,17 @@
       <option name="project" value="LOCAL" />
       <updated>1462960797852</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完善缺失功能">
+      <created>1463109753990</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1463109753990</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42063000" />
+    <option name="totallyTimeSpent" value="82474000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -838,42 +1018,78 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47401574" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17156863" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17156863" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290469" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33385828" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2254902" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2944882" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46456692" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.045751635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2254902" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29411766" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4624183" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4722222" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47086614" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14052288" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25718608" sideWeight="0.5011765" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2489019" sideWeight="0.49882352" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25718608" sideWeight="0.5011765" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25718608" sideWeight="0.5011765" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4722222" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26143792" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48856208" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24508321" sideWeight="0.3127148" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24508321" sideWeight="0.68728524" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24508321" sideWeight="0.3127148" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24508321" sideWeight="0.3127148" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.70261437" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36928105" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47401574" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17156863" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290469" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.70261437" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5417323" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2254902" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2944882" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46456692" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4722222" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47086614" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14052288" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25718608" sideWeight="0.5011765" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2489019" sideWeight="0.49882352" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25718608" sideWeight="0.5011765" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25718608" sideWeight="0.5011765" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -905,620 +1121,444 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="29" />
+      <option name="time" value="51" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="SearchAction" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/action/RegisterAction.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/contest/problemshow.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2780">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.5172415" vertical-offset="180" max-vertical-offset="3560">
+          <caret line="17" column="85" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/action/RegisterAction-validation.xml">
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/contest/standings.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1280">
+        <state vertical-scroll-proportion="-6.206897" vertical-offset="120" max-vertical-offset="5680">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/contest/submit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="12.413794" vertical-offset="360" max-vertical-offset="3040">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/action/SearchAction.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/WEB-INF/templates/3-31-homepage.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="2500">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="372">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/action/ShowImageAction.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="760">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state vertical-scroll-proportion="-9.655172" vertical-offset="60" max-vertical-offset="1280">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/action/SubmitAction.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/admin/addproblem.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="1520">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state vertical-scroll-proportion="-3.4482758" vertical-offset="160" max-vertical-offset="9660">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/action/UpdateRatingAction.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/admin/addcontest.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="1860">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state vertical-scroll-proportion="2.7586207" vertical-offset="240" max-vertical-offset="6520">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/action/UploadAction.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/contest/contestlist.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1700">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state vertical-scroll-proportion="-0.0" vertical-offset="340" max-vertical-offset="6560">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/action/UserInfoTipAction.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/contest/contestshow.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="483" max-vertical-offset="3160">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state vertical-scroll-proportion="24.827587" vertical-offset="720" max-vertical-offset="4240">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/interceptor/BBSInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/contest/other_oj.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="1000">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/interceptor/ContestInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/interceptor/EnterInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="740">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/interceptor/IsAdminInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="940">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/interceptor/IsContestRegisterInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="1580">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/interceptor/IsHeadInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="820">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/interceptor/IsNoEditAdminInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1060">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/interceptor/LoginInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="760">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/bean/ContestListBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1100">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/bean/FileInfoBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="520">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/bean/LatestTopicBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="940">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/bean/ProblemInfoBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/bean/QuartzJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1920">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/bean/QuartzOnlineUsersJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1500">
-          <caret line="56" column="61" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/bean/ShowImageBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/bean/StatisticBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/bean/StatusBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/bean/TopUsersBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/AdminAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="3980">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/ContestListAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1940">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/ContestShowAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="188" max-vertical-offset="2140">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/GetFileListAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="1240">
-          <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/HomeEditAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1020">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/HomeMakerAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/ProblemListAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2060">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/ProblemShowAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/ReJudgeAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="2560">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/ShowFileContentAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/ShowTestFileAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1240">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/Solution_sourceAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="5940">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.8965516" vertical-offset="120" max-vertical-offset="2380">
+          <caret line="16" column="85" selection-start-line="16" selection-start-column="85" selection-end-line="16" selection-end-column="85" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <marker date="1463455731548" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/SolutionListAction.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/contest/registrantslist.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7774869" vertical-offset="3" max-vertical-offset="4040">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state vertical-scroll-proportion="-8.965517" vertical-offset="120" max-vertical-offset="2340">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/contest/status.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4482758" vertical-offset="240" max-vertical-offset="8860">
+          <caret line="17" column="85" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
           <folding>
-            <element signature="e#959#960#0" expanded="false" />
-            <element signature="e#993#994#0" expanded="false" />
-            <element signature="e#1052#1053#0" expanded="false" />
-            <element signature="e#1098#1099#0" expanded="false" />
-            <element signature="e#1147#1148#0" expanded="false" />
-            <element signature="e#1184#1185#0" expanded="false" />
-            <element signature="e#1252#1253#0" expanded="false" />
-            <element signature="e#1304#1305#0" expanded="false" />
-            <element signature="e#1720#1721#0" expanded="false" />
-            <element signature="e#1752#1753#0" expanded="false" />
-            <element signature="e#1803#1804#0" expanded="false" />
-            <element signature="e#1845#1846#0" expanded="false" />
-            <element signature="e#5141#5142#0" expanded="false" />
-            <element signature="e#5179#5180#0" expanded="false" />
-            <element signature="e#5250#5251#0" expanded="false" />
-            <element signature="e#5304#5305#0" expanded="false" />
-            <element signature="e#5351#5352#0" expanded="false" />
-            <element signature="e#5386#5387#0" expanded="false" />
-            <element signature="e#5450#5451#0" expanded="false" />
-            <element signature="e#5498#5499#0" expanded="false" />
-            <element signature="e#5536#5537#0" expanded="false" />
-            <element signature="e#5569#5570#0" expanded="false" />
-            <element signature="e#5622#5623#0" expanded="false" />
-            <element signature="e#5666#5667#0" expanded="false" />
-            <element signature="e#5703#5704#0" expanded="false" />
-            <element signature="e#5735#5736#0" expanded="false" />
-            <element signature="e#5786#5787#0" expanded="false" />
-            <element signature="e#5828#5829#0" expanded="false" />
-            <element signature="e#5870#5871#0" expanded="false" />
-            <element signature="e#5901#5902#0" expanded="false" />
-            <element signature="e#5956#5957#0" expanded="false" />
-            <element signature="e#5996#5997#0" expanded="false" />
-            <element signature="e#6033#6034#0" expanded="false" />
-            <element signature="e#6065#6066#0" expanded="false" />
-            <element signature="e#6116#6117#0" expanded="false" />
-            <element signature="e#6158#6159#0" expanded="false" />
-            <element signature="e#6193#6194#0" expanded="false" />
-            <element signature="e#6224#6225#0" expanded="false" />
-            <element signature="e#6272#6273#0" expanded="false" />
-            <element signature="e#6312#6313#0" expanded="false" />
-            <element signature="e#6351#6352#0" expanded="false" />
-            <element signature="e#6385#6386#0" expanded="false" />
-            <element signature="e#6440#6441#0" expanded="false" />
-            <element signature="e#6486#6487#0" expanded="false" />
-            <element signature="e#6522#6523#0" expanded="false" />
-            <element signature="e#6553#6554#0" expanded="false" />
-            <element signature="e#6602#6603#0" expanded="false" />
-            <element signature="e#6642#6643#0" expanded="false" />
-            <element signature="e#6674#6675#0" expanded="false" />
-            <element signature="e#6701#6702#0" expanded="false" />
-            <element signature="e#6742#6743#0" expanded="false" />
-            <element signature="e#6774#6775#0" expanded="false" />
-            <element signature="e#6823#6824#0" expanded="false" />
-            <element signature="e#6860#6861#0" expanded="false" />
-            <element signature="e#6928#6929#0" expanded="false" />
-            <element signature="e#6980#6981#0" expanded="false" />
-            <element signature="e#7025#7026#0" expanded="false" />
-            <element signature="e#7060#7061#0" expanded="false" />
-            <element signature="e#7122#7123#0" expanded="false" />
-            <element signature="e#7170#7171#0" expanded="false" />
+            <marker date="1463455803785" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1463455803785" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/TestFileListAction.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/addmessage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1920">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#517#518#0" expanded="false" />
-            <element signature="e#551#552#0" expanded="false" />
-            <element signature="e#611#612#0" expanded="false" />
-            <element signature="e#657#658#0" expanded="false" />
-            <element signature="e#702#703#0" expanded="false" />
-            <element signature="e#737#738#0" expanded="false" />
-            <element signature="e#799#800#0" expanded="false" />
-            <element signature="e#847#848#0" expanded="false" />
-            <element signature="e#881#882#0" expanded="false" />
-            <element signature="e#910#911#0" expanded="false" />
-            <element signature="e#955#956#0" expanded="false" />
-            <element signature="e#991#992#0" expanded="false" />
-            <element signature="e#1032#1033#0" expanded="false" />
-            <element signature="e#1065#1066#0" expanded="false" />
-            <element signature="e#1121#1122#0" expanded="false" />
-            <element signature="e#1165#1166#0" expanded="false" />
-            <element signature="e#1207#1208#0" expanded="false" />
-            <element signature="e#1241#1242#0" expanded="false" />
-            <element signature="e#1299#1300#0" expanded="false" />
-            <element signature="e#1345#1346#0" expanded="false" />
-            <element signature="e#1382#1383#0" expanded="false" />
-            <element signature="e#1414#1415#0" expanded="false" />
-            <element signature="e#1465#1466#0" expanded="false" />
-            <element signature="e#1507#1508#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-10.344828" vertical-offset="60" max-vertical-offset="2000">
+          <caret line="18" column="82" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="82" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/TopUsersAction.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/js.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.20759493" vertical-offset="122" max-vertical-offset="1740">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="433">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/head.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5172415" vertical-offset="0" max-vertical-offset="4800">
+          <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/footer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3793104" vertical-offset="0" max-vertical-offset="1020">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/UploadFileAction.java">
+    <entry file="file://$PROJECT_DIR$/out/artifacts/hbutoj_war_exploded/jsp/contest/contestlist.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1840">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="e#599#600#0" expanded="false" />
-            <element signature="e#634#635#0" expanded="false" />
-            <element signature="e#696#697#0" expanded="false" />
-            <element signature="e#744#745#0" expanded="false" />
-            <element signature="e#779#780#0" expanded="false" />
-            <element signature="e#806#807#0" expanded="false" />
-            <element signature="e#850#851#0" expanded="false" />
-            <element signature="e#882#883#0" expanded="false" />
-            <element signature="e#919#920#0" expanded="false" />
-            <element signature="e#951#952#0" expanded="false" />
-            <element signature="e#1002#1003#0" expanded="false" />
-            <element signature="e#1044#1045#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6560">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/UserListAction.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/jsp/newslist.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1680">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state vertical-scroll-proportion="15.862069" vertical-offset="720" max-vertical-offset="2220">
+          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/listener/OnlineHttpSessionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="880">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/listener/JudgeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="660">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/mail/action/JsonNewMailCountAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="927" max-vertical-offset="1360">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/mail/action/MailAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="5100">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/message/action/MessageAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="14040">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/thread/TimerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="840">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/WebRoot/lib/freemarker-2.3.15.jar!/freemarker/template/Configuration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3529412" vertical-offset="516" max-vertical-offset="8820">
+          <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_25/src.zip!/java/util/concurrent/ConcurrentHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1300448" vertical-offset="16016" max-vertical-offset="30920">
+          <caret line="867" column="11" selection-start-line="867" selection-start-column="11" selection-end-line="867" selection-end-column="11" />
           <folding>
-            <element signature="e#742#743#0" expanded="false" />
-            <element signature="e#773#774#0" expanded="false" />
-            <element signature="e#822#823#0" expanded="false" />
-            <element signature="e#862#863#0" expanded="false" />
-            <element signature="e#904#905#0" expanded="false" />
-            <element signature="e#935#936#0" expanded="false" />
-            <element signature="e#990#991#0" expanded="false" />
-            <element signature="e#1030#1031#0" expanded="false" />
-            <element signature="e#1070#1071#0" expanded="false" />
-            <element signature="e#1102#1103#0" expanded="false" />
-            <element signature="e#1156#1157#0" expanded="false" />
-            <element signature="e#1198#1199#0" expanded="false" />
-            <element signature="e#1230#1231#0" expanded="false" />
-            <element signature="e#1257#1258#0" expanded="false" />
-            <element signature="e#1298#1299#0" expanded="false" />
-            <element signature="e#1330#1331#0" expanded="false" />
-            <element signature="e#1362#1363#0" expanded="false" />
-            <element signature="e#1390#1391#0" expanded="false" />
-            <element signature="e#1432#1433#0" expanded="false" />
-            <element signature="e#1466#1467#0" expanded="false" />
-            <element signature="e#1509#1510#0" expanded="false" />
-            <element signature="e#1543#1544#0" expanded="false" />
-            <element signature="e#1602#1603#0" expanded="false" />
-            <element signature="e#1648#1649#0" expanded="false" />
+            <element signature="e#33317#33318#0" expanded="true" />
+            <element signature="e#33411#33412#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/util/freemarker/MyFreeMarker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31413612" vertical-offset="120" max-vertical-offset="1640">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1500">
+          <caret line="69" column="39" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/bean/MessageBean.java">
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/vote/dao/VoteDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24050634" vertical-offset="2525" max-vertical-offset="2920">
-          <caret line="209" column="16" selection-start-line="209" selection-start-column="16" selection-end-line="209" selection-end-column="16" />
-          <folding>
-            <element signature="e#1051#1052#0" expanded="false" />
-            <element signature="e#1080#1081#0" expanded="false" />
-            <element signature="e#1124#1125#0" expanded="false" />
-            <element signature="e#1160#1161#0" expanded="false" />
-            <element signature="e#1199#1200#0" expanded="false" />
-            <element signature="e#1233#1234#0" expanded="false" />
-            <element signature="e#1288#1289#0" expanded="false" />
-            <element signature="e#1334#1335#0" expanded="false" />
-            <element signature="e#1374#1375#0" expanded="false" />
-            <element signature="e#1410#1411#0" expanded="false" />
-            <element signature="e#1468#1469#0" expanded="false" />
-            <element signature="e#1518#1519#0" expanded="false" />
-            <element signature="e#1556#1557#0" expanded="false" />
-            <element signature="e#1592#1593#0" expanded="false" />
-            <element signature="e#1648#1649#0" expanded="false" />
-            <element signature="e#1698#1699#0" expanded="false" />
-            <element signature="e#1746#1747#0" expanded="false" />
-            <element signature="e#1790#1791#0" expanded="false" />
-            <element signature="e#1967#1968#0" expanded="false" />
-            <element signature="e#1999#2000#0" expanded="false" />
-            <element signature="e#2050#2051#0" expanded="false" />
-            <element signature="e#2092#2093#0" expanded="false" />
-            <element signature="e#2129#2130#0" expanded="false" />
-            <element signature="e#2161#2162#0" expanded="false" />
-            <element signature="e#2212#2213#0" expanded="false" />
-            <element signature="e#2254#2255#0" expanded="false" />
-            <element signature="e#2291#2292#0" expanded="false" />
-            <element signature="e#2323#2324#0" expanded="false" />
-            <element signature="e#2374#2375#0" expanded="false" />
-            <element signature="e#2416#2417#0" expanded="false" />
-            <element signature="e#2452#2453#0" expanded="false" />
-            <element signature="e#2483#2484#0" expanded="false" />
-            <element signature="e#2532#2533#0" expanded="false" />
-            <element signature="e#2572#2573#0" expanded="false" />
-            <element signature="e#2608#2609#0" expanded="false" />
-            <element signature="e#2639#2640#0" expanded="false" />
-            <element signature="e#2688#2689#0" expanded="false" />
-            <element signature="e#2728#2729#0" expanded="false" />
-            <element signature="e#2762#2763#0" expanded="false" />
-            <element signature="e#2791#2792#0" expanded="false" />
-            <element signature="e#2836#2837#0" expanded="false" />
-            <element signature="e#2872#2873#0" expanded="false" />
-            <element signature="e#2905#2906#0" expanded="false" />
-            <element signature="e#2933#2934#0" expanded="false" />
-            <element signature="e#2976#2977#0" expanded="false" />
-            <element signature="e#3010#3011#0" expanded="false" />
-            <element signature="e#3043#3044#0" expanded="false" />
-            <element signature="e#3071#3072#0" expanded="false" />
-            <element signature="e#3114#3115#0" expanded="false" />
-            <element signature="e#3148#3149#0" expanded="false" />
-            <element signature="e#3184#3185#0" expanded="false" />
-            <element signature="e#3215#3216#0" expanded="false" />
-            <element signature="e#3264#3265#0" expanded="false" />
-            <element signature="e#3304#3305#0" expanded="false" />
-            <element signature="e#3336#3337#0" expanded="false" />
-            <element signature="e#3364#3365#0" expanded="false" />
-            <element signature="e#3406#3407#0" expanded="false" />
-            <element signature="e#3440#3441#0" expanded="false" />
-            <element signature="e#3474#3475#0" expanded="false" />
-            <element signature="e#3504#3505#0" expanded="false" />
-            <element signature="e#3550#3551#0" expanded="false" />
-            <element signature="e#3588#3589#0" expanded="false" />
-            <element signature="e#3622#3623#0" expanded="false" />
-            <element signature="e#3652#3653#0" expanded="false" />
-            <element signature="e#3698#3699#0" expanded="false" />
-            <element signature="e#3736#3737#0" expanded="false" />
-            <element signature="e#3768#3769#0" expanded="false" />
-            <element signature="e#3798#3799#0" expanded="false" />
-            <element signature="e#3912#3913#0" expanded="false" />
-            <element signature="e#3941#3942#0" expanded="false" />
-            <element signature="e#3985#3986#0" expanded="false" />
-            <element signature="e#4021#4022#0" expanded="false" />
-            <element signature="e#4064#4065#0" expanded="false" />
-            <element signature="e#4103#4104#0" expanded="false" />
-            <element signature="e#4166#4167#0" expanded="false" />
-            <element signature="e#4216#4217#0" expanded="false" />
-            <element signature="e#4256#4257#0" expanded="false" />
-            <element signature="e#4292#4293#0" expanded="false" />
-            <element signature="e#4429#4430#0" expanded="false" />
-            <element signature="e#4460#4461#0" expanded="false" />
-            <element signature="e#4509#4510#0" expanded="false" />
-            <element signature="e#4549#4550#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/message/vo/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.987013" vertical-offset="0" max-vertical-offset="2040">
-          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/admin/action/RecentActionAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1346" max-vertical-offset="1820">
-          <caret line="68" column="9" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/util/MailUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3584" max-vertical-offset="4020">
-          <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/mail/action/PostMailAction.java">
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/vote/dao/VoteDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1392405" vertical-offset="3125" max-vertical-offset="3520">
-          <caret line="186" column="14" selection-start-line="186" selection-start-column="14" selection-end-line="186" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/util/CalcRating.java">
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/vote/service/VoteService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2180">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/vote/service/VoteServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hbut/common/action/ContestSubmitAction.java">
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/vote/vo/Vote.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62565446" vertical-offset="1501" max-vertical-offset="2380">
-          <caret line="93" column="58" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="780">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1035#1036#0" expanded="true" />
-            <element signature="e#1066#1067#0" expanded="true" />
-            <element signature="e#1115#1116#0" expanded="true" />
-            <element signature="e#1155#1156#0" expanded="true" />
-            <element signature="e#1198#1199#0" expanded="true" />
-            <element signature="e#1232#1233#0" expanded="true" />
-            <element signature="e#1291#1292#0" expanded="true" />
-            <element signature="e#1337#1338#0" expanded="true" />
-            <element signature="e#1369#1370#0" expanded="true" />
-            <element signature="e#1397#1398#0" expanded="true" />
-            <element signature="e#1615#1616#0" expanded="true" />
-            <element signature="e#1661#1662#0" expanded="true" />
-            <element signature="e#1712#1713#0" expanded="true" />
-            <element signature="e#1750#1751#0" expanded="true" />
-            <element signature="e#1821#1822#0" expanded="true" />
-            <element signature="e#1875#1876#0" expanded="true" />
-            <element signature="e#1924#1925#0" expanded="true" />
-            <element signature="e#1961#1962#0" expanded="true" />
-            <element signature="e#2029#2030#0" expanded="true" />
-            <element signature="e#2081#2082#0" expanded="true" />
-            <element signature="e#2118#2119#0" expanded="true" />
-            <element signature="e#2150#2151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/user/action/ModifyUserAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4100">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/user/action/ProfileAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2927" max-vertical-offset="3360">
+          <caret line="17" column="0" selection-start-line="16" selection-start-column="22" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/user/action/SettingsUserAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="754" max-vertical-offset="1500">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/user/action/StandingsAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1494" max-vertical-offset="2120">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/user/action/UserAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="874" max-vertical-offset="1320">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/test/thread/Mail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="954" max-vertical-offset="1400">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/test/thread/MailUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1180">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_25/src.zip!/java/lang/Runtime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="8956" max-vertical-offset="17480">
+          <caret line="483" column="19" selection-start-line="483" selection-start-column="19" selection-end-line="483" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/test/thread/myThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1000">
+          <caret line="33" column="34" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/test/thread/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3880">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/test/thread/testthread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/test/thread/JudgeQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="454" max-vertical-offset="900">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#319#328#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/tags/action/TagsAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="694" max-vertical-offset="1140">
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/tags/service/TagsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="560">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/tags/service/TagsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1040">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/solution_source/action/JsonSolution_sourceAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="5240">
+          <caret line="121" column="38" selection-start-line="121" selection-start-column="23" selection-end-line="121" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/solution_source/action/Solution_sourceAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="4840">
+          <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/news/action/NewsAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1834" max-vertical-offset="2280">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hbut/news/action/NewsListAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5303867" vertical-offset="2637" max-vertical-offset="3180">
+          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="37" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1535,6 +1575,17 @@
               <list>
                 <option value="0.2" />
                 <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>
@@ -1577,7 +1628,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Web|hbutoj</last-edited>
+          <last-edited>Hibernate|hbutoj</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1601,7 +1652,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>lib</last-edited>
+          <last-edited>lib1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1612,5 +1663,8 @@
         </settings>
       </state>
     </states>
+  </component>
+  <component name="mavenExecuteGoalHistory">
+    <option value="" />
   </component>
 </project>

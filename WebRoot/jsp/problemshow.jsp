@@ -9,7 +9,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>Problem <s:property value="problem.problem_id"/>.<s:property value="problem.title"/> - GUET Online
+    <title>Problem <s:property value="problem.problem_id"/>.<s:property value="problem.title"/> - HBUT Online
         Judge</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">

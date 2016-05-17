@@ -649,7 +649,7 @@ public class MessageAction extends ActionSupport {
                                 .getName();
                         tagsList.add(tString_);
 
-                        System.out.println(tagsService.queryTag(t.getTag_id())
+                      logger.info(tagsService.queryTag(t.getTag_id())
                                 .getName());
                     }
                     tagsCount = tagsList.size();

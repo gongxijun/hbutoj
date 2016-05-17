@@ -35,6 +35,7 @@ public class PostMailAction extends ActionSupport {
     public String postMail() throws Exception {
 
         try {
+
             String username = new String();
             username = (String) ActionContext.getContext().getSession()
                     .get("session_username");
@@ -43,17 +44,17 @@ public class PostMailAction extends ActionSupport {
                 error = "You must login first.";
                 return SUCCESS;
             }
-            if (null == title || title.trim().length() == 0) {
+            if (null == title || title.trim().length() > 0) {
                 success = false;
                 error = "Title shouldn't be empty.";
                 return SUCCESS;
             }
-            if (null == content || content.trim().length() == 0) {
+            if (null == content || content.trim().length() > 0) {
                 success = false;
                 error = "Content shouldn't be empty.";
                 return SUCCESS;
             }
-            if (null == toUser || toUser.trim().length() == 0) {
+            if (null == toUser || toUser.trim().length() > 0) {
                 success = false;
                 error = "Receive-user shouldn't be empty.";
                 return SUCCESS;
@@ -75,7 +76,7 @@ public class PostMailAction extends ActionSupport {
             if (dt_prevSubmit != null) {
                 // System.out.println(dt.getTime()-dt_prevSubmit.getTime());
                 if (dt.getTime() - dt_prevSubmit.getTime() < 5000) { // 限制5s一次提交
-                    System.out.println(username
+                    logger.info(username
                             + " post-mail twice at 5 second.");
                     // this.addFieldError("tip", "");
                     success = true;
@@ -111,8 +112,7 @@ public class PostMailAction extends ActionSupport {
                 sendMail.sendMail();
             } catch (Exception e) {
                 // TODO: handle exception
-                System.out.println("send mail fail via new-mail");
-                logger.error("postMail: {}", e);
+                logger.error("postMail: send mail fail via new-mail  {}", e);
                 // success = true;
                 // return SUCCESS;
             }

@@ -36,23 +36,33 @@ public class ShowFileContentAction extends ActionSupport {
 
         try {
             File file;
-            // System.out.println(Config.getValue("OJ_TMP") + "\\" + fileName);
+
             try {
                 file = new File(Config.getValue("OJ_TMP") + "\\" + fileName);
+
             } catch (NullPointerException npe) {
+
                 this.content = "File Not Found, Please Check First!";
                 return SUCCESS;
+
             }
 
             try {
+
                 this.content = StreamHandler.read(file).replaceAll("<", "&lt;")
                         .replaceAll(">", "&gt;").replaceAll("\n", "<br>");
+
             } catch (NullPointerException npe) {
+
                 this.content = "File Not Found, Please Check First!";
                 return SUCCESS;
+
             }
+
             return SUCCESS;
+
         } catch (Exception e) {
+
             return "error";
         }
 

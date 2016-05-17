@@ -42,7 +42,7 @@ public class OnlineHttpSessionListener implements HttpSessionListener {
 
         logger.info(name, "Do Log out...");
 
-        if (name != null && name.length() != 0) {
+        if (name != null && name.length() > 0) {
             // us.logout(name);
             OnlineUsers.removeUser(name);
         }

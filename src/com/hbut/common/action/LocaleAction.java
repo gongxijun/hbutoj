@@ -46,9 +46,12 @@ public class LocaleAction extends ActionSupport {
             } else if ("zh".equals(getLang().trim())) {
                 currentLocale = new Locale("zh", "CN");
             } else {
+
                 success = false;
+
                 return SUCCESS;
             }
+
             /*
 			 * 2、设置Action中的Locale 前台页面的Locale和后台session中的Locale范围是不一样的
 			 * a)只改页面Locale当前页面信息会改变但提交后Locale又会改回到默认的
@@ -57,10 +60,12 @@ public class LocaleAction extends ActionSupport {
 			 * 
 			 * 为避免上述情况，需要前台和后台的Locale一起改变
 			 */
+
             // System.out.println("Locales:"+lang);
             ActionContext.getContext().setLocale(currentLocale);
             ServletActionContext.getRequest().getSession()
                     .setAttribute("WW_TRANS_I18N_LOCALE", currentLocale);
+
 
         } catch (Exception e) {
             // TODO: handle exception

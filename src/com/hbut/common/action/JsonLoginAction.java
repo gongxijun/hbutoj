@@ -91,6 +91,8 @@ public class JsonLoginAction extends ActionSupport {
                 ServletActionContext.getResponse().getWriter().print(0);
                 success = false;
                 error = "password is invalid.";
+                //Todo 给出警告通知
+                logger.warn(error);
                 return;
             }
         } catch (Exception e) {

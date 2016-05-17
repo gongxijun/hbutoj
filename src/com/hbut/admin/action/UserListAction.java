@@ -83,13 +83,16 @@ public class UserListAction extends ActionSupport {
             if (page > pageCount) {
                 page = pageCount;
             }
+
             Integer from = (page - 1) * pageSize;
             usersList = userService.queryUsers(from, pageSize);
+
             List<Integer> volume = new ArrayList<Integer>();
             for (Integer i = 1; i <= pageCount; i++) {
                 volume.add(i);
             }
             pageList = volume;
+
         } catch (Exception e) {
             // TODO: handle exception
             logger.error("内部出错", e);

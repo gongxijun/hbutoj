@@ -113,22 +113,31 @@ public class AdminAction extends ActionSupport {
     }
 
     public String changeSwitch() throws IOException {
+
         String username = (String) ActionContext.getContext().getSession()
                 .get("session_username");
+
         if (username == null) {
+
             outString(getError("need login!"));
             return null;
+
         }
 
         try {
+
             if (false == setPrivilege(privilege, privilege_value)) {
+
                 JSONObject obj = new JSONObject();
                 obj.put("error", 1);
                 obj.put("message", "Operate Failed...");
                 outString(obj.toJSONString());
                 return null;
+
             }
+
         } catch (Exception e) {
+
             // TODO: handle exception
             JSONObject obj = new JSONObject();
             obj.put("error", 1);
@@ -137,11 +146,13 @@ public class AdminAction extends ActionSupport {
             logger.error("changeSwitch 内部出错", e);
             return null;
         }
+
         JSONObject obj = new JSONObject();
         obj.put("error", 0);
         obj.put("message", "Operate Success...");
         outString(obj.toJSONString());
         return null;
+
     }
 
     private String getError(String message) {

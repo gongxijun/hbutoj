@@ -176,9 +176,9 @@ public class PostMessageAction extends ActionSupport {
 
             if (dt_prevSubmit != null) {
                 // System.out.println(dt.getTime()-dt_prevSubmit.getTime());
-                if (dt.getTime() - dt_prevSubmit.getTime() < 10000) { // 限制5s一次提交
-                    System.out.println(createUser
-                            + " submit-topic twice at 5 second.");
+                if (dt.getTime() - dt_prevSubmit.getTime() < 5000) { // 限制5s一次提交
+                    logger.info(createUser
+                            + " submit-topic twice at 10 second.");
                     // this.addFieldError("tip", "");
                     success = true;
                     return SUCCESS;
@@ -203,6 +203,7 @@ public class PostMessageAction extends ActionSupport {
                     if (null == message_root) {
                         success = false;
                         error = "post topic failed.";
+                        logger.info(error);
                         return SUCCESS;
                     }
                     message_.setTitle(message_root.getTitle());
@@ -228,6 +229,7 @@ public class PostMessageAction extends ActionSupport {
                         if (null == message_parent) {
                             success = false;
                             error = "post topic failed.";
+                            logger.error(error);
                             return SUCCESS;
                         }
 
@@ -237,6 +239,7 @@ public class PostMessageAction extends ActionSupport {
                         if (null == user_) {
                             success = false;
                             error = "post topic failed.";
+                            logger.error(error);
                             return SUCCESS;
                         }
 

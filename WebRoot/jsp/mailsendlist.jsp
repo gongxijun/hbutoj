@@ -13,7 +13,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
-
+    <link rel="Shortcut Icon" href="../img/ico/favicon.ico" type="image/x-icon" />
     <link href="css/styles.css" type="text/css" rel="stylesheet">
 
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>

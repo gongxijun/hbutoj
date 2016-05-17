@@ -9,8 +9,8 @@ import org.apache.log4j.Logger;
 /**
  * 邮件发送工具实现类
  *
- * @author shadow
- * @create 2013/07/12
+ * @author XiJun.Gong
+ * @create 2015/11/23
  */
 public class MailUtil {
 
@@ -46,9 +46,8 @@ public class MailUtil {
             }
             return true;
         } catch (EmailException e) {
-            e.printStackTrace();
-            logger.info(mail.getSender() + " 发送邮件到 " + mail.getReceiver()
-                    + " 失败");
+            logger.error(mail.getSender() + " 发送邮件到 " + mail.getReceiver()
+                    + " 失败", e);
             return false;
         }
     }

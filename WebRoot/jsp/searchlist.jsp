@@ -47,7 +47,7 @@
 
         </p>
 
-        <form action="search" method="get">
+        <form action="search" method="post">
             <p>
                 <input name="word" id="q" value="<s:property value="word"/>" maxlength="100"
                        placeholder="Input keyword to search"/>

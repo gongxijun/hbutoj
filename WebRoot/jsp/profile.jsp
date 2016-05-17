@@ -9,7 +9,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>Profile - <s:property value="user.username"/>(<s:property value="user.nickname"/>) - GUET Online
+    <title>Profile - <s:property value="user.username"/>(<s:property value="user.nickname"/>) - HBUT Online
         Judge</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">

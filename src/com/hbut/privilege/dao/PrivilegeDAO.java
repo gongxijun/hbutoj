@@ -10,7 +10,7 @@ public interface PrivilegeDAO {
 
     public void delete(Privilege privilege);
 
-    public Privilege query(Integer privilegeId);
+    public Privilege query(Integer  privilegeId);
 
     public Privilege query(String queryString);
 

@@ -148,7 +148,7 @@ public class RegisterAction extends ActionSupport {
         try {
 
             if (true == userService.isUsernameExist(username)) {
-                // System.out.println(username+"用户名已被使用");
+                logger.info(username + "用户名已被使用");
                 this.addFieldError("username",
                         "This username is currently in use.");
                 return INPUT;

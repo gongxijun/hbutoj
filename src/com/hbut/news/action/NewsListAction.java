@@ -22,17 +22,11 @@ public class NewsListAction extends ActionSupport {
         try {
             String sql = new String();
             sql = "select count(n.news_id) from News n where n.defunct='N'";
-            if (pageSize > 100) {
-                pageSize = 100;
-            }
+            pageSize = pageSize > 100 ? 100 : pageSize;
             intRowCount = newsService.countNews(sql);
             pageCount = ((intRowCount + pageSize - 1) / pageSize);// 计算出总页数
-            if (page < 1) {
-                page = 1;
-            }
-            if (page > pageCount) {
-                page = pageCount;
-            }
+            page = page < 1 ? 1 : page;
+            page = page > pageCount ? pageCount : page;
             Integer from = (page - 1) * pageSize;
             sql = "select n from News n where n.defunct='N' order by n.orderNum DESC, n.news_id DESC";
             newsList = new ArrayList<News>();

@@ -11,9 +11,11 @@ import java.util.List;
 
 public class ProblemListAction extends ActionSupport {
 
+
     /**
      *
      */
+
     private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory.getLogger(ProblemListAction.class);
     private List<Problem> problemList;
@@ -36,21 +38,16 @@ public class ProblemListAction extends ActionSupport {
     private ProblemService problemService;
 
     public String problemSet() throws Exception {
-        try {
-            if (pageSize > 100) {
-                pageSize = 100;
-            }
 
+        try {
+
+            if (pageSize > 100) { pageSize = 100; }
             intRowCount = problemService.countProblems("admin", ojName);
 
             Integer pageCount = ((intRowCount + pageSize - 1) / pageSize);// 计算出总页数
 
-            if (page < 1) {
-                page = 1;
-            }
-            if (page > pageCount) {
-                page = pageCount;
-            }
+            if (page < 1) { page = 1; }
+            if (page > pageCount ) { page = pageCount; }
             Integer from = (page - 1) * pageSize;
 
             problemList = problemService.queryProblems(from, pageSize, order,
@@ -61,10 +58,13 @@ public class ProblemListAction extends ActionSupport {
                 volume.add(i);
             }
             pageList = volume;
+
         } catch (Exception e) {
+
             // TODO: handle exception
             logger.error("内部出错", e);
             return ERROR;
+
         }
 
         return SUCCESS;

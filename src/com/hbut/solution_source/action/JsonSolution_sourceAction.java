@@ -121,7 +121,7 @@ public class JsonSolution_sourceAction extends ActionSupport {
             if (username == null) {
                 // 未登录，标记一下随便一个不可能的用户名
                 username = ".";
-                // success=false;
+                //success=false;
                 // error="You must <a href='enter'>Login</a> first.";
                 // return SUCCESS;
             }
