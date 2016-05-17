@@ -66,8 +66,7 @@ public class FindPasswordAction extends ActionSupport {
             if (dt_prevSubmit != null) {
                 // System.out.println(dt.getTime()-dt_prevSubmit.getTime());
                 if (dt.getTime() - dt_prevSubmit.getTime() < 30000) { // 限制30s一次提交
-                    System.out
-                            .println(username + " submit twice at 30 second.");
+                    logger.info(username + " submit twice at 30 second.");
                     ActionContext
                             .getContext()
                             .put("tip",
@@ -79,7 +78,7 @@ public class FindPasswordAction extends ActionSupport {
             System.out.println(email + " , " + username + " recover password.");
 
             if (false == userService.isUsernameExist(username)) {
-                System.out.println(username + " is not exist.");
+                logger.info(username + " is not exist.");
                 this.addFieldError("username", "username is not exist.");
                 return INPUT;
             }
@@ -90,7 +89,7 @@ public class FindPasswordAction extends ActionSupport {
             if (null != user_) {
 
                 if (!user_.getEmail().equals(email)) {
-                    System.out.println(username + " and " + email
+                    logger.info(username + " and " + email
                             + " does not match.");
                     this.addFieldError("email",
                             "username and email does not match.");

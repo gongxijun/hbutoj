@@ -37,7 +37,7 @@ public class HomeMakerAction extends ActionSupport {
 
         try {
             if (content == null) {
-                content = "Welcome To GUET Online Judge";
+                content = "Welcome To HBUT Online Judge";
                 try {
                     String path = ServletActionContext.getRequest()
                             .getSession().getServletContext().getRealPath("/");

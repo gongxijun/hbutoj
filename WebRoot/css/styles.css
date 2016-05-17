@@ -1978,7 +1978,7 @@ TABLE.topics TD {
     border-left: 1px solid #e1e1e1;
     height: 32px;
     font-size: .9em;
-    word-wrap: break-all;
+    word-wrap: break-word;
     overflow: hidden;
 }
 
@@ -2054,7 +2054,7 @@ TABLE.problem TD {
     height: 32px;
     font-size: .9em;
     line-height: 16px;
-    word-wrap: break-all;
+    word-wrap: break-word;
     overflow: hidden;
 }
 
@@ -2120,7 +2120,7 @@ TABLE.status TD {
     border-left: 1px solid #e1e1e1;
     height: 24px;
     font-size: 0.9em;
-    word-wrap: break-all;
+    word-wrap: break-word;
     overflow: hidden;
 }
 
@@ -2230,7 +2230,7 @@ TABLE.standings TD {
     height: 32px;
     font-size: .9em;
     line-height: 16px;
-    word-wrap: break-all;
+    word-wrap: break-word;
     overflow: hidden;
 }
 
@@ -2322,7 +2322,7 @@ TABLE.contest TD {
     height: 32px;
     font-size: .9em;
     line-height: 16px;
-    word-wrap: break-all;
+    word-wrap: break-word;
     overflow: hidden;
 }
 
@@ -2442,7 +2442,7 @@ TABLE.mails TD {
     height: 32px;
     font-size: .9em;
     line-height: 16px;
-    word-wrap: break-all;
+    word-wrap: break-word;
     overflow: hidden;
 }
 
@@ -3424,7 +3424,7 @@ back to top
 .RightTitle {
     margin: 10px 0 10px 20px;
     font-size: 18px;
-    font-weight: 50em;
+    font-weight: bold;
 }
 
 .RightTitle span {

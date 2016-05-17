@@ -39,6 +39,7 @@ public class LocaleAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
         try {
+
             Locale currentLocale = Locale.getDefault();
             // 1、根据页面请求，创建下同的Locale对象
             if ("en".equals(getLang().trim())) {
@@ -53,7 +54,7 @@ public class LocaleAction extends ActionSupport {
             }
 
             /*
-			 * 2、设置Action中的Locale 前台页面的Locale和后台session中的Locale范围是不一样的
+             * 2、设置Action中的Locale 前台页面的Locale和后台session中的Locale范围是不一样的
 			 * a)只改页面Locale当前页面信息会改变但提交后Locale又会改回到默认的
 			 * b)改变了后台Locale，当前线程中的页面Locale并不会改变，但会随下一次提交
 			 * Action一同改变，所以可能要刷新页面两次，第一次只变后台Locale，第二次 前台和后台同时改变

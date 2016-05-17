@@ -1,22 +1,29 @@
 package com.util.freemarker;
 
 import com.hbut.bean.LatestTopicBean;
+import com.opensymphony.xwork2.util.logging.Logger;
+import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class MyFreeMarker {
+
+    private static Logger logger = LoggerFactory.getLogger(MyFreeMarker.class);
 
     public static void generator(String templatesPath, String ftlName,
                                  String desName, String objName, Map objMap) throws IOException,
             TemplateException {
         File file_ = new File(templatesPath + "\\templates");
         if (false == file_.exists()) {
-            System.out.println(templatesPath + "\\templates"
+            logger.info(templatesPath + "\\templates"
                     + " is not existed");
             return;
         }
@@ -27,7 +34,7 @@ public class MyFreeMarker {
                     + "\\templates"));
         } catch (IOException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error("generator {}", e);
         }
 
         Template t = cfg.getTemplate(ftlName);
@@ -35,7 +42,7 @@ public class MyFreeMarker {
         // this.getClass().getClassLoader().getResource("/").getPath();
 
         Writer out = new OutputStreamWriter(new FileOutputStream(templatesPath
-                + "\\templates\\" + desName), "utf-8");
+                + "\\templates\\" + desName), "UTF-8");
         t.process(objMap, out);
     }
 

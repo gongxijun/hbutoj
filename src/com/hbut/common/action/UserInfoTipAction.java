@@ -115,7 +115,7 @@ public class UserInfoTipAction extends ActionSupport {
                 "<div class='opts'>" +
 
                 "</div><div style='clear:both'></div>" + "<div id='Logs'>"
-                + "<strong>" + getText("recent-action") + "��</strong>"
+                + "<strong>" + getText("recent-action") + " </strong>"
                 + "<div class='log'>";
         if (messages_ != null) {
             if (messages_.size() == 0) {

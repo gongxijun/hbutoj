@@ -16,7 +16,7 @@
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
 
     <link href="css/styles.css" type="text/css" rel="stylesheet">
-    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="js/hbutoj.js"></script>
 
@@ -31,7 +31,8 @@
     </div>
     <!-- End sidebar -->
 
-    <div id="content" class="content-with-sidebar">     <!-- class="content-with-sidebar" -->
+    <div id="content" class="content-with-sidebar">
+        <!-- class="content-with-sidebar" -->
         <div id="nav-content">
             <a href="profile/<s:property value="user.username"/>" class="current"><s:property
                     value="user.username"/></a>
@@ -69,7 +70,7 @@
                                     value="user.school"/></s:else>
 				   			 	</span></li>
                             <li><span style="color:#378059;"><s:if
-                                    test="user.motto==null||user.motto==''">Welcome to GUET Online Judge</s:if><s:else><s:property
+                                    test="user.motto==null||user.motto==''">Welcome to HBUT Online Judge</s:if><s:else><s:property
                                     value="user.motto"/></s:else></span></li>
 
                             <s:if test="#session.session_username==user.username">
@@ -81,10 +82,22 @@
                             <!--
 				   				<li><span title="<s:date name="user.lastlogin" nice="true" format="yyyy-MM-dd HH:mm:ss"/>"> Last login: <s:date name="user.lastlogin" nice="false" format="yyyy-MM-dd HH:mm:ss"/></span></li> 
 				       		 	 -->
-                            <li><span
-                                    title="<s:date name="user.lastaccesstime" nice="false" format="yyyy-MM-dd HH:mm:ss"/>"> Last visit: <s:property
-                                    value="lastAccessTime" default="unknow"/></span> <s:if test="statusFlag == 1"><span
-                                    style="color:green;font-weight:bold;">Online Now</span></s:if></li>
+                            <li>
+                                <span
+                                        title="<s:date name="user.lastaccesstime" nice="false" format="yyyy-MM-dd HH:mm:ss"/>"> Last visit: <s:property
+                                        value="lastAccessTime" default="unknow"/>
+                               </span>
+                                <s:if test="statusFlag == 1">
+                                <span style="color:green;font-weight:bold;">
+                                    Online Now
+                                </span>
+                                </s:if>
+                                <s:if test="statusFlag != 1">
+                                <span style="color:#888888;font-weight:bold;">
+                                    Offline Now
+                                </span>
+                                </s:if>
+                            </li>
                             <li><span title="<s:date name="user.regdate" nice="false" format="yyyy-MM-dd HH:mm:ss"/>"> Registered: <s:property
                                     value="registerDate" default="unknow"/></span></li>
 
@@ -118,6 +131,7 @@
                     </s:iterator>
                 </div>
             </div>
+
             <div class="profile roundbox" style="">
                 <div class="roundbox-lt">&nbsp;</div>
                 <div class="roundbox-rt">&nbsp;</div>

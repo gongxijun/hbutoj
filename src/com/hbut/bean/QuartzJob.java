@@ -16,6 +16,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class QuartzJob {
 
@@ -39,7 +40,7 @@ public class QuartzJob {
 
             users = userService.getStandings(0, 10, "solved");
 
-            Map map = new HashMap();    //如果后面的开发者用这个版本，建议使用推荐使用Guava Maps.newHashMap() ;
+            Map map = new ConcurrentHashMap();    //如果后面的开发者用这个版本，建议使用推荐使用Guava Maps.newHashMap() ;
             map.put("topusers", users);
             map.put("date", new Date());
             MyFreeMarker.generator(root, "topusers.ftl", "topusers.html",
@@ -77,14 +78,12 @@ public class QuartzJob {
                 logger.error("MalformedURLException 抓取URL时抛出异常", e);
             } catch (IOException e) {
                 // ...
-                System.out.println("get other oj contest error");
-                logger.error("获取其他网站信息失败", e);
+                logger.error("get other oj contest error", e);
             }
 
         } catch (Exception e) {
             // TODO: handle exception
-            System.out.println("top 10 error");
-            logger.error("定时器异常", e);
+            logger.error("定时器异常 :top 10 error {}", e);
         }
     }
 }

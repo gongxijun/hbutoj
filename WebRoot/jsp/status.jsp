@@ -83,8 +83,8 @@
                             <td class="date"><s:date name="submit_date" nice="false" format="yyyy-MM-dd HH:mm:ss"/></td>
                             <td class="coder "><a href="profile/<s:property value="username" default="0"/>"
                                                   class="rated-user user-unknow user-tip"
-                                                  user="<s:property value="username"/>"><s:property value="username"
-                                                                                                    default="NULL"/></a>
+                                                  user="<s:property value="username"/>">
+                                <s:property value="username"  default="NULL"/></a>
                             </td>
 
                             <td class="title">
