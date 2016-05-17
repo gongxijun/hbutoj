@@ -142,9 +142,9 @@ public class ContestAction extends ActionSupport {
 
             contest = contestService.queryContest(contestId, "ADMIN");
 
-            start_date = DateUtil.DateToString((java.sql.Date) contest.getStart_time(),
+            start_date = DateUtil.DateToString(contest.getStart_time(),
                     "yyyy-MM-dd");
-            end_date = DateUtil.DateToString((java.sql.Date) contest.getEnd_time(),
+            end_date = DateUtil.DateToString(contest.getEnd_time(),
                     "yyyy-MM-dd");
 
             shour = contest.getStart_time().getHours();
@@ -153,9 +153,9 @@ public class ContestAction extends ActionSupport {
             ehour = contest.getEnd_time().getHours();
             eminute = contest.getEnd_time().getMinutes();
 
-            start_reg_date = DateUtil.DateToString((java.sql.Date) contest.getStart_reg(),
+            start_reg_date = DateUtil.DateToString(contest.getStart_reg(),
                     "yyyy-MM-dd");
-            end_reg_date = DateUtil.DateToString((java.sql.Date) contest.getEnd_reg(),
+            end_reg_date = DateUtil.DateToString(contest.getEnd_reg(),
                     "yyyy-MM-dd");
 
             shour_reg = contest.getStart_reg().getHours();

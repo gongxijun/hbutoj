@@ -1,5 +1,6 @@
 package com.hbut.thread;
 
+import com.google.common.collect.Maps;
 import com.hbut.bean.TopUsersBean;
 import com.hbut.user.vo.User;
 import com.opensymphony.xwork2.util.logging.Logger;
@@ -9,7 +10,6 @@ import freemarker.template.TemplateException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +22,7 @@ public class TimerThread extends Thread {
         while (true) {
             List<User> users = new ArrayList<User>();
             users = TopUsersBean.getTopUsers();
-            Map map = new HashMap();
+            Map map = Maps.newHashMap();
             map.put("topusers", users);
 
             try {

@@ -8,8 +8,7 @@ import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.OnlineUsers;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * 登陆处理页面
@@ -79,7 +78,7 @@ public class LoginAction extends ActionSupport {
 
                 OnlineUsers.onlineUser(user_.getUsername());
 
-                user_.setLastlogin(new Timestamp(System.currentTimeMillis()));
+                user_.setLastlogin(new Date());
                 userService.save(user_);
 
                 // for(String s:OnlineUserList.list()){

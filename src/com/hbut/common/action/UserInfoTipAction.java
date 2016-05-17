@@ -12,7 +12,6 @@ import org.apache.struts2.ServletActionContext;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserInfoTipAction extends ActionSupport {
@@ -49,7 +48,7 @@ public class UserInfoTipAction extends ActionSupport {
         // System.out.println(username);
         ActionContext ctx = ActionContext.getContext();
         HttpServletResponse response = (HttpServletResponse) ctx
-                .get(ServletActionContext.HTTP_RESPONSE);
+                 .get(ServletActionContext.HTTP_RESPONSE);
         response.setHeader("Pragma", "No-cache");
         response.setHeader("Cache-Control", "no-cache");
         response.setDateHeader("Expires", 0);
@@ -68,8 +67,7 @@ public class UserInfoTipAction extends ActionSupport {
         Integer nCountTopic = new Integer(0);
         nCountTopic = messageService.count(sql);
 
-        List<Message> messages_ = new ArrayList<Message>();
-        messages_ = messageService.queryLatestMessages(username, 0, 2);
+        List<Message> messages_ = messageService.queryLatestMessages(username, 0, 2);
         String buf = "";
         buf = "<div class='UserOutline'>";
         buf += "<div class='u'>";

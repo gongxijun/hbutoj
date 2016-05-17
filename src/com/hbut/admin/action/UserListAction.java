@@ -1,12 +1,12 @@
 package com.hbut.admin.action;
 
+import com.google.common.collect.Lists;
 import com.hbut.user.service.UserService;
 import com.hbut.user.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserListAction extends ActionSupport {
@@ -87,7 +87,7 @@ public class UserListAction extends ActionSupport {
             Integer from = (page - 1) * pageSize;
             usersList = userService.queryUsers(from, pageSize);
 
-            List<Integer> volume = new ArrayList<Integer>();
+            List<Integer> volume = Lists.newArrayList();
             for (Integer i = 1; i <= pageCount; i++) {
                 volume.add(i);
             }

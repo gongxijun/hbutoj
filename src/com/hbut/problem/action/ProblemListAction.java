@@ -1,5 +1,7 @@
 package com.hbut.problem.action;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.hbut.problem.service.ProblemService;
 import com.hbut.problem.vo.Problem;
 import com.hbut.solution.service.SolutionService;
@@ -11,8 +13,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -74,7 +74,7 @@ public class ProblemListAction extends ActionSupport {
                     .get("session_username");
             if (username != null) {
                 String sql = new String();
-                problemStatusList = new ArrayList<Integer>();
+                problemStatusList = Lists.newArrayList();
                 for (Problem p : problemList) {
                     sql = "select count(s.solution_id) from Solution s where username='"
                             + username
@@ -99,68 +99,65 @@ public class ProblemListAction extends ActionSupport {
             // end user solved?
 
             // tags
-            tagsList = new HashMap<Integer, List<String>>();
+            tagsList = Maps.newHashMap();
             for (Problem p : problemList) {
-                List<Tagsview> tagsviewsList_ = new ArrayList<Tagsview>();
-                List<String> tagsNameList_ = new ArrayList<String>();
-
+                List<Tagsview> tagsviewsList_ = Lists.newArrayList();
+                List<String> tagsNameList_ = Lists.newArrayList();
                 try {
-                    tagsviewsList_ = tagsviewService.queryByProblems(p
-                            .getProblem_id());
+                    tagsviewsList_ = tagsviewService.queryByProblems(p.getProblem_id());
                     for (Tagsview t_ : tagsviewsList_) {
                         tagsNameList_.add(tagsService.queryTag(t_.getTag_id())
                                 .getName());
                     }
-                } catch (Exception e) {
-                    // TODO: handle exception
-                    logger.error("setOJName : {}", e);
-                    // System.out.println("Problem List:"+p.getProblem_id()+" tag invalid.");
-                }
-
-                tagsList.put(p.getProblem_id(), tagsNameList_);
+            }catch(Exception e){
+                // TODO: handle exception
+                logger.error("setOJName : {}", e);
             }
-            // end tags
 
-            // page list
-            List<Integer> volume = new ArrayList<Integer>();
-            if (pageCount < 7) {
-                for (Integer i = 1; i <= pageCount; i++) {
-                    volume.add(i);
-                }
-            } else {
-                volume.add(1);
-                if (page > 4) {
-                    volume.add(0); // 省略号
-                }
-                Integer start_i = new Integer(2);
-                Integer end_i = new Integer(pageCount - 1);
-                if (page - 2 > 2) {
-                    start_i = page - 2;
-                }
-                if (page + 2 < pageCount) {
-                    end_i = page + 2;
-                }
-
-                for (Integer i = start_i; i <= end_i; i++) {
-                    volume.add(i);
-                }
-                if (page < pageCount - 3) {
-                    volume.add(0); // 省略号
-                }
-
-                volume.add(pageCount);
-            }
-            pageList = volume;
-            // end page list
-
-        } catch (Exception e) {
-            // TODO: handle exception
-            logger.error("problemSet: {} ", e);
-            return ERROR;
+            tagsList.put(p.getProblem_id(), tagsNameList_);
         }
+        // end tags
 
-        return SUCCESS;
+        // page list
+        List<Integer> volume = Lists.newArrayList();
+        if (pageCount < 7) {
+            for (Integer i = 1; i <= pageCount; i++) {
+                volume.add(i);
+            }
+        } else {
+            volume.add(1);
+            if (page > 4) {
+                volume.add(0); // 省略号
+            }
+            Integer start_i = new Integer(2);
+            Integer end_i = new Integer(pageCount - 1);
+            if (page - 2 > 2) {
+                start_i = page - 2;
+            }
+            if (page + 2 < pageCount) {
+                end_i = page + 2;
+            }
+
+            for (Integer i = start_i; i <= end_i; i++) {
+                volume.add(i);
+            }
+            if (page < pageCount - 3) {
+                volume.add(0); // 省略号
+            }
+
+            volume.add(pageCount);
+        }
+        pageList = volume;
+        // end page list
+
     }
+    catch(Exception e){
+        // TODO: handle exception
+        logger.error("problemSet: {} ", e);
+        return ERROR;
+    }
+    return SUCCESS;
+}
 
     public SolutionService getSolutionService() {
         return solutionService;
@@ -246,8 +243,8 @@ public class ProblemListAction extends ActionSupport {
         return tagsviewService;
     }
 
-    public void setTagsviewService(TagsviewService tagsviewService) {
-        this.tagsviewService = tagsviewService;
+    public void setTagsviewService(TagsviewService tagsViewService) {
+        this.tagsviewService = tagsViewService;
     }
 
     public Map<Integer, List<String>> getTagsList() {

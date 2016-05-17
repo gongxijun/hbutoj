@@ -237,7 +237,6 @@
 
 
     </script>
-
     <jsp:include page="/jsp/footer.jsp"></jsp:include>
 </div>
 </body>

@@ -9,6 +9,8 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import java.util.List;
 
 public class UserDaoImpl extends HibernateDaoSupport implements UserDAO {
+
+
     public void save(User user) {
         getHibernateTemplate().saveOrUpdate(user);
     }
@@ -123,7 +125,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDAO {
         Session session = HibernateSessionFactory.getSession();
         session.beginTransaction();
 
-        Query q = (Query) session.createQuery(sql);
+        Query q = session.createQuery(sql);
         q.setString(0, "%" + word + "%");
         q.setString(1, "%" + word + "%");
         List<User> list = q.list();

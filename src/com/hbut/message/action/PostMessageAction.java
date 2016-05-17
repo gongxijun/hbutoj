@@ -1,5 +1,6 @@
 package com.hbut.message.action;
 
+import com.google.common.collect.Maps;
 import com.hbut.bean.MessageBean;
 import com.hbut.message.service.MessageService;
 import com.hbut.message.vo.Message;
@@ -327,7 +328,7 @@ public class PostMessageAction extends ActionSupport {
                 mb.setRootId(m_.getRoot_id());
                 topics.add(mb);
             }
-            Map map = new HashMap();
+            Map map = Maps.newHashMap();
             map.put("topics", topics);
             // ActionContext.getContext().get
             String root = ServletActionContext.getRequest().getRealPath(

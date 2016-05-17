@@ -1,5 +1,6 @@
 package com.hbut.bean;
 
+import com.google.common.collect.Maps;
 import com.hbut.user.service.UserService;
 import com.hbut.user.vo.User;
 import com.opensymphony.xwork2.util.logging.Logger;
@@ -15,8 +16,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 public class QuartzJob {
 
@@ -34,13 +36,12 @@ public class QuartzJob {
                     .replaceAll("/classes/", "");
 
             // System.out.println(root);
-            List<User> users = new ArrayList<User>();
             UserService userService = (UserService) MyApplicationContextUtil
                     .getContext().getBean("userService");
 
-            users = userService.getStandings(0, 10, "solved");
+            List<User> users = userService.getStandings(0, 10, "solved");
 
-            Map map = new ConcurrentHashMap();    //如果后面的开发者用这个版本，建议使用推荐使用Guava Maps.newHashMap() ;
+            Map map = Maps.newHashMap();    //如果后面的开发者用这个版本，建议使用推荐使用Guava Maps.newHashMap() ;
             map.put("topusers", users);
             map.put("date", new Date());
             MyFreeMarker.generator(root, "topusers.ftl", "topusers.html",

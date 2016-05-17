@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.DateUtil;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class ModifyUserAction extends ActionSupport {
 

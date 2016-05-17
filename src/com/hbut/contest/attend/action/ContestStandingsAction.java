@@ -1,5 +1,7 @@
 package com.hbut.contest.attend.action;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.hbut.contest.attend.service.AttendService;
 import com.hbut.contest.attend.vo.Attend;
 import com.hbut.contest.problem.service.CProblemService;
@@ -134,10 +136,10 @@ public class ContestStandingsAction extends ActionSupport {
             attendList_ = attendService.queryContestAttends(from, pageSize,
                     contestId, contest_.getType());
 
-            Map<String, List<String>> acTimeList_ = new HashMap<String, List<String>>();
-            Map<String, List<Integer>> wrongSubmitsList_ = new HashMap<String, List<Integer>>();
-            Map<String, List<Integer>> acTimeIntList_ = new HashMap<String, List<Integer>>();
-            List<String> penaltyList_ = new ArrayList<String>();
+            Map<String, List<String>> acTimeList_ = Maps.newHashMap();
+            Map<String, List<Integer>> wrongSubmitsList_ = Maps.newHashMap();
+            Map<String, List<Integer>> acTimeIntList_ = Maps.newHashMap();
+            List<String> penaltyList_ = Lists.newArrayList();
 
             rankList = new ArrayList<Integer>();
             userList = new ArrayList<User>();

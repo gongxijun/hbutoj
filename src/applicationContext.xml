@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
 
-    <bean id="dataSource"
-          class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName"
-                  value="com.mysql.jdbc.Driver">
-        </property>
-        <property name="url"
-                  value="jdbc:mysql://localhost:3306/hbutoj?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull">
-        </property>
-        <property name="username" value="root"></property>
-        <property name="password" value="gxjun"></property>
-    </bean>
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-        <property name="dataSource">
-            <ref bean="dataSource"/>
-        </property>
-        <property name="hibernateProperties">
-            <props>
-                <!-- 指定使用方言 -->
-                <prop key="hibernate.dialect">
-                    org.hibernate.dialect.MySQLDialect
-                </prop>
-                <!-- 是否在控制台输出sql语句 -->
-                <prop key="show_sql">true</prop>
-                <!--				<prop key="hibernate.hbm2ddl.auto">update</prop>-->
-                <!--				<prop key="hibernate.jdbc.batch_size">20</prop>-->
-            </props>
-        </property>
-        <property name="mappingResources">
-            <list>
-                <value>com/hbut/user/vo/User.hbm.xml</value>
-                <value>com/hbut/message/vo/Message.hbm.xml</value>
-                <value>com/hbut/problem/vo/Problem.hbm.xml</value>
-                <value>com/hbut/solution/vo/Solution.hbm.xml</value>
-                <value>com/hbut/solution_source/vo/Solution_source.hbm.xml</value>
-                <value>com/hbut/compileinfo/vo/CompileInfo.hbm.xml</value>
-                <value>com/hbut/contest/vo/Contest.hbm.xml</value>
-                <value>com/hbut/contest/problem/vo/CProblem.hbm.xml</value>
-                <value>com/hbut/contest/attend/vo/Attend.hbm.xml</value>
-                <value>com/hbut/mail/vo/Mail.hbm.xml</value>
-                <value>com/hbut/vote/vo/Vote.hbm.xml</value>
-                <value>com/hbut/tags/vo/Tags.hbm.xml</value>
-                <value>com/hbut/tagsview/vo/Tagsview.hbm.xml</value>
-                <value>com/hbut/privilege/vo/Privilege.hbm.xml</value>
-                <value>com/hbut/news/vo/News.hbm.xml</value>
-            </list>
-        </property>
-    </bean>
-    <!-- 定义事务管理 -->
-    <bean id="transactionManager"
-          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/hbutoj?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="gxjun"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<!-- 指定使用方言 -->
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<!-- 是否在控制台输出sql语句 -->
+				<prop key="show_sql">true</prop>
+<!--				<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+<!--				<prop key="hibernate.jdbc.batch_size">20</prop>-->
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/hbut/user/vo/User.hbm.xml</value>
+				<value>com/hbut/message/vo/Message.hbm.xml</value>
+				<value>com/hbut/problem/vo/Problem.hbm.xml</value>
+				<value>com/hbut/solution/vo/Solution.hbm.xml</value>
+				<value>com/hbut/solution_source/vo/Solution_source.hbm.xml</value>
+				<value>com/hbut/compileinfo/vo/CompileInfo.hbm.xml</value>
+				<value>com/hbut/contest/vo/Contest.hbm.xml</value>
+				<value>com/hbut/contest/problem/vo/CProblem.hbm.xml</value>
+				<value>com/hbut/contest/attend/vo/Attend.hbm.xml</value>
+				<value>com/hbut/mail/vo/Mail.hbm.xml</value>
+				<value>com/hbut/vote/vo/Vote.hbm.xml</value>
+				<value>com/hbut/tags/vo/Tags.hbm.xml</value>
+				<value>com/hbut/tagsview/vo/Tagsview.hbm.xml</value>
+				<value>com/hbut/privilege/vo/Privilege.hbm.xml</value>
+				<value>com/hbut/news/vo/News.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 定义事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <!-- 这个bean主要是为了得到ApplicationContext 所以它不需要其它属性-->
@@ -79,95 +79,94 @@
     <bean name="searchBean" class="com.hbut.common.action.SearchAction" scope="prototype">
         <property name="userService" ref="userService"/>
         <property name="problemService" ref="problemService"/>
-        <property name="messageService" ref="messageService"/>
-    </bean>
-    <!-- User -->
-    <bean id="userService"
-          class="com.hbut.user.service.UserServiceImpl">
-        <property name="userDao" ref="userDao"/>
-    </bean>
-    <bean id="userDao" class="com.hbut.user.dao.UserDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    <bean name="listUserBean" class="com.hbut.user.action.UserAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
-    <bean name="passwordRecoveryBean" class="com.hbut.common.action.FindPasswordAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
-    <bean name="registerBean" class="com.hbut.common.action.RegisterAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
-    <bean name="settingsBean" class="com.hbut.user.action.SettingsUserAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
-    <bean name="modifyUserBean" class="com.hbut.user.action.ModifyUserAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
-    <bean name="loginBean" class="com.hbut.common.action.LoginAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
-    <bean name="jsonLoginBean" class="com.hbut.common.action.JsonLoginAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
-    <bean name="getUsersBean" class="com.hbut.user.action.UserListAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
-    <bean name="getUserBean" class="com.hbut.user.action.UserAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
-    <bean name="profileBean" class="com.hbut.user.action.ProfileAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-        <property name="solutionService" ref="solutionService"/>
-        <property name="problemService" ref="problemService"/>
-    </bean>
-    <!--End User -->
+		<property name="messageService" ref="messageService" />
+	</bean>
+	<!-- User -->
+	<bean id="userService"
+		class="com.hbut.user.service.UserServiceImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	<bean id="userDao" class="com.hbut.user.dao.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean name="listUserBean" class="com.hbut.user.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean name="passwordRecoveryBean" class="com.hbut.common.action.FindPasswordAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean name="registerBean" class="com.hbut.common.action.RegisterAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean name="settingsBean" class="com.hbut.user.action.SettingsUserAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean name="modifyUserBean" class="com.hbut.user.action.ModifyUserAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean name="loginBean" class="com.hbut.common.action.LoginAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean name="jsonLoginBean" class="com.hbut.common.action.JsonLoginAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean name="getUsersBean" class="com.hbut.user.action.UserListAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean name="getUserBean" class="com.hbut.user.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean name="profileBean" class="com.hbut.user.action.ProfileAction" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="solutionService" ref="solutionService" />
+		<property name="problemService" ref="problemService" />
+	</bean>
+	<!--End User -->
 
-    <bean name="standingsBean" class="com.hbut.user.action.StandingsAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
-    <!-- Vote -->
-    <bean id="voteService" class="com.hbut.vote.service.VoteServiceImpl">
-        <property name="voteDao" ref="voteDao"/>
-    </bean>
-    <bean id="voteDao" class="com.hbut.vote.dao.VoteDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    <!-- End Vote -->
-    <!-- Message -->
-    <bean id="messageService" class="com.hbut.message.service.MessageServiceImpl">
-        <property name="messageDao" ref="messageDao"/>
-    </bean>
-    <bean id="messageDao" class="com.hbut.message.dao.MessageDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    <bean name="MessagesBean" class="com.hbut.message.action.MessageAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-        <property name="messageService" ref="messageService"/>
-        <property name="tagsviewService" ref="tagsviewService"/>
-        <property name="tagsService" ref="tagsService"/>
-    </bean>
-    <bean name="messagesListBean" class="com.hbut.message.action.MessageListAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-        <property name="messageService" ref="messageService"/>
-    </bean>
-    <bean name="latestMessagesBean" class="com.hbut.message.action.JsonLatestMessageAction" scope="prototype">
-        <property name="messageService" ref="messageService"/>
-    </bean>
-    <bean name="recentActionBean" class="com.hbut.message.action.LatestMessageListAction" scope="prototype">
-        <property name="messageService" ref="messageService"/>
-    </bean>
-    <!--
-    <bean name="adminRecentActionBean" class="com.hbut.message.action.RecentActionAction" scope="prototype">
-        <property name="messageService" ref="messageService" />
-    </bean>
-     -->
-    <bean name="postMessageBean" class="com.hbut.message.action.PostMessageAction"
-          scope="prototype"><!-- prototype每次都new一个，要不会造成对象共享  -->
-        <property name="messageService" ref="messageService"/>
-        <property name="tagsviewService" ref="tagsviewService"/>
-        <property name="tagsService" ref="tagsService"/>
-        <property name="userService" ref="userService"/>
+	<bean name="standingsBean" class="com.hbut.user.action.StandingsAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<!-- Vote -->
+	<bean id="voteService" class="com.hbut.vote.service.VoteServiceImpl">
+		<property name="voteDao" ref="voteDao" />
+	</bean>
+	<bean id="voteDao" class="com.hbut.vote.dao.VoteDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- End Vote -->
+	<!-- Message -->
+	<bean id="messageService" class="com.hbut.message.service.MessageServiceImpl">
+		<property name="messageDao" ref="messageDao" />
+	</bean>
+	<bean id="messageDao" class="com.hbut.message.dao.MessageDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean name="MessagesBean" class="com.hbut.message.action.MessageAction" scope="prototype">
+			<property name="userService" ref="userService" />
+		<property name="messageService" ref="messageService" />
+		<property name="tagsviewService" ref="tagsviewService" />
+		<property name="tagsService" ref="tagsService" />
+	</bean>
+	<bean name="messagesListBean" class="com.hbut.message.action.MessageListAction" scope="prototype">
+			<property name="userService" ref="userService" />
+		<property name="messageService" ref="messageService" />
+	</bean>
+	<bean name="latestMessagesBean" class="com.hbut.message.action.JsonLatestMessageAction" scope="prototype">
+		<property name="messageService" ref="messageService" />
+	</bean>
+	<bean name="recentActionBean" class="com.hbut.message.action.LatestMessageListAction" scope="prototype">
+		<property name="messageService" ref="messageService" />
+	</bean>
+	<!--
+	<bean name="adminRecentActionBean" class="com.hbut.message.action.RecentActionAction" scope="prototype">
+		<property name="messageService" ref="messageService" />
+	</bean>
+	 -->
+	<bean name="postMessageBean" class="com.hbut.message.action.PostMessageAction" scope="prototype"><!-- prototype每次都new一个，要不会造成对象共享  -->
+		<property name="messageService" ref="messageService" />
+		<property name="tagsviewService" ref="tagsviewService" />
+		<property name="tagsService" ref="tagsService" />
+		<property name="userService" ref="userService" />
     </bean>
     <bean name="messageVoteBean" class="com.hbut.message.action.JsonMessageVoteAction"
           scope="prototype"><!-- prototype每次都new一个，要不会造成对象共享  -->
@@ -184,7 +183,7 @@
     <bean name="problemListBean" class="com.hbut.problem.action.ProblemListAction" scope="prototype">
         <property name="problemService" ref="problemService"/>
         <property name="solutionService" ref="solutionService"/>
-        <property name="tagsviewService" ref="tagsviewService"/>
+		<property name="tagsviewService" ref="tagsviewService" />
         <property name="tagsService" ref="tagsService"/>
     </bean>
     <bean name="jsonProblemListBean" class="com.hbut.problem.action.JsonProblemListAction" scope="prototype">

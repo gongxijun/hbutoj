@@ -31,7 +31,7 @@
         <property name="defunct" type="java.lang.String">
             <column name="defunct" length="1" not-null="false"/>
         </property>
-        <property name="birthday" type="java.sql.Date">
+        <property name="birthday" type="java.util.Date">
             <column name="birthday" not-null="false"/>
         </property>
         <property name="regdate" type="java.util.Date">

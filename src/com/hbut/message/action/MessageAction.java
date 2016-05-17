@@ -637,13 +637,12 @@ public class MessageAction extends ActionSupport {
             message = message_;
 
             try {
-                List<Tagsview> tagsview_ = new ArrayList<Tagsview>();
+                List<Tagsview> Tagsview_ = new ArrayList<Tagsview>();
                 // System.out.println("eeeeeeeeeeee2333e");
-                tagsview_ = tagsviewService.queryByMessages(messageId);
-                if (tagsview_ != null) {
-                    System.out.println(tagsview_.size());
+                Tagsview_ = tagsviewService.queryByMessages(messageId);
+                if (Tagsview_ != null) {
                     tagsList = new ArrayList<String>();
-                    for (Tagsview t : tagsview_) {
+                    for (Tagsview t : Tagsview_) {
                         String tString_ = new String();
                         tString_ = tagsService.queryTag(t.getTag_id())
                                 .getName();

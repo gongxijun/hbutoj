@@ -10,7 +10,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContestSubmitAction extends ActionSupport {
@@ -103,8 +102,7 @@ public class ContestSubmitAction extends ActionSupport {
             User user_ = userService.queryUser(username);
             language = user_.getLanguage();
 
-            List<CProblem> problemList_ = new ArrayList<CProblem>();
-            problemList_ = cproblemService.queryProblems(contestId);
+            List<CProblem> problemList_ = cproblemService.queryProblems(contestId);
 
             problemList = problemList_;
 

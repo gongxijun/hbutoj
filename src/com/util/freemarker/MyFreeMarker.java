@@ -1,5 +1,6 @@
 package com.util.freemarker;
 
+import com.google.common.collect.Maps;
 import com.hbut.bean.LatestTopicBean;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
@@ -12,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class MyFreeMarker {
 
@@ -42,7 +42,7 @@ public class MyFreeMarker {
         // this.getClass().getClassLoader().getResource("/").getPath();
 
         Writer out = new OutputStreamWriter(new FileOutputStream(templatesPath
-                + "\\templates\\" + desName), "UTF-8");
+                + "\\templates\\" + desName), "gb2312");
         t.process(objMap, out);
     }
 
@@ -74,7 +74,7 @@ public class MyFreeMarker {
         latestTopicBean1.setTitle("Hello world");
         latestTopicBean1.setDate(new Date());
         topi.add(latestTopicBean1);
-        Map map = new ConcurrentHashMap();
+        Map map = Maps.newHashMap();
         map.put("topics", topi);
         // String path = System.getProperty("user.dir");
         // generator("D:\\tomcat6\\webapps\\hbut\\WEB-INF","latesttopic.ftl","latesttopic.html","topics",map);

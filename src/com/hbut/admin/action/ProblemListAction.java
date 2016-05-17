@@ -1,12 +1,12 @@
 package com.hbut.admin.action;
 
+import com.google.common.collect.Lists;
 import com.hbut.problem.service.ProblemService;
 import com.hbut.problem.vo.Problem;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProblemListAction extends ActionSupport {
@@ -53,7 +53,7 @@ public class ProblemListAction extends ActionSupport {
             problemList = problemService.queryProblems(from, pageSize, order,
                     ojName, "admin");
 
-            List<Integer> volume = new ArrayList<Integer>();
+            List<Integer> volume = Lists.newArrayList();
             for (Integer i = 1; i <= pageCount; i++) {
                 volume.add(i);
             }

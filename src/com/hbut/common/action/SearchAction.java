@@ -1,5 +1,6 @@
 package com.hbut.common.action;
 
+import com.google.common.collect.Lists;
 import com.hbut.message.service.MessageService;
 import com.hbut.message.vo.Message;
 import com.hbut.problem.service.ProblemService;
@@ -8,7 +9,6 @@ import com.hbut.user.service.UserService;
 import com.hbut.user.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SearchAction extends ActionSupport {
@@ -49,10 +49,10 @@ public class SearchAction extends ActionSupport {
                 return INPUT;
             }
             String word_ = word;
-            userList = new ArrayList<User>();
-            problemList = new ArrayList<Problem>();
-            messageList = new ArrayList<Message>();
-            String sql = new String();
+            userList = Lists.newArrayList();
+            problemList = Lists.newArrayList();
+            messageList = Lists.newArrayList();
+            String sql;
 
             if (type.equals("user")) {
                 // user

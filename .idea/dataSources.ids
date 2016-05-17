@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="dataSource" uuid="2778dfb6-8ee6-4c41-ba9f-3611e0352ac7">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="dataSource" uuid="74042e89-1621-448b-a105-c00ac046a4c0">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="dataSource" uuid="769a6f0d-e4d8-498f-8627-9d4d28c7570d">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="dataSource" uuid="ffa5fad3-efa5-4d04-a1db-3106418cfa4c">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

@@ -1,12 +1,12 @@
 package com.util;
 
-import java.sql.Timestamp;
+
+import com.hbut.bean.OnlineUserBean;
+
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.hbut.bean.OnlineUserBean;
 
 public class OnlineUsers {
 
@@ -27,7 +27,7 @@ public class OnlineUsers {
 			 * 已存在
 			 */
             OnlineUserBean ou = map_online_users.get(username);
-            ou.setLastAccessTime(new Timestamp(System.currentTimeMillis()));
+            ou.setLastAccessTime(new Date());
             ou.setStatusFlag(1);
         } else {
 			/*
@@ -54,7 +54,7 @@ public class OnlineUsers {
 
         if (true == map_online_users.containsKey(username)) {
             OnlineUserBean ou = map_online_users.get(username);
-            ou.setLastAccessTime(new Timestamp(System.currentTimeMillis()));
+            ou.setLastAccessTime(new Date());
             ou.setStatusFlag(0);
         }
 

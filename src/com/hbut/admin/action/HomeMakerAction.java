@@ -1,5 +1,6 @@
 package com.hbut.admin.action;
 
+import com.google.common.collect.Maps;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
@@ -7,7 +8,6 @@ import com.util.StreamHandler;
 import com.util.freemarker.MyFreeMarker;
 import org.apache.struts2.ServletActionContext;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class HomeMakerAction extends ActionSupport {
@@ -64,7 +64,7 @@ public class HomeMakerAction extends ActionSupport {
                 }
             }
 
-            Map map = new HashMap();
+            Map map = Maps.newHashMap();
             map.put("content", content);
             String root = ServletActionContext.getRequest().getRealPath(
                     "/WEB-INF");
@@ -72,7 +72,7 @@ public class HomeMakerAction extends ActionSupport {
             MyFreeMarker.generator(root, "homepage.ftl", "homepage.html",
                     "content", map);
 
-            Map map_sidebar = new HashMap();
+            Map map_sidebar = Maps.newHashMap();
             map_sidebar.put("sidebar_content", sidebar_content);
 
             MyFreeMarker.generator(root, "sidebarex.ftl", "sidebarex.html",

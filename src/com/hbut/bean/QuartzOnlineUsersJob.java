@@ -7,7 +7,6 @@ import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.MyApplicationContextUtil;
 import com.util.OnlineUsers;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -22,10 +21,9 @@ public class QuartzOnlineUsersJob {
             UserService userService = (UserService) MyApplicationContextUtil
                     .getContext().getBean("userService");
 
-            Map<String, OnlineUserBean> mou = new HashMap<String, OnlineUserBean>();
-            mou = OnlineUsers.getOnlineUsers();
+            Map<String, OnlineUserBean> mou = OnlineUsers.getOnlineUsers();
 
-            System.out.println("QuartzOnlineUsersJob start... size="
+            logger.info("QuartzOnlineUsersJob start... size="
                     + mou.size());
 
             Set set = mou.keySet();
@@ -36,14 +34,14 @@ public class QuartzOnlineUsersJob {
 
                 System.out.println(username);
                 if (username == null) {
-                    System.out.println("null of name " + username);
+                    logger.info("null of name " + username);
                     it.remove();
                     continue;
                 }
 
                 u = userService.queryUser(username);
                 if (u == null) {
-                    System.out.println("null of user " + username);
+                    logger.info("null of user " + username);
                     it.remove();
                     continue;
                 }

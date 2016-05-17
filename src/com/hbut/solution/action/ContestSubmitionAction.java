@@ -14,7 +14,7 @@ import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.Config;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 
 public class ContestSubmitionAction extends ActionSupport {
 

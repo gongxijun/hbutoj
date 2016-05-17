@@ -3,11 +3,12 @@
 
 
 <div id="footer">
-    Copyright &copy; 2015-2016 <a href="http://www.cnblogs.com/gongxijun/" style="text-decoration: none;"
-                                  target="_blank">XiJun.Gong</a>. All Rights Reserved. <a href="topic/75"
-                                                                                          style="text-decoration: none;"
-                                                                                          target="_blank">Open Source
-    Project</a><br>
+    Copyright &copy; 2015-2016
+    <a href="http://www.cnblogs.com/gongxijun/" style="text-decoration: none;"
+       target="_blank">XiJun.Gong</a>
+    . All Rights Reserved.
+    <a href="topic/75" target="_blank">
+        Open Source Project</a><br>
     The Programming Contest Web 1.1 platform & Judge Kernel 1.0.2 version.
 </div>
 

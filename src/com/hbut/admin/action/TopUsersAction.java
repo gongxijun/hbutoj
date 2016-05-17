@@ -1,5 +1,7 @@
 package com.hbut.admin.action;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.hbut.bean.TopUsersBean;
 import com.hbut.user.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
@@ -23,13 +25,13 @@ public class TopUsersAction extends ActionSupport {
     private final static Logger logger = LoggerFactory.getLogger(TopUsersAction.class);
     private static final long serialVersionUID = 1L;
 
-
     public String MakeTopUsers() throws Exception {
 
         try {
-            List<User> users = new ArrayList<User>();
+
+            List<User> users = Lists.newArrayList();
             users = TopUsersBean.getTopUsers();
-            Map map = new HashMap();
+            Map map = Maps.newHashMap();
             map.put("topusers", users);
             map.put("date", new Date());
             String root = ServletActionContext.getRequest().getRealPath(
@@ -77,5 +79,6 @@ public class TopUsersAction extends ActionSupport {
         }
         return SUCCESS;
     }
+
 
 }

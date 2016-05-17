@@ -2,11 +2,14 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String basePath = request.getScheme()
+            + "://" + request.getServerName()
+            + ":" + request.getServerPort()
+            + path + "/";
 %>
 <link rel="stylesheet" href="<%=basePath %>js/poshytip/tip-yellowsimple/tip-yellowsimple.css" type="text/css"/>
 <link rel="stylesheet" href="<%=basePath %>js/poshytip/tip-darkgray/tip-darkgray.css" type="text/css"/>
-<link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon" />
+<link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
 <script type="text/javascript" src="<%=basePath %>js/poshytip/jquery.poshytip.js"></script>
 
 <script type="text/javascript">
@@ -222,9 +225,9 @@
             <li><a href="logout" class="logout"><s:text name="logout"/></a></li>
         </s:else>
             <li class="locale">
-                <a href="#" class="locale-zh" title="Chinese"><img src="img/flag/cn.png"/></a><a href="#"
-                                                                                                 class="locale-en"
-                                                                                                 title="English"><img
+                <a href="#" class="locale-zh" title="Chinese">
+                    <img src="img/flag/cn.png"/></a>
+                <a href="#" class="locale-en"  title="English"><img
                     src="img/flag/gb.png"/></a>
             </li>
         </ul>

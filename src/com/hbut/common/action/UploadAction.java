@@ -60,20 +60,10 @@ public class UploadAction extends ActionSupport {
             CompressImage.Generate(path_orig + "\\photo.jpg", path_orig,
                     "photo_250", 250);// 大头像
             CompressImage.Generate(path_orig + "\\photo.jpg", path_orig,
-                    "photo_80", 80);// 小缩略头像
+                    "photo_80", 80);// 稍小缩略头像
             CompressImage.Generate(path_orig + "\\photo.jpg", path_orig,
                     "photo_50", 50);// 小缩略头像
-            // back-up
-            /*
-             * root = "E:\\OJ_BACKUP\\image"; path_orig =
-			 * root+"\\userphoto\\"+username;
-			 * if(Upload.uploadFile(titlePhoto,path_orig,"photo.jpg")==false){
-			 * return ERROR; }
-			 * CompressImage.Generate(path_orig+"\\photo.jpg",path_orig
-			 * ,"photo_big",250);//大头像
-			 * CompressImage.Generate(path_orig+"\\photo.jpg"
-			 * ,path_orig,"photo_small",80);//小缩略头像
-			 */
+
             user_.setAvatar("Y");
             userService.save(user_);
         } catch (Exception e) {

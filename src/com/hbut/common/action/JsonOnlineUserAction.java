@@ -1,12 +1,12 @@
 package com.hbut.common.action;
 
+import com.google.common.collect.Maps;
 import com.hbut.bean.OnlineUserBean;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.OnlineUsers;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class JsonOnlineUserAction extends ActionSupport {
@@ -48,7 +48,7 @@ public class JsonOnlineUserAction extends ActionSupport {
     public String onlineUsers() throws Exception {
         try {
             //
-            online_users = new HashMap<String, OnlineUserBean>();
+            online_users = Maps.newHashMap();
             online_users = OnlineUsers.getOnlineUsers();
             // System.out.println(usersList.size());
             success = true;

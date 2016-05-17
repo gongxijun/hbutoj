@@ -23,7 +23,7 @@
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="js/hbutoj.js"></script>
     <script type="text/javascript">
@@ -78,7 +78,7 @@
                                      alt="<s:property value="#session.session_username"/>"
                                      src="<s:if test="user.avatar==\"Y\"">upload/userphoto/<s:property value="#session.session_username"/>/</s:if><s:else>img/</s:else>photo_250.jpg">
                             </div>
-                            <div>Change your photo here...<br/>
+                            <div>Change your photo here.<br/>
                                 jpg/png/bmp/gif ,and 5 Mb limit.
                                 <form enctype="multipart/form-data" method="post" action="uploadphoto">
                                     <input type="hidden" name="titleFormSubmitted" value="true"/>
@@ -215,7 +215,7 @@
                                                             <%
                                                                 try {
                                                                     long lasting = System.currentTimeMillis();
-                                                                    File f = new File("D:\\OJ\\GDOJ\\Language.xml");
+                                                                    File f = new File("D:\\OJ\\conf\\Language.xml");
                                                                     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                                                                     DocumentBuilder builder = factory.newDocumentBuilder();
                                                                     Document doc = builder.parse(f);

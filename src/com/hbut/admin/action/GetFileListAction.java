@@ -1,12 +1,12 @@
 package com.hbut.admin.action;
 
+import com.google.common.collect.Lists;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.Config;
 import com.util.StreamHandler;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GetFileListAction extends ActionSupport {
@@ -49,7 +49,7 @@ public class GetFileListAction extends ActionSupport {
             String[] inN = StreamHandler.getFilesNameList(Config.getValue(type)
                     + path);
 
-            inputFilesName = new ArrayList<String>();
+            inputFilesName =  Lists.newArrayList();
 
             if (inN != null)
                 for (int i = 0; i < inN.length; i++) {

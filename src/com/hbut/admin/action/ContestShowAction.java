@@ -1,5 +1,6 @@
 package com.hbut.admin.action;
 
+import com.google.common.collect.Lists;
 import com.hbut.contest.problem.service.CProblemService;
 import com.hbut.contest.problem.vo.CProblem;
 import com.hbut.contest.service.ContestService;
@@ -11,7 +12,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContestShowAction extends ActionSupport {
@@ -49,7 +49,7 @@ public class ContestShowAction extends ActionSupport {
             // System.out.println(contest.getTitle());
             cproblemList = cproblemService.queryProblems(contestId);
 
-            List<Problem> problemList_ = new ArrayList<Problem>();
+            List<Problem> problemList_ = Lists.newArrayList();
             ;
             String[] indexList = {"A", "B", "C", "D", "E", "F", "G", "H", "I",
                     "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",

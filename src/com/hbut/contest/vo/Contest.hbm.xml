@@ -16,19 +16,19 @@
         <property name="description" type="java.lang.String">
             <column name="description" not-null="false"/>
         </property>
-        <property name="start_time" type="java.sql.Timestamp">
+        <property name="start_time" type="java.util.Date">
             <column name="start_time" not-null="false"/>
         </property>
-        <property name="end_time" type="java.sql.Timestamp">
+        <property name="end_time" type="java.util.Date">
             <column name="end_time" not-null="false"/>
         </property>
-        <property name="start_reg" type="java.sql.Timestamp">
+        <property name="start_reg" type="java.util.Date">
             <column name="start_reg" not-null="false"/>
         </property>
-        <property name="end_reg" type="java.sql.Timestamp">
+        <property name="end_reg" type="java.util.Date">
             <column name="end_reg" not-null="false"/>
         </property>
-        <property name="create_time" type="java.sql.Timestamp">
+        <property name="create_time" type="java.util.Date">
             <column name="create_time" not-null="false"/>
         </property>
         <property name="defunct" type="java.lang.String">

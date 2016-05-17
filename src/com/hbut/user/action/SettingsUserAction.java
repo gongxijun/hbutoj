@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.DateUtil;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class SettingsUserAction extends ActionSupport {
 
@@ -68,8 +68,9 @@ public class SettingsUserAction extends ActionSupport {
             user = userService.queryUser(username);
 
             try {
-                birthday = DateUtil.DateToString((Date) user.getBirthday(),
-                        "yyyy-MM-dd");
+
+                birthday = DateUtil.DateToString(user.getBirthday() == null ?
+                        new Date() : user.getBirthday(), "yyyy-MM-dd");
             } catch (Exception e) {
                 // TODO: handle exception
                 logger.error("settings: {}", e);

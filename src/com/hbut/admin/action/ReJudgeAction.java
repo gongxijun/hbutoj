@@ -1,5 +1,6 @@
 package com.hbut.admin.action;
 
+import com.google.common.collect.Lists;
 import com.hbut.solution.service.SolutionService;
 import com.hbut.solution.vo.Solution;
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,7 +14,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ReJudgeAction extends ActionSupport {
@@ -60,7 +60,7 @@ public class ReJudgeAction extends ActionSupport {
 
         try {
 
-            String condition_ = new String();
+            String condition_ = "";
             if (problemId != null) {
                 condition_ = "s.problem_id=" + problemId;
                 if (contestId != null) {
@@ -71,16 +71,16 @@ public class ReJudgeAction extends ActionSupport {
             } else if (solutionId != null) {
                 condition_ = "s.solution_id=" + solutionId;
             }
-            List<Solution> solution_ = new ArrayList<Solution>();
+
             String sql = "from Solution s where " + condition_
                     + " order by s.solution_id ASC";
-            solution_ = solutionService.querySolutions(0, -1, sql);
+            List<Solution>  solution_ = solutionService.querySolutions(0, -1, sql);
             if (solution_ == null) {
                 System.out.println("no solution to be ReJudge");
                 return ERROR;
             }
 
-            List<Integer> language_ = new ArrayList<Integer>();
+            List<Integer> language_ = Lists.newArrayList();
 
             try {
 
@@ -112,7 +112,7 @@ public class ReJudgeAction extends ActionSupport {
                         break;
                     }
                 }
-                if (found == false) {
+                if (!found) {
                     continue;
                 }
 

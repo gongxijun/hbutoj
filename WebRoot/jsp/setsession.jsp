@@ -28,5 +28,5 @@
 <%
     java.util.Date date = new java.util.Date();
     String ip = getIpAddr(request);
-    System.out.println("<DEBUG > " + ip + ", " + url + ", at " + date);
+    System.out.println("<DEBUG > " + ip + ", " + url + ", at " + date + "----By XiJun.Gong");
 %>

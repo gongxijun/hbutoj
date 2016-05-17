@@ -1,5 +1,6 @@
 package com.hbut.common.action;
 
+import com.google.common.collect.Lists;
 import com.hbut.contest.attend.service.AttendService;
 import com.hbut.contest.attend.vo.Attend;
 import com.hbut.contest.service.ContestService;
@@ -8,7 +9,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UpdateRatingAction extends ActionSupport {
@@ -57,12 +57,10 @@ public class UpdateRatingAction extends ActionSupport {
             }
             contest = contest_;
 
-            List<Attend> attendList_ = new ArrayList<Attend>();
-
             Integer nCount = attendService.countContestAttends(contestId);
-            attendList_ = attendService.queryContestAttends(0, nCount,
+            List<Attend> attendList_ = attendService.queryContestAttends(0, nCount,
                     contestId, contest_.getType());
-            rankList = new ArrayList<Integer>();
+            rankList = Lists.newArrayList();
             for (Attend c : attendList_) {
                 rankList.add(attendService.getUserRank(c, contest_.getType()));
             }

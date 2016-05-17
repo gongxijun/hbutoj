@@ -1,12 +1,12 @@
 package com.hbut.admin.action;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.google.common.collect.Lists;
 import com.opensymphony.xwork2.ActionSupport;
 import com.util.Config;
 import com.util.StreamHandler;
+
+import java.io.File;
+import java.util.List;
 
 public class TestFileListAction extends ActionSupport {
     private Integer problemId;
@@ -68,13 +68,13 @@ public class TestFileListAction extends ActionSupport {
     public String execute() {
         try {
 
-            inputFiles = new ArrayList<File>();
+            inputFiles = Lists.newArrayList();
             // inputFiles = StreamHandler.getInputFiles(problemId);
-            outputFiles = new ArrayList<File>();
+            outputFiles = Lists.newArrayList();
             // outputFiles = StreamHandler.getOutputFiles(problemId);
 
-            inputString = new ArrayList<String>();
-            outputString = new ArrayList<String>();
+            inputString = Lists.newArrayList();
+            outputString = Lists.newArrayList();
 
             Integer index = new Integer(1);
 

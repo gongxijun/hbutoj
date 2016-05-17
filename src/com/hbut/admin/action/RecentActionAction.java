@@ -1,5 +1,7 @@
 package com.hbut.admin.action;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.hbut.bean.MessageBean;
 import com.hbut.message.service.MessageService;
 import com.hbut.message.vo.Message;
@@ -9,7 +11,9 @@ import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.util.freemarker.MyFreeMarker;
 import org.apache.struts2.ServletActionContext;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 public class RecentActionAction extends ActionSupport {
 
@@ -39,9 +43,9 @@ public class RecentActionAction extends ActionSupport {
 
         try {
             // latest topic
-            latestMessages = new ArrayList<Message>();
+            latestMessages = Lists.newArrayList();
             latestMessages = messageService.queryLatestMessages(null, 0, 20);
-            List<MessageBean> topics = new ArrayList<MessageBean>();
+            List<MessageBean> topics =  Lists.newArrayList();
 
             for (Message m_ : latestMessages) {
                 MessageBean mb = new MessageBean();
@@ -54,7 +58,7 @@ public class RecentActionAction extends ActionSupport {
                 mb.setParentId(m_.getParent_id());
                 topics.add(mb);
             }
-            Map map = new HashMap();
+            Map map = Maps.newHashMap();
             map.put("topics", topics);
             // ActionContext.getContext().get
             String root = ServletActionContext.getRequest().getRealPath(

@@ -1,11 +1,11 @@
 package com.hbut.admin.action;
 
+import com.google.common.collect.Lists;
 import com.hbut.contest.attend.service.AttendService;
 import com.hbut.contest.service.ContestService;
 import com.hbut.contest.vo.Contest;
 import com.opensymphony.xwork2.ActionSupport;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContestListAction extends ActionSupport {
@@ -55,7 +55,7 @@ public class ContestListAction extends ActionSupport {
         contestList = contestService.queryContests(from, pageSize, 0, order,
                 "ADMIN");
 
-        List<Integer> volume = new ArrayList<Integer>();
+        List<Integer> volume = Lists.newArrayList();
         for (Integer i = 1; i <= pageCount; i++) {
             volume.add(i);
         }
