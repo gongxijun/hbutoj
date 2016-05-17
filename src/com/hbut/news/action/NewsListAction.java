@@ -68,7 +68,7 @@ public class NewsListAction extends ActionSupport {
 
     public String queryNews_admin() throws Exception {
 
-        String sql = new String();
+        String sql;
         if (pageSize > 100) {
             pageSize = 100;
         }

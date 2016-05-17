@@ -6,7 +6,7 @@
 %>
 <link rel="stylesheet" href="<%=basePath %>js/poshytip/tip-yellowsimple/tip-yellowsimple.css" type="text/css"/>
 <link rel="stylesheet" href="<%=basePath %>js/poshytip/tip-darkgray/tip-darkgray.css" type="text/css"/>
-<link rel="Shortcut Icon" href="../img/ico/favicon.ico" type="image/x-icon" />
+<link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="<%=basePath %>js/poshytip/jquery.poshytip.js"></script>
 
 <script type="text/javascript">

@@ -13,7 +13,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
-    <link rel="Shortcut Icon" href="../img/ico/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
     <link href="css/styles.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="js/hbutoj.js"></script>
@@ -42,7 +42,7 @@
             <a href="topic"><s:text name="topic"/></a>
             <a class="current" href="recent-actions"><s:text name="sidebar.recentaction"/></a>
             <a href="topic/new" title=
-            <s:text name="topic.new"/>><s:text name="topic.new"/></a>
+                    <s:text name="topic.new"/>><s:text name="topic.new"/></a>
         </div>
         <div class="datatable">
             <div class="lt">&nbsp;</div>
