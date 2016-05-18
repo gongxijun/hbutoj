@@ -13,7 +13,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
-    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
     <link href="css/styles.css" type="text/css" rel="stylesheet">
 
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
@@ -50,10 +50,10 @@
                 <div class="left"><s:text name="problems"/>
                 </div>
                 <div class="right" style="margin:0 24px 0 0px;">
-                    <a href="problemset?ORDER=<s:property value="order"/>&OJ=" style="text-decoration: none;"> ALL </a>|
-                    <a href="problemset?ORDER=<s:property value="order"/>&OJ=PKU" style="text-decoration: none;">
+                    <a href="problemset?order=<s:property value="order"/>&OJ=" style="text-decoration: none;"> ALL </a>|
+                    <a href="problemset?order=<s:property value="order"/>&OJ=PKU" style="text-decoration: none;">
                         PKU </a>|
-                    <a href="problemset?ORDER=<s:property value="order"/>&OJ=HDU" style="text-decoration: none;">
+                    <a href="problemset?order=<s:property value="order"/>&OJ=HDU" style="text-decoration: none;">
                         HDU </a>
                 </div>
 
@@ -68,20 +68,20 @@
                         <th class="solved">
                             <s:if test="order=='BY_SOLVED_ASC'">
                                 <a
-                                        href="problemset?ORDER=BY_SOLVED_DESC&OJ=<s:property value="ojName"/>"
+                                        href="problemset?order=BY_SOLVED_DESC&OJ=<s:property value="ojName"/>"
                                         style="color: #000;text-decoration: none;">
                                     <s:text name="solved"/><img alt="Sort desc." title="Sort desc."
                                                                 src="img/order/tablesorter-desc.gif"
                                                                 style="vertical-align: middle;">
                                 </a></s:if>
                             <s:elseif test="order=='BY_SOLVED_DESC'"><a
-                                    href="problemset?ORDER=BY_SOLVED_ASC&OJ=<s:property value="ojName"/>"
+                                    href="problemset?order=BY_SOLVED_ASC&OJ=<s:property value="ojName"/>"
                                     style="color: #000;text-decoration: none;">
                                 <s:text name="solved"/><img alt="Sort asc." title="Sort asc."
                                                             src="img/order/tablesorter-asc.gif"
                                                             style="vertical-align: middle;">
                             </a></s:elseif>
-                            <s:else><a href="problemset?ORDER=BY_SOLVED_DESC&OJ=<s:property value="ojName"/>"
+                            <s:else><a href="problemset?order=BY_SOLVED_DESC&ojName=<s:property value="ojName"/>"
                                        style="color: #000;text-decoration: none;">
                                 <s:text name="solved"/><img alt="Sort desc." title="Sort desc."
                                                             src="img/order/tablesorter-bg.gif"
@@ -121,7 +121,8 @@
                                                                                 default="0"/></sub></span>
                             </td>
                             <td class="ratio <s:if test="problemStatusList[#st.index]==1">problem-ac</s:if><s:elseif test="problemStatusList[#st.index]==2">problem-failed</s:elseif>">
-                                <a title="submit your code?" href="problemset/submit/<s:property value="problem_id"/>"
+                                <a title="submit your code?" href="problem
+                                set/submit/<s:property value="problem_id"/>"
                                    style=""><s:text name="submit"/></a>
                             </td>
                         </tr>
@@ -133,20 +134,20 @@
             <div class=left></div>
             <div class="right">
                 <s:if test="page>1">
-                    <a href="problemset/page/<s:property value="page-1"/>?ORDER=<s:property value="order"/>&OJ=<s:property value="ojName"/>"
+                    <a href="problemset/page/<s:property value="page-1"/>?order=<s:property value="order"/>&ojName=<s:property value="ojName"/>"
                        style="color:#000;text-decoration: none;">  &larr; </a>
                 </s:if>
                 <s:iterator value="pageList" status="st_page">
                     <s:if test="pageList[#st_page.index]==0">...</s:if>
                     <s:else><a
-                            href="problemset/page/<s:property/>?ORDER=<s:property value="order"/>&OJ=<s:property value="ojName"/>"
+                            href="problemset/page/<s:property/>?order=<s:property value="order"/>&ojName=<s:property value="ojName"/>"
                             style="color:#000;text-decoration: none;">
                         <s:if test="page==pageList[#st_page.index]"><b><s:property/></b></s:if>
                         <s:else><s:property/></s:else>
                     </a></s:else>
                 </s:iterator>
                 <s:if test="page < pageCount">
-                    <a href="problemset/page/<s:property value="page+1"/>?ORDER=<s:property value="order"/>&OJ=<s:property value="ojName"/>"
+                    <a href="problemset/page/<s:property value="page+1"/>?order=<s:property value="order"/>&ojName=<s:property value="ojName"/>"
                        style="color:#000;text-decoration: none;">  &rarr; </a>
                 </s:if>
             </div>

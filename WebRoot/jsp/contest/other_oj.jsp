@@ -66,6 +66,7 @@
                         <th class='access'>Access</th>
                     </tr>
                     <tr>
+                        
                         <td class='left-item dark' colspan='15' style='text-align: left;'>Loading...</td>
                     </tr>
                 </table>

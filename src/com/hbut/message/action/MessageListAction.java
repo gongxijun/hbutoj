@@ -18,6 +18,7 @@ public class MessageListAction extends ActionSupport {
      *
      */
     private static final long serialVersionUID = 1L;
+
     private MessageService messageService;
     private UserService userService;
     private List<Integer> pageList;
@@ -45,23 +46,17 @@ public class MessageListAction extends ActionSupport {
 
     public String topicList() throws Exception {
 
-        if (pageSize > 20) {
-            pageSize = 20;
-        }
+        pageSize = pageSize > 20 ? 20 : pageSize;
         intRowCount = messageService.countRootMessages();
         pageCount = ((intRowCount + pageSize - 1) / pageSize);// 计算出总页数
-        if (page < 1) {
-            page = 1;
-        }
-        if (page > pageCount) {
-            page = pageCount;
-        }
-        List<Message> messages_ = new ArrayList<Message>();
-        messages_ = messageService.queryRootMessages(page, pageSize);
+        page = page < 1 ? 1 : page;
+        page = page > pageCount ? pageCount : page;
+        List<Message> messages_ = messageService.queryRootMessages(page, pageSize);
 
         messages = new ArrayList<MessageBean>();
 
         for (Message m_ : messages_) {
+
             MessageBean mb_ = new MessageBean();
             mb_.setMessageId(m_.getMessage_id());
             mb_.setAuthor(m_.getCreate_user());
@@ -72,6 +67,7 @@ public class MessageListAction extends ActionSupport {
             mb_.setIn_date(m_.getIn_date());
             mb_.setFriendly_Date(getFriendlyDate(m_.getIn_date()));
             String bufString = new String();
+
             bufString = Html2Text
                     .RemoveHtml(((m_.getContent().length() > 2000) ? (m_
                             .getContent()).substring(0, 2000) : m_.getContent()));

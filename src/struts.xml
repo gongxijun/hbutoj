@@ -134,15 +134,19 @@
         <action name="userInfo" class="userTipBean" method="userInfo">
 
         </action>
+
         <action name="showImage" class="com.hbut.common.action.ShowImageAction" method="showImage">
 
         </action>
+
         <action name="view-source" class="solutionSourceBean" method="solutionSource">
             <result name="success">/jsp/viewsource.jsp</result>
         </action>
+
         <action name="view-compileinfo" class="compileInfoBean" method="getCompileError">
             <result name="success">/jsp/viewcompileerror.jsp</result>
         </action>
+
         <action name="problemset" class="problemListBean" method="problemSet">
             <result name="success">/jsp/problemset.jsp</result>
         </action>
@@ -186,25 +190,30 @@
         </action>
     </package>
     <package name="topic" extends="struts-default" namespace="/topic">
+
         <interceptors>
             <interceptor name="isLogin" class="com.hbut.common.interceptor.LoginInterceptor"/>
             <interceptor name="isEnter" class="com.hbut.common.interceptor.EnterInterceptor"/>
             <interceptor name="token" class="org.apache.struts2.interceptor.TokenInterceptor"/>
         </interceptors>
+
         <global-results>
             <result name="home">/index.jsp</result>
             <result name="login">/jsp/login.jsp</result>
             <result name="error">/jsp/error.jsp</result>
         </global-results>
+
         <action name="show" class="MessagesBean" method="showMessage">
             <result name="success">/jsp/messageshow.jsp</result>
             <result name="input">/jsp/messageshow.jsp</result>
         </action>
+
         <action name="edit" class="MessagesBean" method="editMessage">
             <result name="success">/jsp/messageedit.jsp</result>
             <interceptor-ref name="defaultStack"></interceptor-ref>
             <interceptor-ref name="isLogin"></interceptor-ref>
         </action>
+
         <action name="new">
             <result name="success">/jsp/messagenew.jsp</result>
             <interceptor-ref name="defaultStack"></interceptor-ref>

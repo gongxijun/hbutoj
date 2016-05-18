@@ -17,13 +17,13 @@
     <sx:head extraLocales="en-us,nl-nl,de-de"/>
     <base href="<%=basePath%>">
     <title>Modify Info.</title>
+    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="-1">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="js/hbutoj.js"></script>
     <script type="text/javascript">
@@ -215,7 +215,7 @@
                                                             <%
                                                                 try {
                                                                     long lasting = System.currentTimeMillis();
-                                                                    File f = new File("D:\\OJ\\conf\\Language.xml");
+                                                                    File f = new File("C:\\OJ\\conf\\Language.xml");
                                                                     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                                                                     DocumentBuilder builder = factory.newDocumentBuilder();
                                                                     Document doc = builder.parse(f);

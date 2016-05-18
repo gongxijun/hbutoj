@@ -33,7 +33,6 @@
 <div id="body">
 
     <div id="sidebar">
-
         <jsp:include page="/jsp/sidebar.jsp"></jsp:include>
     </div>
 

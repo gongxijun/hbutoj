@@ -38,7 +38,7 @@ public class TimerThread extends Thread {
             }
 
             try {
-                Thread.sleep(60000);
+                Thread.sleep(60000);  //每一分钟自动刷新一次
             } catch (Exception e) {
                 logger.error("run: {}", e);
             }

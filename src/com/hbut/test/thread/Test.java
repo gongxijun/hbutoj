@@ -1,31 +1,12 @@
 package com.hbut.test.thread;
 
+import com.util.Tools;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-
-import org.apache.commons.httpclient.*;
-import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.commons.httpclient.params.HttpMethodParams;
-import org.apache.commons.mail.SimpleEmail;
-
-import org.apache.struts2.ServletActionContext;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.hbut.user.service.UserService;
-import com.hbut.user.service.UserServiceImpl;
-import com.hbut.user.dao.UserDAO;
-import com.hbut.user.dao.UserDaoImpl;
-import com.hbut.user.vo.User;
-import com.util.CalcRating;
-import com.util.DateUtil;
-import com.util.MyApplicationContextUtil;
-import com.util.StreamHandler;
-import com.util.Tools;
 
 public class Test {
 
@@ -51,7 +32,7 @@ public class Test {
 		 */
 
         try {
-            URL url = new URL("http://acm.hdu.edu.cn/showproblem.php?pid=1000");
+            URL url = new URL("http://acm.hdu.edu.cn/showproblem.php?pid=1001");
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     url.openStream()));
             String line;

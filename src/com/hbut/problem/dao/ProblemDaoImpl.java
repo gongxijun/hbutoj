@@ -70,8 +70,7 @@ public class ProblemDaoImpl extends HibernateDaoSupport implements ProblemDAO {
         String sql = new String();
         sql = "select p from Problem p where p.problem_id like '%"
                 + searchString + "%' or p.title like '%" + searchString + "%'";
-        // System.out.println(sql);
-        Query q = (Query) session.createQuery(sql);
+        Query q = session.createQuery(sql);
         q.setFirstResult(0);
         q.setMaxResults(pageSize);
         List<Problem> problems = q.list();
@@ -117,7 +116,7 @@ public class ProblemDaoImpl extends HibernateDaoSupport implements ProblemDAO {
         Session session = HibernateSessionFactory.getSession();
         session.beginTransaction();
 
-        Query q = (Query) session.createQuery(sql);
+        Query q = session.createQuery(sql);
         q.setString(0, "%" + word + "%");
         q.setString(1, "%" + word + "%");
         q.setString(2, "%" + word + "%");

@@ -88,6 +88,7 @@ public class ContestAction extends ActionSupport {
                 this.addFieldError("end_reg_date", "end_reg_date is invalid");
                 return INPUT;
             }
+
             /**
              * 时间段开始时间<结束时间
              */

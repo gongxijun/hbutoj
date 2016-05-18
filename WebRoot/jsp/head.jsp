@@ -126,7 +126,10 @@
                 </ul>
             </li>
             <li class="t_c_search"><a href="search"><s:text name="search"/></a></li>
-            <li class="t_c_faq"><a href="topic/9"><s:text name="faq"/></a></li>
+            <li class="t_c_faq">
+                <a href="faq.jsp"><s:text name="faq"/></a>
+            </li>
+
             <!--            <li><a href="problemset/standings"><s:text name="standings"/></a></li>-->
             <!-- 			<li class="sweibo">
                            <div class="searchTool">
@@ -150,6 +153,7 @@
                            </div>
                              </li>
                  -->
+
         </ul>
 
         <ul class="hright">
@@ -227,8 +231,8 @@
             <li class="locale">
                 <a href="#" class="locale-zh" title="Chinese">
                     <img src="img/flag/cn.png"/></a>
-                <a href="#" class="locale-en"  title="English"><img
-                    src="img/flag/gb.png"/></a>
+                <a href="#" class="locale-en" title="English"><img
+                        src="img/flag/gb.png"/></a>
             </li>
         </ul>
     </div>

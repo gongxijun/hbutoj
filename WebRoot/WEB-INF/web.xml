@@ -12,7 +12,6 @@
     </context-param>
 
 
-
     <!-- Spring 设置编码格式 -->
     <!--<filter>
         <filter-name>CharacterEncodingFilter</filter-name>
@@ -33,12 +32,9 @@
     </filter-mapping>-->
     <!-- 设置servlet编码结束 -->
 
-
     <filter>
         <filter-name>UrlRewriteFilter</filter-name>
-        <filter-class>
-            org.tuckey.web.filters.urlrewrite.UrlRewriteFilter
-        </filter-class>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
         <init-param>
             <param-name>logLevel</param-name>
             <param-value>WARN</param-value>
@@ -50,6 +46,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+
     <!-- struts2 过滤器 -->
     <filter>
         <filter-name>struts2Filter</filter-name>
@@ -57,6 +54,7 @@
             org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
         </filter-class>
     </filter>
+
     <filter-mapping>
         <filter-name>struts2Filter</filter-name>
         <url-pattern>*.action</url-pattern>
@@ -79,7 +77,6 @@
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
-
 
     <listener>
         <listener-class>com.hbut.listener.OnlineHttpSessionListener</listener-class>

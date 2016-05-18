@@ -105,59 +105,60 @@ public class ProblemListAction extends ActionSupport {
                 List<String> tagsNameList_ = Lists.newArrayList();
                 try {
                     tagsviewsList_ = tagsviewService.queryByProblems(p.getProblem_id());
-                    for (Tagsview t_ : tagsviewsList_) {
-                        tagsNameList_.add(tagsService.queryTag(t_.getTag_id())
-                                .getName());
+                    if (null != tagsviewsList_) {
+                        for (Tagsview t_ : tagsviewsList_) {
+                            tagsNameList_.add(tagsService.queryTag(t_.getTag_id())
+                                    .getName());
+                        }
                     }
-            }catch(Exception e){
-                // TODO: handle exception
-                logger.error("setOJName : {}", e);
-            }
+                } catch (Exception e) {
+                    // TODO: handle exception
+                    logger.error("setOJName : {}", e);
+                }
 
-            tagsList.put(p.getProblem_id(), tagsNameList_);
+                tagsList.put(p.getProblem_id(), tagsNameList_);
+            }
+            // end tags
+
+            // page list
+            List<Integer> volume = Lists.newArrayList();
+            if (pageCount < 7) {
+                for (Integer i = 1; i <= pageCount; i++) {
+                    volume.add(i);
+                }
+            } else {
+                volume.add(1);
+                if (page > 4) {
+                    volume.add(0); // 省略号
+                }
+                Integer start_i = new Integer(2);
+                Integer end_i = new Integer(pageCount - 1);
+                if (page - 2 > 2) {
+                    start_i = page - 2;
+                }
+                if (page + 2 < pageCount) {
+                    end_i = page + 2;
+                }
+
+                for (Integer i = start_i; i <= end_i; i++) {
+                    volume.add(i);
+                }
+                if (page < pageCount - 3) {
+                    volume.add(0); // 省略号
+                }
+
+                volume.add(pageCount);
+            }
+            pageList = volume;
+            // end page list
+
+        } catch (Exception e) {
+            // TODO: handle exception
+            logger.error("problemSet: {} ", e);
+            return ERROR;
         }
-        // end tags
-
-        // page list
-        List<Integer> volume = Lists.newArrayList();
-        if (pageCount < 7) {
-            for (Integer i = 1; i <= pageCount; i++) {
-                volume.add(i);
-            }
-        } else {
-            volume.add(1);
-            if (page > 4) {
-                volume.add(0); // 省略号
-            }
-            Integer start_i = new Integer(2);
-            Integer end_i = new Integer(pageCount - 1);
-            if (page - 2 > 2) {
-                start_i = page - 2;
-            }
-            if (page + 2 < pageCount) {
-                end_i = page + 2;
-            }
-
-            for (Integer i = start_i; i <= end_i; i++) {
-                volume.add(i);
-            }
-            if (page < pageCount - 3) {
-                volume.add(0); // 省略号
-            }
-
-            volume.add(pageCount);
-        }
-        pageList = volume;
-        // end page list
-
+        return SUCCESS;
     }
-    catch(Exception e){
-        // TODO: handle exception
-        logger.error("problemSet: {} ", e);
-        return ERROR;
-    }
-    return SUCCESS;
-}
 
     public SolutionService getSolutionService() {
         return solutionService;
