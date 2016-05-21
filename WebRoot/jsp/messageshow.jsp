@@ -9,7 +9,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title><s:text name="topic"/> - <s:property value="messagebean.title"/> - GUET Online Judge</title>
+    <title><s:text name="topic"/> - <s:property value="messagebean.title"/> - HBUT Online Judge</title>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="-1">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -18,7 +18,7 @@
     <meta http-equiv="description"
           content="<s:property value="messagebean.title"/> - <s:property value="messagebean.content_abstract"/>">
     <link href="css/styles.css" type="text/css" rel="stylesheet">
-    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="js/hbutoj.js"></script>
 
@@ -46,7 +46,7 @@
             <a class="current" href="topic"><s:text name="topic"/></a>
 
             <a href="topic/new" title=
-            <s:text name="topic.new"/>><s:text name="topic.new"/></a>
+                    <s:text name="topic.new"/>><s:text name="topic.new"/></a>
         </div>
         <div class="topic">
             <div class="title"><h3><s:property value="messagebean.title"/></h3></div>
@@ -87,24 +87,11 @@
 </span>
 
                 <span class="topic-shareto"></span>
-                <!-- JiaThis Button BEGIN
-                <span id="ckepop" class="topic-share">
-                    <a class="jiathis_button_qzone"></a>
-                    <a class="jiathis_button_tsina"></a>
-                    <a class="jiathis_button_tqq"></a>
-                    <a class="jiathis_button_renren"></a>
-                    <a class="jiathis_button_kaixin001"></a>
-                    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-                    <a class="jiathis_counter_style"></a>
-                </span>
-                <script type="text/javascript" src="http://v2.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
-                 JiaThis Button END -->
-	
 	<span class="topic-vote">	
 		<a href="#" class="topic-vote-up-<s:property value="messagebean.messageId"/>"><img
                 style="vertical-align:middle;position:relative;top:-0.2em;" src="img/vote/voteup.png"
                 alt="Vote: I like it" title="Vote: I like it"/></a>
-		<s:if test="messagebean.votes>0">
+		<s:if test="messagebean.votes > 0 ">
 		<span style="color:green;font-weight:bold;">
 		+<s:property value="messagebean.votes"/>
 		</span>
@@ -120,22 +107,26 @@
 		
 		<script type="text/javascript">
             $(document).ready(function () {
+
                 $(".topic-vote-up-<s:property value="messagebean.messageId"/>").click(function () {
                     $.post("vote", {messageId: <s:property value="messagebean.messageId"/>, vote: +1}, function (data) {
                         if (data.success != true) {
                             alert(data["error"]);
                         } else {
                             alert("Vote success.");
+                            location.reload();
                         }
                     }, "json");
                     return false;
                 });
+
                 $(".topic-vote-down-<s:property value="messagebean.messageId"/>").click(function () {
                     $.post("vote", {messageId: <s:property value="messagebean.messageId"/>, vote: -1}, function (data) {
                         if (data.success != true) {
                             alert(data["error"]);
                         } else {
                             alert("Vote success.");
+                            location.reload();
                         }
                     }, "json");
                     return false;
@@ -198,10 +189,12 @@
 </span>
 </s:else>
 &nbsp;
-<a href="#" class="vote-for-comment" voteDirection="-1" dd="y"><img style="position:relative;top:2px;opacity:0.55;"
-                                                                    src="img/vote/comment-votedown.png"
-                                                                    alt="Vote: I do not like it"
-                                                                    title="Vote: I do not like it"/></a>
+<a href="#" class="vote-for-comment" voteDirection="-1" dd="y">
+    <img style="position:relative;top:2px;opacity:0.55;"
+         src="img/vote/comment-votedown.png"
+         alt="Vote: I do not like it"
+         title="Vote: I do not like it"/>
+</a>
 </span>
 
                                         <p><s:property value="content" escape="false"/></p>
@@ -211,19 +204,19 @@
                                     </div>
                                 </div>
                                 <ul id=u<s:property value="nodeID[#st.index]"/>>
-                                        </s:if>
-                                        <s:else>
+                                    </s:if> <s:else>
                                     <div id=mc_<s:property value="messageId"/> class="comment">
-                                        <span style="float:left; width:40px;"><a
-                                                href="profile/<s:property value="author"/>" class="user-tip"
-                                                user="<s:property value="author"/>"><img
-                                                style="width:32px;height:32px;margin:3px 0 0 5px;"
-                                                src="<s:if test="avatar==\"Y\"">upload/userphoto/<s:property value="author"/>/</s:if><s:else>img/</s:else>photo_50.jpg"/></a></span>
+ <span style="float:left; width:40px;">
+     <a href="profile/<s:property value="author"/>" class="user-tip"
+        user="<s:property value="author"/>"><img
+             style="width:32px;height:32px;margin:3px 0 0 5px;"
+             src="<s:if test="avatar==\"Y\"">upload/userphoto/<s:property value="author"/>/</s:if><s:else>img/</s:else>photo_50.jpg"/></a></span>
 
                                         <div style="margin-left:50px;">
                                             <a href="profile/<s:property value="author"/>"
                                                name="rpl_<s:property value="messageId"/>"><s:property
-                                                    value="author"/></a> <span style="color:grey"><s:text name="post"/> <s:date
+                                                    value="author"/></a> <span style="color:grey"><s:text
+                                                name="post"/> <s:date
                                                 name="in_date" nice="false" format="yyyy-MM-dd HH:mm:ss"/></span>
                                             <s:if test="#session.session_username!=null">
                                                 <s:if test="#session.session_username!=author">
@@ -243,12 +236,13 @@
 <span style="color:gray;font-weight:bold;">
 <s:property value="votes"/>
 </span>
-                                            </s:else>
-&nbsp;
-<a href="#" class="vote-for-comment" voteDirection="-1" dd="y"><img style="position:relative;top:2px;opacity:0.55;"
-                                                                    src="img/vote/comment-votedown.png"
-                                                                    alt="Vote: I do not like it"
-                                                                    title="Vote: I do not like it"/></a>
+                                            </s:else>&nbsp;
+<a href="#" class="vote-for-comment" voteDirection="-1" dd="y">
+    <img style="position:relative;top:2px;opacity:0.55;"
+         src="img/vote/comment-votedown.png"
+         alt="Vote: I do not like it"
+         title="Vote: I do not like it"/>
+</a>
 </span>
 
                                             <p><s:property value="content" escape="false"/></p>
@@ -257,14 +251,14 @@
                                                  class='inline_reply'></div>
                                         </div>
                                     </div>
-                                    </s:else>
+                                </s:else>
                                     <s:property value="prevUL[#st.index]" escape="false"/>
                                     </s:iterator>
                                 </ul>
                     </div>
-
                 </div>
-                <br/></s:if>
+                <br/>
+            </s:if>
             <!-- Reply -->
             <div>
                 <b>Reply:</b>
@@ -281,9 +275,9 @@
                                           rows="10"></textarea>
                             </div>
                             <div style="text-align: left;">
-                                <input class="padding: 12px;" type="submit" value="Post">
-                                <input class="padding: 12px;" type="reset" value="Reset">
-                                <span class="fielderror"></span>
+                                <input class="" type="submit" value=<s:text name="topic.submit"/>>
+                                <input class="" type="reset" value=<s:text name="topic.reset"/>>
+                                        <span class="fielderror"></span>
                             </div>
                         </form>
                     </div>
@@ -300,18 +294,20 @@
                                               onkeydown="if(event.ctrlKey&&event.keyCode==13){$('#form_inline_comment').submit();}"></textarea>
                                 </div>
 
-                                <div style="text-align: left;margin-top: 6px;">
-                                    <input class="padding: 12px;" type="submit" value="Reply" id="btn_comment">
-                                    <input class="padding: 12px;" type="button" value="Close"
-                                           id='btn_close_inline_reply'>
+                                <div style="text-align: center;margin-top: 12px;">
+                                    <input class="padding: 12px;" type="submit" value=<s:text name="topic.reply"/> id="btn_comment" >
+                                    <input class="padding: 12px;" type="button" value=<s:text name="topic.close"/>
+                                           id='btn_close_inline_reply' >
                                     <span class="inline-fielderror"></span>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </s:if> <s:else>
-                <span class="reply"><a href="javascript:void(0)"
-                                       class="<s:property value="message.message_id"/> <s:property value="message.parent_id"/> <s:property value="message.root_id"/>">Reply
+                <span class="reply"><a href="location.reload()"
+                                       class="<s:property value="message.message_id"/>
+                                        <s:property value="message.parent_id"/>
+                                        <s:property value="message.root_id"/>">Reply
                     it before Login</a></span>
             </s:else>
             </div>
@@ -591,8 +587,10 @@
                 $.post("vote", {messageId: messageId, vote: direction}, function (data) {
                     if (data.success != true) {
                         alert(data["error"]);
+                        location.reload();
                     } else {
                         alert("Vote success.");
+                        location.reload();
                     }
                 }, "json");
                 return false;

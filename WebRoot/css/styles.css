@@ -463,6 +463,8 @@ img {
     -webkit-transition: all 0.2s linear 0s;
 }
 
+;
+
 .headerNav ul.hright li.on {
     background: #373a3d url(../img/t_c_bg.gif) no-repeat right;
 }

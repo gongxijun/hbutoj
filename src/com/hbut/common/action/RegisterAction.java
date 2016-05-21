@@ -166,8 +166,6 @@ public class RegisterAction extends ActionSupport {
             //System.out.println(new Timestamp(System.currentTimeMillis()));
             //System.out.println("@@@@@@@@@@@{}"+DateUtil.TimestampFormat(new Timestamp(System.currentTimeMillis())));
             user_.setLastaccesstime(new Date());
-           // System.out.println(user_.getLastaccesstime());
-            //System.out.println(user_.getLastaccesstime().getClass());
             user_.setLastlogin(new Date());
 
             userService.save(user_);

@@ -9,7 +9,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>Topic</title>
+    <title>Topic-HBUT Online Judge</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">

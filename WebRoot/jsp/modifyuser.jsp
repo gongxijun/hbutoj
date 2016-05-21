@@ -3,37 +3,27 @@
                                  javax.xml.parsers.DocumentBuilder,
                                  javax.xml.parsers.DocumentBuilderFactory,
                                  org.w3c.dom.Document,
-                                 org.w3c.dom.NodeList"
-         pageEncoding="UTF-8" %>
-
+                                 org.w3c.dom.NodeList" pageEncoding="UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s" %>
 <%@ taglib uri="/struts-dojo-tags" prefix="sx" %>
-
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() +
-            "://" + request.getServerName() +
-            ":" + request.getServerPort() + path +
-            "/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <html>
 <head>
-    <%--
     <sx:head extraLocales="en-us,nl-nl,de-de"/>
-    --%>
     <base href="<%=basePath%>">
-    <title>Modify Info.-HBUT Online Judge</title>
+    <title>Modify Info.</title>
+    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="-1">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
-
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="js/hbutoj.js"></script>
     <script type="text/javascript">

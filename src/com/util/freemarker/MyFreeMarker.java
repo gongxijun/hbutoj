@@ -43,7 +43,7 @@ public class MyFreeMarker {
 
         Writer out = new OutputStreamWriter(new FileOutputStream(templatesPath
                 + "\\templates\\" + desName), "gb2312");
-        t.process(objMap, out);
+            t.process(objMap, out);
     }
 
     public static void main(String[] args) throws Exception {

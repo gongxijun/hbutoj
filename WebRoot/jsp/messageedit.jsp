@@ -9,7 +9,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>Edit Topic <s:property value="message.title"/></title>
+    <title>Edit Topic-HBUT Online Judge <s:property value="message.title"/></title>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="-1">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -68,10 +68,12 @@
 
     </div>
     <div id="content" class="content-with-sidebar round0123">
+
         <div id="nav-content">
             <a class="current" href="topic"><s:text name="topic"/></a>
             <a href="topic/new"><s:text name="topic.new"/></a>
         </div>
+
         <div class="topic">
             <div>
                 <div class="comment round_0123 highlight message-edit-box message-edit-box-pro"
@@ -109,8 +111,8 @@
                     	</div>	-->
                             <div style="text-align:center;"><span class="fielderror"></span></div>
                             <div style=" text-align: center;margin-top: 12px;">
-                                <input type="Submit" value="Post">
-                                <input type="reset" value="Reset">
+                                <input class="padding: 12px;" type="submit" value=<s:text name="topic.submit"/> >
+                                <input class="padding: 12px;" type="reset" value=<s:text name="topic.reset" />>
                                 <!-- 	<p class="test">Test</p> -->
                             </div>
                         </div>

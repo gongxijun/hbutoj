@@ -173,13 +173,13 @@ public class PostMessageAction extends ActionSupport {
 
             Date dt_prevSubmit = (Date) ActionContext.getContext().getSession()
                     .get("session_submit");
-            Date dt = new Date(0);
+            Date dt = new Date();
 
             if (dt_prevSubmit != null) {
                 // System.out.println(dt.getTime()-dt_prevSubmit.getTime());
                 if (dt.getTime() - dt_prevSubmit.getTime() < 5000) { // 限制5s一次提交
                     logger.info(createUser
-                            + " submit-topic twice at 10 second.");
+                            + " submit-topic twice at 5 second.");
                     // this.addFieldError("tip", "");
                     success = true;
                     return SUCCESS;
@@ -289,7 +289,6 @@ public class PostMessageAction extends ActionSupport {
 
             String tagString = new String();
             if (tag != null) {
-                System.out.println(tag.size());
                 for (String t_ : tag) {
                     System.out.println(t_);
                     Tags tag_ = new Tags();
