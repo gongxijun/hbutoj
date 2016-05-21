@@ -57,6 +57,8 @@ public class MessageListAction extends ActionSupport {
 
         for (Message m_ : messages_) {
 
+            //todo 存在bug indate,需要修复
+
             MessageBean mb_ = new MessageBean();
             mb_.setMessageId(m_.getMessage_id());
             mb_.setAuthor(m_.getCreate_user());

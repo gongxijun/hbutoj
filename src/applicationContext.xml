@@ -10,11 +10,13 @@
 			value="com.mysql.jdbc.Driver">
 		</property>
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/hbutoj?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull">
+			value="jdbc:mysql://localhost:3306/hbutoj?useUnicode=true&amp;characterEncoding=utf8">
 		</property>
-		<property name="username" value="root"></property>
+
+        <property name="username" value="root"></property>
 		<property name="password" value="gxjun"></property>
 	</bean>
+
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource">

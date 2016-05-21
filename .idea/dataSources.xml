@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2761093598">
-    <data-source source="LOCAL" name="dataSource" uuid="2778dfb6-8ee6-4c41-ba9f-3611e0352ac7">
-      <jdbc-driver>gxjun</jdbc-driver>
-      <jdbc-url>com.mysql.jdbc.Driver</jdbc-url>
-      <libraries />
-    </data-source>
-    <data-source source="LOCAL" name="dataSource" uuid="74042e89-1621-448b-a105-c00ac046a4c0">
-      <jdbc-driver>gxjun</jdbc-driver>
-      <jdbc-url>com.mysql.jdbc.Driver</jdbc-url>
-      <libraries />
-    </data-source>
-    <data-source source="LOCAL" name="dataSource" uuid="769a6f0d-e4d8-498f-8627-9d4d28c7570d">
-      <jdbc-driver>gxjun</jdbc-driver>
-      <jdbc-url>com.mysql.jdbc.Driver</jdbc-url>
-      <libraries />
-    </data-source>
-    <data-source source="LOCAL" name="dataSource" uuid="ffa5fad3-efa5-4d04-a1db-3106418cfa4c">
-      <jdbc-driver>gxjun</jdbc-driver>
-      <jdbc-url>com.mysql.jdbc.Driver</jdbc-url>
-      <libraries />
+  <component name="DataSourceManagerImpl" format="xml" hash="1560496262">
+    <data-source source="LOCAL" name="hbut" uuid="718b86de-7cf8-40ac-b53a-7635b4e4d475">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/hbutoj</jdbc-url>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+      </driver-properties>
+      <libraries>
+        <library>
+          <url>file://$PROJECT_DIR$/WebRoot/lib/mysql-connector-java-5.1.7-bin.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

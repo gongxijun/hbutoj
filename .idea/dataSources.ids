@@ -1,15 +1,245 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="dataSource" uuid="2778dfb6-8ee6-4c41-ba9f-3611e0352ac7">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
-  </data-source>
-  <data-source name="dataSource" uuid="74042e89-1621-448b-a105-c00ac046a4c0">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
-  </data-source>
-  <data-source name="dataSource" uuid="769a6f0d-e4d8-498f-8627-9d4d28c7570d">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
-  </data-source>
-  <data-source name="dataSource" uuid="ffa5fad3-efa5-4d04-a1db-3106418cfa4c">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  <data-source name="hbut" uuid="718b86de-7cf8-40ac-b53a-7635b4e4d475">
+    <database-info product="MySQL" version="5.6.21" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.7 ( Revision: ${svn.Revision} )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="hbutoj"/>
+    <table name="attend" schema="" catalog="hbutoj" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="contest_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="defunct" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="solved" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="score" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="penalty" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="A_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="A_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="B_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="B_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="C_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="C_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="D_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="D_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="E_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="E_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="F_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="F_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="G_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="G_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="H_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="H_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="I_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="I_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="J_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="J_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="K_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="K_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="L_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="L_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="M_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="M_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="N_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="N_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="O_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="O_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="P_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="P_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="Q_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="Q_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="R_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="R_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="S_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="S_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="T_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="T_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="U_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="U_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="V_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="V_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="W_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="W_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="X_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="X_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="Y_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="Y_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="Z_time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="Z_wrongsubmits" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="compile_info" schema="" catalog="hbutoj" type="TABLE">
+      <column name="solution_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="error" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="solution_id"/>
+    </table>
+    <table name="contest" schema="" catalog="hbutoj" type="TABLE">
+      <column name="contest_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="start_time" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="end_time" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="password" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="create_user" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="defunct" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="create_time" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="start_reg" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="end_reg" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="type" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="contest_id"/>
+    </table>
+    <table name="contest_problem" schema="" catalog="hbutoj" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="problem_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="contest_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="num" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="submit" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="accepted" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="solved" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="submit_user" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="defunct" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="point" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="mail" schema="" catalog="hbutoj" type="TABLE">
+      <column name="mail_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="from_user" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="to_user" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="isnew" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="reply" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="create_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="defunct" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="mail_id,title"/>
+    </table>
+    <table name="message" schema="" catalog="hbutoj" type="TABLE">
+      <column name="message_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="problem_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="contest_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="module_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="parent_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="root_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="orderNum" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="in_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="create_user" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="defunct" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="votes" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="views" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="message_id"/>
+    </table>
+    <table name="news" schema="" catalog="hbutoj" type="TABLE">
+      <column name="news_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="create_user" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="orderNum" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="defunct" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="news_id"/>
+    </table>
+    <table name="privilege" schema="" catalog="hbutoj" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="rightstr" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="problem" schema="" catalog="hbutoj" type="TABLE">
+      <column name="problem_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="input" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="output" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="sample_input" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="sample_output" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="spj" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="hint" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="source" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="time_limit" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="memory_limit" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="defunct" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="accepted" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="solved" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="submit" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="submit_user" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="author" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="create_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="difficulty" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7" def="MA=="/>
+      <column name="ratio" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7" def="MA=="/>
+      <column name="tag" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="contest_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="oj_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="oj_pid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="isvirtual" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="problem_id"/>
+    </table>
+    <table name="solution" schema="" catalog="hbutoj" type="TABLE">
+      <column name="solution_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="problem_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="submit_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="memory" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="time" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="code_length" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="language" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="verdict" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="contest_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="testcase" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="solution_id"/>
+    </table>
+    <table name="solution_source" schema="" catalog="hbutoj" type="TABLE">
+      <column name="solution_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="source" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="solution_id"/>
+    </table>
+    <table name="tags" schema="" catalog="hbutoj" type="TABLE">
+      <column name="tag_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="indate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="create_user" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="defunct" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="tag_id"/>
+    </table>
+    <table name="tagsview" schema="" catalog="hbutoj" type="TABLE">
+      <column name="tag_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="problem_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="message_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="users" schema="" catalog="hbutoj" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nickname" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="school" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="motto" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="defunct" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="birthday" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="regdate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="ip" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="language" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="opensource" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="solved" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="submit" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="rating" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="lastlogin" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="avatar" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lastaccesstime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id,username"/>
+    </table>
+    <table name="vote" schema="" catalog="hbutoj" type="TABLE">
+      <column name="vote_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="message_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="vote" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="vote_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="vote_id"/>
+    </table>
   </data-source>
 </component>
