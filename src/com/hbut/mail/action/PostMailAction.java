@@ -44,17 +44,19 @@ public class PostMailAction extends ActionSupport {
                 error = "You must login first.";
                 return SUCCESS;
             }
-            if (null == title || title.trim().length() > 0) {
+           Integer  tiger = title.trim().length();
+
+            if (null == title || title.trim().length() < 1) {
                 success = false;
                 error = "Title shouldn't be empty.";
                 return SUCCESS;
             }
-            if (null == content || content.trim().length() > 0) {
+            if (null == content || content.trim().length() < 1) {
                 success = false;
                 error = "Content shouldn't be empty.";
                 return SUCCESS;
             }
-            if (null == toUser || toUser.trim().length() > 0) {
+            if (null == toUser || toUser.trim().length() < 1) {
                 success = false;
                 error = "Receive-user shouldn't be empty.";
                 return SUCCESS;
