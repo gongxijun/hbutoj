@@ -77,7 +77,7 @@ public class Tools {
      */
     public static String dropScript(String html) {
         return html == null ? null : html.replaceAll(
-                "(?i)(?<=(\\b|java))script\\b", "锝揷ript");
+                "(?i)(?<=(\\b|java))script\\b", "dropScript");
     }
 
     /**
@@ -302,13 +302,12 @@ public class Tools {
                     p.getInputStream()));
             String inline;
             while ((inline = br.readLine()) != null) {
-                System.out.println(inline);
+                logger.info(inline);
 
             }
             br.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
             logger.error("excuteCommand: {}", e);
         }
 

@@ -188,7 +188,13 @@
             <interceptor-ref name="isLogin"></interceptor-ref>
             <interceptor-ref name="isAdmin2"></interceptor-ref>
         </action>
+
+        <action name="faq">
+            <result name="success">/jsp/head.jsp</result>
+            <result name="success" type="redirect">/jsp/faq.jsp</result>
+        </action>
     </package>
+
     <package name="topic" extends="struts-default" namespace="/topic">
 
         <interceptors>
@@ -255,7 +261,6 @@
         <action name="statistic" class="solutionStatisticBean" method="queryProblemStatistic">
             <result name="success">/jsp/statistic.jsp</result>
         </action>
-
 
     </package>
 

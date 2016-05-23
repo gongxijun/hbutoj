@@ -56,7 +56,7 @@
                 <td style="text-align:left;">
                 </td>
                 <td style="text-align:right;">
-                    <a href="problemset/standings">More &rarr;</a>
+                    <a href="problemset/standings"><s:text name="more"/> &rarr;</a>
                 </td>
             </tr>
             </tbody>
@@ -73,11 +73,11 @@
 
     <form class="handleForm" action="profile">
         <div style="padding:1em;text-align:right;">
-            <label style="padding-right:0.3em;">Username:</label>
+            <label style="padding-right:0.3em;"><s:text name="user.username" />:</label>
             <input style="width:11em;" type="text" class="handleBox"/>
         </div>
         <div style="padding: 0 1em 1em 1em;text-align:right;">
-            <input style="height:1.65em;padding:0 0.75em;" type="submit" value="Find"/>
+            <input style="height:1.65em;padding:0 0.75em;" type="submit" value=<s:text name="siderbar.find"/> />
         </div>
     </form>
 

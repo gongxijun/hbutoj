@@ -40,7 +40,7 @@
 
     <div id="content">
         <div class="content" style="margin: 12px auto;">
-            Something Errors Was Happened:
+            <s:text name="errror_info"/>:
             <b><span style="color:red"><s:fielderror></s:fielderror> <br/>
 	    <s:actionerror/><br/>
 	    <s:property value="tip"/>

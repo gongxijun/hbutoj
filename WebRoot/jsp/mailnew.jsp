@@ -86,18 +86,18 @@
                         <input type="hidden" name="reply" value="0">
 
                         <div style="text-align:left;margin-bottom: 6px;">
-                            Send To:<br/>
+                            <s:text name="mails.sendTo"/>:<br/>
 							<span><input class="send-to-user" name="sendto" maxlength="30"
                                          placeholder="Receiver's username" value="<s:property value="username"/>">
 							</span><br/>
-                            Title:
+                            <s:text name="mails.title"/>:
                             <input class="message-title" id="message-title" name="title1" maxlength="100">
                             <textarea class="message-content" id="meal-content" name="content" rows="20"></textarea>
                         </div>
                         <div style="text-align:center;"><span class="fielderror"></span></div>
                         <div style="text-align: center;margin-top: 12px;">
-                            <input class="" type="Submit" value="Post">
-                            <input class="" type="reset" value="Reset">
+                            <input class="" type="Submit" value=<s:text name="mails.send"/>>
+                            <input class="" type="reset" value=<s:text name="mails.reset"/>>
                         </div>
                     </form>
                 </div>

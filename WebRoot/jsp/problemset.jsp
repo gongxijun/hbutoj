@@ -121,8 +121,7 @@
                                                                                 default="0"/></sub></span>
                             </td>
                             <td class="ratio <s:if test="problemStatusList[#st.index]==1">problem-ac</s:if><s:elseif test="problemStatusList[#st.index]==2">problem-failed</s:elseif>">
-                                <a title="submit your code?" href="problem
-                                set/submit/<s:property value="problem_id"/>"
+                                <a title="submit your code?" href="problemset/submit/<s:property value="problem_id"/>"
                                    style=""><s:text name="submit"/></a>
                             </td>
                         </tr>

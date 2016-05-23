@@ -9,8 +9,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>Profile - <s:property value="user.username"/>(<s:property value="user.nickname"/>) - HBUT Online
-        Judge</title>
+    <title>Profile - <s:property value="user.username"/>(<s:property value="user.nickname"/>) - HBUT OnlineJudge</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
@@ -105,9 +104,10 @@
                             <li>Open Source: <s:if test="user.opensource==\"N\"">No</s:if>
                                 <s:else>Yes</s:else>
                             </li>
-                            <li>Rank: <b><s:property value="rank" default="0"/></b> &nbsp;&nbsp;Solve: <b><s:property
-                                    value="user.solved" default="0"/></b> &nbsp;&nbsp;Submissions: <b><s:property
-                                    value="user.submit" default="0"/></b></li>
+                            <li>Rank: <b><s:property value="rank" default="0"/></b>
+                                &nbsp;&nbsp;Solve: <b><s:property value="user.solved" default="0"/>
+                                </b> &nbsp;&nbsp;Submissions: <b>
+                                    <s:property value="user.submit" default="0"/></b></li>
                             <li></li>
 
                         </ul>
@@ -125,8 +125,8 @@
                 </div>
                 <div style="padding: 6px;word-wrap:break-word;">
                     <s:iterator value="problemSolvedList" status="pst">
-                        <span title="<s:property value="title"/>"><a class="solved"
-                                                                     href="problemset/status/problem/<s:property value="problem_id"/>/with/<s:property value="user.username"/>/page/1"><s:property
+                        <span title="<s:property value="title"/>">
+                            <a class="solved" href="problemset/status/problem/<s:property value="problem_id"/>/with/<s:property value="user.username"/>/page/1"><s:property
                                 value="problem_id"/></a></span>
                     </s:iterator>
                 </div>
@@ -143,8 +143,8 @@
                 </div>
                 <div style="padding: 6px;word-wrap:break-word;">
                     <s:iterator value="problemTryList" status="pst">
-                        <span title="<s:property value="title"/>"><a class="unsolved"
-                                                                     href="problemset/status/problem/<s:property value="problem_id"/>/with/<s:property value="user.username"/>/page/1"><s:property
+                        <span title="<s:property value="title"/>">
+                            <a class="unsolved" href="problemset/status/problem/<s:property value="problem_id"/>/with/<s:property value="user.username"/>/page/1"><s:property
                                 value="problem_id"/></a></span>
                     </s:iterator>
                 </div>

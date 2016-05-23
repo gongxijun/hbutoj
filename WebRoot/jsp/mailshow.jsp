@@ -54,7 +54,7 @@
                 <p><s:property value="mail.title"/></p>
             </div>
             <div class="info">
-                <b>Received From <b><a href="profile/<s:property value="mail.from_user"/>"><s:property
+                <b><s:text name="mails.recvFrom"/> <b><a href="profile/<s:property value="mail.from_user"/>"><s:property
                         value="mail.from_user"/></a></b> at <s:date name="mail.create_date" nice="false"
                                                                     format="yyyy-MM-dd HH:mm:ss"/></b>
             </div>
@@ -65,7 +65,7 @@
             </div>
             <!-- Reply -->
             <div>
-                <b>Reply:</b>
+                <b><s:text name="mails.reply"></s:text>:</b>
 
                 <div class="round_0123 highlight reply-edit-box reply-edit-box-pro"
                      style="position: relative;padding: 6px;">
@@ -79,10 +79,13 @@
                                    value="Re:<s:property value="mail.title"/>">
                             <textarea class="message-content" id="mail-content" name="content" rows="10"></textarea>
                         </div>
-                        <div style="text-align:center;"><span class="fielderror"></span></div>
+                        <div style="text-align:center;">
+                            <span class="fielderror">
+
+                            </span></div>
                         <div style="text-align: center;margin-top: 12px;">
-                            <input class="" type="Submit" value="Post">
-                            <input class="" type="reset" value="Reset">
+                            <input class="" type="Submit" value=<s:text name="mails.send"/> >
+                            <input class="" type="reset" value=<s:text name="mails.reset"/>  >
                         </div>
                     </form>
                 </div>

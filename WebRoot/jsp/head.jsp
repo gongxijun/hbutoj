@@ -127,7 +127,7 @@
             </li>
             <li class="t_c_search"><a href="search"><s:text name="search"/></a></li>
             <li class="t_c_faq">
-                <a href="faq.jsp"><s:text name="faq"/></a>
+                <a href="faq"><s:text name="faq"/></a>
             </li>
 
             <!--            <li><a href="problemset/standings"><s:text name="standings"/></a></li>-->

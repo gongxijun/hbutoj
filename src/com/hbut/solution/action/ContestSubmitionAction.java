@@ -48,7 +48,7 @@ public class ContestSubmitionAction extends ActionSupport {
             Date dt = new Date(0);
 
             if (dt_prevSubmit != null) {
-                if (dt.getTime() - dt_prevSubmit.getTime() < 3000) { // 限制5s一次提交
+                if (dt.getTime() - dt_prevSubmit.getTime() < 3000) { // 限制3s一次提交
                     System.out.println(username + " submit twice at 3 second.");
                     // this.addFieldError("tip", "");
                     return "success";

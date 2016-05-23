@@ -1,14 +1,14 @@
 package com.util;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-
 import org.apache.commons.io.FileUtils;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class Upload {
-    /* begin add by weizengke 2012-9-10 */
+
     public static boolean delete(String path) throws IOException {
         File dest = new File(path);
         if (true == dest.exists()) {
@@ -30,7 +30,6 @@ public class Upload {
         }
     }
 
-	/* end add by weizengke 2012-9-10 */
 
     public static boolean uploadFile(File file, String path, String fileName) {
         try {

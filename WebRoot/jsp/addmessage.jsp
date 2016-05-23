@@ -44,7 +44,7 @@
         <marquee scrollamount=4 width=80% scrolldelay=30 onMouseOver="javascript:this.stop();"
                  onMouseOut="javascript:this.start();">
             <b style="margin-right:20px">
-                我爱中华 This is where you can put your latest news.
+                钓鱼岛是中国人民的 This is where you can put your latest news.
             </b>
         </marquee>
     </div>
@@ -84,7 +84,7 @@
     </div>
 
     <div id="footer">
-        copyright &copy; 2012 ACSolo | <a href="#">269574524@qq.com</a> | <a
+        copyright &copy; 2015~2017 XiJun.Gong | <a href="#">869261636@qq.com</a> | <a
             href="http://validator.w3.org/check?uri=referer">XHTML 1.1</a> | <a
             href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.dcarter.co.uk">design
         by dcarter</a>

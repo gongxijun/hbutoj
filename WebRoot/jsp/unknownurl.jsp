@@ -27,7 +27,7 @@
 <jsp:include page="head.jsp"></jsp:include>
 <div id="body">
     <div id="content" class="content-with-sidebar round0123" style="position: relative">
-        <b>Sorry, no such URL you visited...</b>
+        <b><s:text name="unknow_url"></s:text></b>
     </div>
     <jsp:include page="/jsp/footer.jsp"></jsp:include>
 </div>
