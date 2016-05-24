@@ -14,17 +14,17 @@ public class myThread extends Thread {
     public void run() {
 
         while (true) {
+
             // System.out.println("Thread...");
             // ApplicationContext applicationContext = new
             // ClassPathXmlApplicationContext("applicationContext.xml");
-
             UserService userService = (UserService) MyApplicationContextUtil
                     .getContext().getBean("userService");
-
             logger.info("U:" + userService.countUsers());
-
             Integer runId = JudgeQueue.pollGCC();
+
             try {
+
                 // System.out.println("No judge...");
                 Thread.sleep(2000);  //休眠2s
             } catch (Exception e) {
@@ -44,7 +44,8 @@ public class myThread extends Thread {
                         + ", and Queue left " + JudgeQueue.getsize());
                 // .......start
                 //todo 此处需要改成配置路径文件xml
-                String[] cmd = {"D:/github/OJ/Client.exe", Integer.toString(runId)};
+                //todo D:/github/OJ/Client.exe
+                String[] cmd = {"C:/OJ/Client.exe", Integer.toString(runId)};
                 try {
                     Runtime.getRuntime().exec(cmd);
                 } catch (IOException e) {

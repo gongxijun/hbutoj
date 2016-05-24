@@ -14,11 +14,11 @@ public class JudgeQueue {
     private static Logger logger = LoggerFactory.getLogger(JudgeQueue.class);
 
     public static int getsize() {
-        try {
+        try
+        {
             return QueueGCC.size();
-
         } catch (NullPointerException e) {
-            logger.error("getSize获取队列名称 {}", e);
+          logger.error("getSize获取队列名称 {}", e);
         }
         return 0;
     }

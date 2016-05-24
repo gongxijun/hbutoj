@@ -42,7 +42,7 @@ public class MyFreeMarker {
         // this.getClass().getClassLoader().getResource("/").getPath();
 
         Writer out = new OutputStreamWriter(new FileOutputStream(templatesPath
-                + "\\templates\\" + desName), "gb2312");
+                + "\\templates\\" + desName), "gb2312"); //todo 请保持代码编码格式 gb2312
             t.process(objMap, out);
     }
 

@@ -41,15 +41,14 @@ public class MailAction extends ActionSupport {
 
     public String querySendMails() throws Exception {
         try {
+
             String username_ = (String) ActionContext.getContext().getSession()
                     .get("session_username");
             if (username_ == null) {
                 ActionContext.getContext().put("tip", "You must login first.");
                 return LOGIN;
             }
-            if (pageSize > 100) {
-                pageSize = 100;
-            }
+            pageSize = pageSize > 100 ? 100 : pageSize;
 
             String sql = new String();
             sql = "select count(m.mail_id) from Mail m where m.defunct='N' and m.from_user='"
@@ -57,13 +56,8 @@ public class MailAction extends ActionSupport {
 
             intRowCount = mailService.countMails(sql);
             pageCount = ((intRowCount + pageSize - 1) / pageSize);// 计算出总页数
-
-            if (page < 1) {
-                page = 1;
-            }
-            if (page > pageCount) {
-                page = pageCount;
-            }
+            page = page < 1 ? 1 : page;
+            page = page > pageCount ? page : pageCount;
 
             Integer from = (page - 1) * pageSize;
             sql = "select m from Mail m where m.defunct='N' and m.from_user='"

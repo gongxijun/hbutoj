@@ -39,13 +39,12 @@ public class SearchAction extends ActionSupport {
     public String search() throws Exception {
 
         try {
-
-            word= new String(word.getBytes("GB2312"), "utf-8");
             // System.out.println(word+" "+word_);
             if (word == null || word.trim().length() == 0) {
                 this.addFieldError("word", "Input the keyword!");
                 return INPUT;
             }
+            //word = new String(word.getBytes("GB2312"), "UTF8");
             String word_ = word;
             userList = Lists.newArrayList();
             problemList = Lists.newArrayList();
@@ -101,8 +100,8 @@ public class SearchAction extends ActionSupport {
         this.messageService = messageService;
     }
 
-    public ProblemService getProblemService() {
-        return problemService;
+    public ProblemService getProblemService(){
+            return problemService;
     }
 
     public void setProblemService(ProblemService problemService) {
@@ -150,3 +149,4 @@ public class SearchAction extends ActionSupport {
     }
 
 }
+
