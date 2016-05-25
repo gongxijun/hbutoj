@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s" %>
 <%
     String path = request.getContextPath();
@@ -47,12 +47,11 @@
             <div class="lb">&nbsp;</div>
             <div class="rb">&nbsp;</div>
             <div style="padding: 4px 0 0 6px;position: relative;">
-                <div class="left">Data collected from <a href="http://acmicpc.info/archives/224"
-                                                         style="color:#FF8C00;text-decoration: none;">acmicpc.info</a>
-                </div>
-                <div class="right"></div>
+                <%--<div class="left">Data collected from <a href="http://acmicpc.info/archives/224"--%>
+                <%--style="color:#FF8C00;text-decoration: none;">acmicpc.info</a>--%>
+                <h3 align="center" style="color:#3f7f7f; text-decoration: none;  ">最新赛事</h3>
+                <%--  <div class="right"></div>--%>
             </div>
-            <br/>
 
             <div class="innertable" style="position: relative;">
                 <div class="ilt">&nbsp;</div>

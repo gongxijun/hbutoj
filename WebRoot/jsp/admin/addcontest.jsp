@@ -11,9 +11,8 @@
 
 <html>
 <head>
-    <sx:head extraLocales="en-us,nl-nl,de-de"/>
     <base href="<%=basePath%>">
-    <title>HBUTOJ</title>
+    <title>NewContest-HBUT</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,JAVA,C++,Program Contest">
     <meta http-equiv="description" content="HBUT Online Judge System for ACM">

@@ -1,4 +1,4 @@
-﻿<%@ page language="java" pageEncoding="UTF-8" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s" %>
 <%
     String path = request.getContextPath();
@@ -9,14 +9,14 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>HBUT-Home</title>
+    <title>HBUT-FAQ</title>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="-1">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
     <link href="css/styles.css" type="text/css" rel="stylesheet">
-    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="js/hbutoj.js"></script>
 
@@ -45,14 +45,11 @@
         <div class="topic">
             <div>
                 <div class="comment " style="position: relative;padding: 6px;">
-                    <form action="admin/homemaker.action" method="post">
-                        Home Page:<br>
-                        <textarea class="message-content" id="home-content" name="content" rows="20"><s:property
-                                value="content"/></textarea>
+                    <form action="admin/faqmaker.action" method="post">
+                        Faq Page:<br>
+                        <textarea class="message-content" id="faq-content" name="content" rows="20">
+                            <s:property value="content"/></textarea>
                         <br>
-                        Sidebar:<br>
-                        <textarea class="message-content" id="sidebar-content" name="sidebar_content"
-                                  rows="20"><s:property value="sidebar_content"/></textarea>
 
                         <div style="text-align: center;margin-top: 12px;">
                             <input class="" type="submit" value=<s:text name="topic.submit"/>>
@@ -84,7 +81,7 @@
         }
     </style>
     <script type='text/javascript'>
-
+        <!--
         $(document).ready(function () {
             KE.lang['code'] = "插入程序代码或脚本";
             KE.plugin['code'] = {
@@ -199,25 +196,7 @@
 
         $(document).ready(function () {
             KE.show({
-                id: 'home-content',
-                resizeMode: 1,
-                shadowMode: false,
-                allowPreviewEmoticons: false,
-                allowUpload: true,
-                syncType: 'auto',
-                urlType: 'domain',
-                cssPath: 'css/ke-oj.css',
-
-                items: [
-                    'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'removeformat', '|', 'textcolor', 'bgcolor',
-                    'title', 'fontname', 'fontsize', '|',
-                    'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', '|',
-                    'link', 'unlink', 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
-                ]
-            });
-
-            KE.show({
-                id: 'sidebar-content',
+                id: 'faq-content',
                 resizeMode: 1,
                 shadowMode: false,
                 allowPreviewEmoticons: false,

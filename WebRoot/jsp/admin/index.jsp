@@ -9,7 +9,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>HBUTOJ</title>
+    <title>HBUT-Admin</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
@@ -64,7 +64,8 @@
         </div>
         <div>
             <a href="admin/statistic-chart">统计</a><br/>
-            <a href="admin/home-edit">编辑页面</a><br/>
+            <a href="admin/home-edit">编辑主页面</a><br/>
+            <a href="admin/faq-edit">编辑FAQ页面</a><br/>
             <a href="admin/recent-action">生成RecentAction页面</a>(自动生成)<br/>
             <a href="admin/topUsers">生成Top10页面</a>(自动生成)<br/>
             <a href="admin/OpenPath.action?type=OJ_PATH&path=OJ_TMP">查看输出文件目录</a><br/>

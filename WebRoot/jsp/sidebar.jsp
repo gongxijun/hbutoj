@@ -147,60 +147,13 @@
                 <td style="text-align:left;">
                 </td>
                 <td style="text-align:right;">
-                    <a href="#">Detailed &rarr;</a>
+                    <a href="topic"><s:text name="more"></s:text> &rarr;</a>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
-
-<div class="sidebox roundbox">
-    <div class="roundbox-lt">&nbsp;</div>
-    <div class="roundbox-rt">&nbsp;</div>
-    <div class="top-link" style="border-bottom: 1px solid #b9b9b9;">
-        <div class="title-sidebox" style="width: 100%"><s:text name="sidebar.onlineusers"/> (<span
-                class="user-sum">0</span>)
-        </div>
-    </div>
-    <div class="sidebar-online-users" style="padding: 6px;">
-        <img alt="Loading..." src='img/loader.gif'/>
-    </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $.post(
-                "onlineUsers",
-                function (json) {
-                    if (json.success != true) {
-                        alert(json["error"]);
-                        return;
-                    }
-                    var size = 0;
-                    var opt = "";
-
-                    for (var i in json.online_users) {
-
-                        if (json.online_users[i].statusFlag == 0) {
-                            continue;
-                        }
-                        size++;
-
-                        opt += "<b><a style='font-size:12px; padding:0 10 0 0px;' title='Last visit at " +
-                        json.online_users[i].lastAccessTime + "' href='profile/" + json.online_users[i].username + "'>" +
-                        i + "</a></b><br>";
-                    }
-
-                    $(".user-sum").html(size);
-                    if (size == 0) {
-                        opt = "<span style='font: 11px/26px Monaco, monospace;color: #454545;'>No user online.</span>";
-                    }
-                    $("div.sidebar-online-users").html(opt);
-                },
-                "json"
-        );
-    });
-</script>
 
 <!--
 <script>

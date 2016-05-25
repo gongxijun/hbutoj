@@ -9,7 +9,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>HBUTOJ</title>
+    <title>NewProblem-HBUT</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
@@ -195,7 +195,7 @@
                 </s:form>
 
 
-                <script type='text/javascript' src='js/ke/kindeditor-min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/ke/kindeditor-min.js' charset='utf-8'></script>
 
                 <style>
 

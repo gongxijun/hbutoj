@@ -598,6 +598,12 @@
             <interceptor-ref name="isLogin"></interceptor-ref>
             <interceptor-ref name="isAdmin2"></interceptor-ref>
         </action>
+        <action name="faq-edit" class="com.hbut.admin.action.FaqEditAction" method="faqEditqEdit">
+            <result name="success">/jsp/admin/faq.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <interceptor-ref name="isLogin"></interceptor-ref>
+            <interceptor-ref name="isAdmin2"></interceptor-ref>
+        </action>
         <action name="homemaker" class="com.hbut.admin.action.HomeMakerAction" method="homemaker">
             <result name="success" type="redirect">/admin</result>
             <interceptor-ref name="defaultStack"></interceptor-ref>

@@ -79,6 +79,10 @@
     })();
 
 </script>
+
+<div class="bigIcon">
+<img src="img/logo/logo.jpg">
+</div>
 <div id="site-header">
     <div class="headerNav ">
         <script type="text/javascript">
@@ -89,7 +93,7 @@
             });
         </script>
         <ul class="hleft">
-            <li class="logo2"><span style="font-size:17px;"><b>Online Judge</b></span></li>
+            <li class="logo2"><span style="font-size:17px;"><a href="home"><b>HBUT - Online Judge</b></a></span></li>
             <li class="t_conlinejudge"><a href="home"><s:text name="home"/></a></li>
             <li><a href="news"><s:text name="news"/></a></li>
             <li><a href="topic"><s:text name="topic"/></a></li>
@@ -126,6 +130,9 @@
                 </ul>
             </li>
             <li class="t_c_search"><a href="search"><s:text name="search"/></a></li>
+           <li class="t_c_OnlineUser">
+               <a href="onlineUser"><s:text name="sidebar.onlineusers"/></a>
+           </li>
             <li class="t_c_faq">
                 <a href="faq"><s:text name="faq"/></a>
             </li>
@@ -231,8 +238,8 @@
             <li class="locale">
                 <a href="#" class="locale-zh" title="Chinese">
                     <img src="img/flag/cn.png"/></a>
-                <a href="#" class="locale-en" title="English"><img
-                        src="img/flag/gb.png"/></a>
+                <a href="#" class="locale-en" title="English">
+                    <img src="img/flag/gb.png"/></a>
             </li>
         </ul>
     </div>

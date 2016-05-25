@@ -188,10 +188,11 @@
             <interceptor-ref name="isLogin"></interceptor-ref>
             <interceptor-ref name="isAdmin2"></interceptor-ref>
         </action>
-
         <action name="faq">
-            <result name="success">/jsp/head.jsp</result>
-            <result name="success" type="redirect">/jsp/faq.jsp</result>
+            <result name="success">/jsp/faq.jsp</result>
+        </action>
+        <action name="onlineUser">
+            <result name="success">/jsp/onlineuser.jsp</result>
         </action>
     </package>
 
@@ -618,6 +619,21 @@
             <interceptor-ref name="isLogin"></interceptor-ref>
             <interceptor-ref name="isAdmin2"></interceptor-ref>
         </action>
+
+        <action name="faq-edit" class="com.hbut.admin.action.FaqEditAction" method="faqEdit">
+            <result name="success">/jsp/admin/faq.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <interceptor-ref name="isLogin"></interceptor-ref>
+            <interceptor-ref name="isAdmin2"></interceptor-ref>
+        </action>
+
+        <action name="faqmaker" class="com.hbut.admin.action.FaqMakerAction" method="faqmaker">
+            <result name="success" type="redirect">/admin</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <interceptor-ref name="isLogin"></interceptor-ref>
+            <interceptor-ref name="isAdmin2"></interceptor-ref>
+        </action>
+
 
         <action name="operate" class="com.hbut.admin.action.AdminAction">
             <result name="input">/jsp/admin/index.jsp</result>

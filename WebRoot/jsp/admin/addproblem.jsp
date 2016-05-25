@@ -9,7 +9,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>HBUTOJ</title>
+    <title>NewProblem-HBUT</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="keywords" content="HBUT,ACM,OnlineJudge,Program Contest">
     <meta http-equiv="description" content="HuBei University of Technology Online Judge System for ACM">
@@ -101,37 +101,37 @@
                         <h5>
                             Description:
                         </h5>
-                        <textarea class="" id="ke-editor1" name="problem.description" rows="5"
+                        <textarea class="message-content" id="ke-editor1" name="problem.description" rows="25"
                                   style="width: 100%"><s:property value="problem.description"/></textarea>
                         <h5>
                             Input:
                         </h5>
-                        <textarea class="" id="ke-editor2" name="problem.input" rows="5" style="width: 100%"><s:property
+                        <textarea class="message-content" id="ke-editor2" name="problem.input" rows="15" style="width: 100%"><s:property
                                 value="problem.input"/></textarea>
                         <h5>
                             Output:
                         </h5>
-                        <textarea class="" id="ke-editor3" name="problem.output" rows="5"
+                        <textarea class="message-content" id="ke-editor3" name="problem.output" rows="15"
                                   style="width: 100%"><s:property value="problem.output"/></textarea>
                         <h5>
                             Sample Input:
                         </h5>
-                        <textarea class="" id="ke-editor4" name="problem.sample_input" rows="5"
+                        <textarea class="message-content" id="ke-editor4" name="problem.sample_input" rows="15"
                                   style="width: 100%"><s:property value="problem.sample_input"/></textarea>
                         <h5>
                             Sample Output:
                         </h5>
-                        <textarea class="" id="ke-editor5" name="problem.sample_output" rows="5"
+                        <textarea class="message-content" id="ke-editor5" name="problem.sample_output" rows="15"
                                   style="width: 100%"><s:property value="problem.sample_output"/></textarea>
                         <h5>
                             Hint:
                         </h5>
-                        <textarea class="" id="ke-editor6" name="problem.hint" rows="5" style="width: 100%"><s:property
+                        <textarea class="message-content" id="ke-editor6" name="problem.hint" rows="15" style="width: 100%"><s:property
                                 value="problem.hint"/></textarea>
                         <h5>
                             Source:
                         </h5>
-                        <input class="" id="source" name="problem.source" style="width: 100%;"
+                        <input class="message-content" id="source" name="problem.source" style="width: 100%;"
                                value="<s:property value="problem.source"/>"/>
                         <h5>
                             Author:
@@ -189,7 +189,7 @@
                     }
                 </style>
                 <script type='text/javascript'>
-                    <!--
+
                     $(document).ready(function () {
                         KE.lang['code'] = "插入程序代码或脚本";
                         KE.plugin['code'] = {
@@ -294,14 +294,11 @@
                         };
                     });
 
-
-                    //-->
-
                 </script>
 
                 <script type='text/javascript'>
 
-                    <!--
+
 
                     $(document).ready(function () {
                         KE.show({
@@ -313,7 +310,7 @@
                                 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'removeformat', '|', 'textcolor', 'bgcolor',
                                 'title', 'fontname', 'fontsize', '|',
                                 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', '|',
-                                'link', 'unlink', 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
+                                'link', 'unlink', '-' , 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
                             ]
                         });
                         KE.show({
@@ -325,7 +322,7 @@
                                 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'removeformat', '|', 'textcolor', 'bgcolor',
                                 'title', 'fontname', 'fontsize', '|',
                                 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', '|',
-                                'link', 'unlink', 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
+                                'link', 'unlink', '-' , 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
                             ]
                         });
                         KE.show({
@@ -337,7 +334,7 @@
                                 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'removeformat', '|', 'textcolor', 'bgcolor',
                                 'title', 'fontname', 'fontsize', '|',
                                 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', '|',
-                                'link', 'unlink', 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
+                                'link', 'unlink', '-' , 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
                             ]
                         });
                         KE.show({
@@ -349,7 +346,7 @@
                                 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'removeformat', '|', 'textcolor', 'bgcolor',
                                 'title', 'fontname', 'fontsize', '|',
                                 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', '|',
-                                'link', 'unlink', 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
+                                'link', 'unlink', '-' , 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
                             ]
                         });
                         KE.show({
@@ -361,7 +358,7 @@
                                 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'removeformat', '|', 'textcolor', 'bgcolor',
                                 'title', 'fontname', 'fontsize', '|',
                                 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', '|',
-                                'link', 'unlink', 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
+                                'link', 'unlink','-', 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
                             ]
                         });
                         KE.show({
@@ -373,12 +370,10 @@
                                 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'removeformat', '|', 'textcolor', 'bgcolor',
                                 'title', 'fontname', 'fontsize', '|',
                                 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', '|',
-                                'link', 'unlink', 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
+                                'link', 'unlink','-', 'emoticons', 'code', 'image', 'quote', '|', 'source', 'about'
                             ]
                         });
                     });
-
-                    //-->
 
                 </script>
 

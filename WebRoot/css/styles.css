@@ -228,6 +228,7 @@ body {
     float: left;
 }
 
+
 .right {
     text-align: right;
 }
@@ -463,8 +464,6 @@ img {
     -webkit-transition: all 0.2s linear 0s;
 }
 
-;
-
 .headerNav ul.hright li.on {
     background: #373a3d url(../img/t_c_bg.gif) no-repeat right;
 }
@@ -527,7 +526,7 @@ img {
 }
 
 .headerNav ul.hleft li.logo2 {
-    width: 130px;
+    width: 190px;
     height: 25px;
     margin-right: 10px;
 }
@@ -592,6 +591,17 @@ ul.t_c1_box li:hover {
     *margin: 1px 2px 0;
 }
 
+
+.t_c4 {
+    background: url(../img/t_c_bg.gif) no-repeat right;
+    padding-right: 8px;
+    width: 35px;
+    text-align: center;
+    margin: 0 2px;
+    margin: 0 2px 0 \9;
+    *margin: 1px 2px 0;
+}
+
 ul.t_c2_box {
     width: 82px;
     padding: 5px 0;
@@ -604,12 +614,33 @@ ul.t_c2_box {
     _margin: 22px 0 0 -33px;
 }
 
+ul.t_c4_box {
+    width: 82px;
+    padding: 5px 0;
+    color: #fff;
+    display: none;
+    background: #373a3d;
+    position: absolute;
+    margin-left: -1px;
+    *margin: 22px 0 0 -37px;
+    _margin: 22px 0 0 -33px;
+}
+
+
 ul.t_c2_box li {
     height: 23px;
     line-height: 23px;
     width: 82px;
     text-align: left;
 }
+
+ul.t_c4_box li {
+    height: 23px;
+    line-height: 23px;
+    width: 82px;
+    text-align: left;
+}
+
 
 ul.t_c2_box li.t_c2_box_name {
     width: 168px;
@@ -619,7 +650,17 @@ ul.t_c2_box li.t_c2_box_name {
     overflow: hidden;
 }
 
+ul.t_c4_box li.t_c4_box_name {
+    width: 168px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 ul.t_c2_box li:hover {
+}
+ul.t_c4_box li:hover {
 }
 
 /*
@@ -641,6 +682,19 @@ ul.t_c_contests_box li:hover{}
     width: 0;
 }
 
+.t_c4 .more {
+    border-color: #b7babd transparent transparent;
+    border-style: solid dashed dashed;
+    border-width: 4px 4px 0;
+    display: inline-block;
+    font-size: 0;
+    height: 0;
+    margin: 2px;
+    *margin: 2px 2px 0px;
+    left: 3px;
+    line-height: 0;
+    width: 0;
+}
 .t_c3 {
     width: 60px;
 }
@@ -664,7 +718,7 @@ ul.t_c3_box li {
     text-align: left;
 }
 
-ul.t_c3_box li.t_c2_box_name {
+ul.t_c3_box li.t_c2_box_name li.t_c4_box_name {
     width: 168px;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -686,7 +740,7 @@ ul.t_c3_box li a:hover {
     -webkit-transition: all 0.2s linear 0s;
 }
 
-ul.t_c2_box, ul.t_c1_box, ul.t_c3_box {
+ul.t_c2_box, ul.t_c1_box, ul.t_c3_box ,ul.t_c4_box{
     background: rgba(59, 62, 66, .9);
     /*background:none\9;
 filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ef3b3e42,endColorstr=#ef3b3e42)\9;*/

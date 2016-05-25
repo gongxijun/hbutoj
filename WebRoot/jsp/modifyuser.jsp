@@ -214,8 +214,8 @@
                                                             <%
                                                                 try {
                                                                     long lasting = System.currentTimeMillis();
-                                                                    //todo 配置的时候需要修改路径
-                                                                    File f = new File("D:\\github\\OJ\\conf\\Language.xml");
+                                                                    //todo 配置的时候需要修改路径 D:\github\OJ\conf\Language.xml
+                                                                    File f = new File("C:\\OJ\\conf\\Language.xml");
                                                                     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                                                                     DocumentBuilder builder = factory.newDocumentBuilder();
                                                                     Document doc = builder.parse(f);
