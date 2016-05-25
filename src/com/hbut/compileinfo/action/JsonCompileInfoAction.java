@@ -44,7 +44,7 @@ public class JsonCompileInfoAction extends ActionSupport {
             if (null == compileInfo_) {
                 success = false;
                 error = "No such compile information.";
-                return ERROR;
+                return SUCCESS;
             }
 
             errorInfo = compileInfo_.getError().replaceAll("<", "&lt;")

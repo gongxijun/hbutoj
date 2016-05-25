@@ -27,6 +27,18 @@ public class PrivilegeDaoImpl extends HibernateDaoSupport implements
         return list.get(0);
     }
 
+    @Override
+    public Privilege queryByName(String username) {
+
+        String[] param = new String[]{username};
+        String sql = "from Privilege as p where p.username=?";
+        List<Privilege> list = getHibernateTemplate().find(sql, param);
+        if (list == null || list.size() == 0) {
+            return null;
+        }
+        return list.get(0);
+    }
+
     public Privilege query(Integer privilegeId) {
         Integer[] param = new Integer[]{privilegeId};
         String sql = "from Privilege as p where p.id=?";

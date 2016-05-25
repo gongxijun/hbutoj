@@ -104,7 +104,7 @@
                         <th class="verdict"><s:text name="status"/></th>
                         <th class="time"><s:text name="timeuse"/></th>
                         <th class="memory"><s:text name="memoryuse"/></th>
-                        <!--		                 <th  class="length"><s:text name="codelength"/></th>-->
+                         <th  class="length"><s:text name="codelength"/></th>
                     </tr>
                     <s:if test="solutionList.size==0">
                         <tr>
@@ -181,7 +181,7 @@
                             <td class="memory" id="memory_<s:property value="solution_id" default="0"/>"><s:property
                                     value="memory" default="0"/> kb
                             </td>
-                            <!--	            		<td class="length"><s:property value="code_length" default="0"/> B</td>-->
+                            <td class="length"><s:property value="code_length" default="0"/> B</td>
 
                         </tr>
                     </s:iterator>

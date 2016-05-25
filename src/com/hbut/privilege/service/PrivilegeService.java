@@ -13,6 +13,8 @@ public interface PrivilegeService {
 
     public Privilege query(Integer privilegeId);
 
+    public Privilege queryByName(String username);
+
     public List<Privilege> query();
 
     public List<Privilege> queryByRight(String rightstr);

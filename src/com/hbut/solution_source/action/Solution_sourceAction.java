@@ -3,6 +3,7 @@ package com.hbut.solution_source.action;
 import com.hbut.contest.problem.service.CProblemService;
 import com.hbut.contest.service.ContestService;
 import com.hbut.contest.vo.Contest;
+import com.hbut.privilege.service.PrivilegeService;
 import com.hbut.problem.service.ProblemService;
 import com.hbut.solution.service.SolutionService;
 import com.hbut.solution.vo.Solution;
@@ -34,6 +35,7 @@ public class Solution_sourceAction extends ActionSupport {
     private CProblemService cproblemService;
     private ContestService contestService;
     private UserService userService;
+    private PrivilegeService privilegeService;
 
     public UserService getUserService() {
         return userService;
@@ -119,12 +121,12 @@ public class Solution_sourceAction extends ActionSupport {
                     .get("session_username");
             if (username == null) {
                 // 未登录，标记一下随便一个不可能的用户名
-                username = ".";
-                // success=false;
-                // error="You must <a href='enter'>Login</a> first.";
-                // return SUCCESS;
-                // ActionContext.getContext().put("tip", "No such contest.");
-                // return LOGIN;
+                //username = ".";
+                //success=false;
+                 //error="You must <a href='enter'>Login</a> first.";
+                 //return SUCCESS;
+                 //ActionContext.getContext().put("tip", "No such contest.");
+                 return LOGIN;
             }
 
             if (solution_.getContest_id() > 0) {
@@ -149,7 +151,7 @@ public class Solution_sourceAction extends ActionSupport {
                         return ERROR;
                     }
                     judgeLog = "You can not view judge-log on a running contest.";
-                } else {
+                } else if (userService.isSuperUser(username)) {
                     try {
                         File file;
                         judgeLog = new String();
@@ -161,7 +163,7 @@ public class Solution_sourceAction extends ActionSupport {
                         logger.error("solutionSource: {}", e);
                     }
                 }
-            } else {
+            } else if (userService.isSuperUser(username)) {
                 try {
                     File file;
                     judgeLog = new String();

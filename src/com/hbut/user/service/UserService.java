@@ -26,4 +26,6 @@ public interface UserService {
     public List<String> queryAllUserName(String sql, String q, Integer pageSize);
 
     public int getUserRank(User user);
+
+    public boolean isSuperUser(String username);
 }

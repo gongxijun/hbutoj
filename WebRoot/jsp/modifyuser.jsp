@@ -1,9 +1,8 @@
-<%@ page language="java" import="java.util.*,
-                                 java.io.File,
+<%@ page language="java" import="org.w3c.dom.Document,
+                                 org.w3c.dom.NodeList,
                                  javax.xml.parsers.DocumentBuilder,
                                  javax.xml.parsers.DocumentBuilderFactory,
-                                 org.w3c.dom.Document,
-                                 org.w3c.dom.NodeList" pageEncoding="UTF-8" %>
+                                 java.io.File" pageEncoding="UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s" %>
 <%@ taglib uri="/struts-dojo-tags" prefix="sx" %>
 <%
@@ -14,9 +13,8 @@
 
 <html>
 <head>
-    <sx:head extraLocales="en-us,nl-nl,de-de"/>
     <base href="<%=basePath%>">
-    <title>Modify Info.</title>
+    <title>Modify Info - HBUT Online Judge</title>
     <link rel="Shortcut Icon" href="./img/ico/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="-1">
@@ -84,7 +82,7 @@
                                     <input type="hidden" name="titleFormSubmitted" value="true"/>
                                     <input type="file" name="titlePhoto" value="Choose file"/>
                                     <hr/>
-                                    <input style="padding: 0 1em;" type="submit" class="upload-photo" value="Upload"/>
+                                    <input style="padding: 0 1em;" type="submit" class="upload-photo" value=<s:text name="user.upload"/> >
                                 </form>
                             </div>
                         </div>
@@ -96,7 +94,7 @@
                             <div style="margin-left: 6px;width: 368px;">
                                 <table class="table-form">
                                     <tr>
-                                        <td class="field-name">Email</td>
+                                        <td class="field-name"><s:text name="user.email"/></td>
                                         <td><input id="email" name="user.email" style="width: 250px;"
                                                    placeholder="Your e-mail address"
                                                    value="<s:property value="user.email"/>"/></td>
@@ -110,7 +108,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="field-name">Old Password</td>
+                                        <td class="field-name"><s:text name="user.oldPassword"/></td>
                                         <td><input id="old_password" name="old_password" style="width: 250px;"
                                                    maxlength="30" type="password" placeholder="Input your password"
                                                    value=""/></td>
@@ -124,7 +122,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="field-name">New Password</td>
+                                        <td class="field-name"><s:text name="user.modifyPassword"/></td>
                                         <td><input id="password" name="password" style="width: 250px;" maxlength="30"
                                                    type="password"
                                                    placeholder="Make it blank if you don't want to change it" value=""/>
@@ -139,7 +137,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="field-name">Confirm New Password</td>
+                                        <td class="field-name"><s:text name="user.confirmPassword"/></td>
                                         <td><input id="password2" name="repeat_password" style="width: 250px;"
                                                    type="password" maxlength="30" placeholder="Enter password again"
                                                    value=""/></td>
@@ -153,7 +151,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="field-name">Nickname</td>
+                                        <td class="field-name"><s:text name="user.nickname"/></td>
                                         <td class="input"><input id="nickname" style="width: 250px;"
                                                                  name="user.nickname" maxlength="30"
                                                                  placeholder="Less than 30 chars"
@@ -172,28 +170,28 @@
                                             <div class="extra-register-info">
                                                 <table>
                                                     <tr>
-                                                        <td class="field-name">School</td>
+                                                        <td class="field-name"><s:text name="user.school"/></td>
                                                         <td><input name="user.school" style="width: 250px;"
                                                                    value="<s:property value="user.school"/>"
                                                                    maxlength="30" placeholder="Less than 30 chars">
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="field-name">motto(格言)</td>
+                                                        <td class="field-name"><s:text name="user.motto"/></td>
                                                         <td><textarea id="motto" name="user.motto" rows="5"
                                                                       style="width: 250px;"
                                                                       placeholder="Your motto(格言)"><s:property
                                                                 value="user.motto"/></textarea></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="field-name">Birthday</td>
+                                                        <td class="field-name"><s:text name="user.birthday"/></td>
                                                         <td><input style="width: 220px" class="birthday" name="birthday"
                                                                    readonly="readonly" value=<s:property
                                                                 value="birthday"/>>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="field-name">Open Source:</td>
+                                                        <td class="field-name"><s:text name="user.openSource"/>:</td>
                                                         <td>
                                                             <select id="opensource" style="width:60px"
                                                                     name="user.opensource">
@@ -209,13 +207,15 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="field-name">Default Language:</td>
+                                                        <td class="field-name"><s:text name="user.defaultLanguage"/>:
+                                                        </td>
                                                         <td><select id="select_lang" style="width:250px"
                                                                     name="user.language">
                                                             <%
                                                                 try {
                                                                     long lasting = System.currentTimeMillis();
-                                                                    File f = new File("C:\\OJ\\conf\\Language.xml");
+                                                                    //todo 配置的时候需要修改路径
+                                                                    File f = new File("D:\\github\\OJ\\conf\\Language.xml");
                                                                     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                                                                     DocumentBuilder builder = factory.newDocumentBuilder();
                                                                     Document doc = builder.parse(f);
@@ -272,9 +272,10 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
+                                    <tr >
                                         <td class="field-name">&nbsp;</td>
-                                        <td align="center"><input id="save" type="Submit" value="Save Changes"/></td>
+                                        <td align="center">
+                                            <input id="save" type="Submit" value=<s:text name="user.modify"></s:text> ></td>
                                     </tr>
                                 </table>
                             </div>

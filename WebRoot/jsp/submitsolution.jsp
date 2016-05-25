@@ -1,9 +1,8 @@
-<%@ page language="java" import="java.util.*,
-                                 java.io.File,
+<%@ page language="java" import="org.w3c.dom.Document,
+                                 org.w3c.dom.NodeList,
                                  javax.xml.parsers.DocumentBuilder,
                                  javax.xml.parsers.DocumentBuilderFactory,
-                                 org.w3c.dom.Document,
-                                 org.w3c.dom.NodeList"
+                                 java.io.File"
          pageEncoding="UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s" %>
 <%

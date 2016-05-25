@@ -1,5 +1,7 @@
 package com.hbut.user.dao;
 
+import com.google.common.base.Strings;
+import com.hbut.privilege.vo.Privilege;
 import com.hbut.user.vo.User;
 import com.util.HibernateSessionFactory;
 import org.hibernate.Query;
@@ -151,4 +153,19 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDAO {
         HibernateSessionFactory.closeSession();
         return n + 1;
     }
+
+    @Override
+    public boolean isSuperUser(String username) {
+
+        if (Strings.isNullOrEmpty(username))
+            return false;
+        String[] param = new String[]{username};
+        String sql = "from Privilege as p where p.username=?";
+        List<Privilege> list = getHibernateTemplate().find(sql, param);
+        if (list == null || list.size() == 0) {
+            return false;
+        }
+        return true;
+    }
+
 }

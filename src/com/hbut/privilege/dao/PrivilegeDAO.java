@@ -14,6 +14,8 @@ public interface PrivilegeDAO {
 
     public Privilege query(String queryString);
 
+    public Privilege queryByName(String username);
+
     public List<Privilege> query();
 
     public List<Privilege> queryByRight(String rightstr);

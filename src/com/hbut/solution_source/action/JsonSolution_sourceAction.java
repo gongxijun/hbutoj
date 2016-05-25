@@ -48,6 +48,7 @@ public class JsonSolution_sourceAction extends ActionSupport {
     private String contestTitle;
     private String judgeLog;
 
+
     public String getJudgeLog() {
         return judgeLog;
     }
@@ -98,9 +99,11 @@ public class JsonSolution_sourceAction extends ActionSupport {
 
     public String solutionSource() throws Exception {
         try {
-            System.out
-                    .println("Source[" + solutionId + "] is open via ajax...");
+
+            logger.info("Source[" + solutionId + "] is open via ajax...");
             Solution_source solutionSource_ = new Solution_source();
+
+
             solutionSource_ = solutionSourceService
                     .querySolutionSource(solutionId);
             if (null == solutionSource_) {
@@ -119,11 +122,11 @@ public class JsonSolution_sourceAction extends ActionSupport {
             String username = (String) ActionContext.getContext().getSession()
                     .get("session_username");
             if (username == null) {
-                // 未登录，标记一下随便一个不可能的用户名
-                username = ".";
-                //success=false;
-                // error="You must <a href='enter'>Login</a> first.";
-                // return SUCCESS;
+                //需要登录才能查看，源代码
+                success = false;
+                error = "YOU HAVE NO PRIVILEGE , " +
+                        "PLEASE TO LOGIN FIRST !";
+                return SUCCESS;
             }
 
             if (solution_.getContest_id() > 0) {
@@ -148,7 +151,7 @@ public class JsonSolution_sourceAction extends ActionSupport {
                         return SUCCESS;
                     }
                     judgeLog = "You can not view judge-log on a running contest.";
-                } else {
+                } else if (userService.isSuperUser(username)) {
                     try {
                         File file;
                         judgeLog = new String();
@@ -160,19 +163,21 @@ public class JsonSolution_sourceAction extends ActionSupport {
                         logger.error("solutionSource: {}", e);
                     }
                 }
-            } else {
+            } else if (userService.isSuperUser(username)) {
                 try {
                     File file;
                     judgeLog = new String();
                     file = new File(Config.getValue("OJ_JUDGE_LOG")
                             + "judge-log-" + solutionId + ".log");
                     judgeLog = StreamHandler.read(file);
+
                 } catch (Exception e) {
                     // TODO: handle exception
                     logger.error("solutionSource: {}", e);
                 }
             }
 
+            judgeLog = (judgeLog == null) ? new String() : judgeLog;
             User user_ = new User();
             user_ = userService.queryUser(solution_.getUsername());
             if (user_ != null) {

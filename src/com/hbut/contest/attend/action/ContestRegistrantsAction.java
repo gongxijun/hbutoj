@@ -35,8 +35,6 @@ public class ContestRegistrantsAction extends ActionSupport {
     public String queryRegistrantsList() throws Exception {
 
         try {
-            // 检查有没有这个比赛
-            // System.out.println(contestId + " " + page);
 
             Contest contest_ = contestService.queryContest(contestId, "USER");
             if (null == contest_) {

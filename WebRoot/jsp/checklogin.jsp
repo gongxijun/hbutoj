@@ -1,7 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" errorPage="error.jsp" %>
-<%@page import="com.hbut.user.vo.*" %>
-<%@page import="com.hbut.user.service.UserService" %>
-<%@page import="com.hbut.user.service.UserServiceImpl" %>
+<%@ page language="java" import="com.hbut.user.service.UserServiceImpl" pageEncoding="UTF-8" errorPage="error.jsp" %>
+<%@page import="com.hbut.user.vo.User" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";

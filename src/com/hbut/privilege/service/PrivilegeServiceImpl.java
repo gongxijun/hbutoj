@@ -1,5 +1,6 @@
 package com.hbut.privilege.service;
 
+import com.google.common.base.Strings;
 import com.hbut.privilege.dao.PrivilegeDAO;
 import com.hbut.privilege.vo.Privilege;
 
@@ -34,6 +35,13 @@ public class PrivilegeServiceImpl implements PrivilegeService {
 
     public Privilege query(Integer privilegeId) {
         return privilegeDao.query(privilegeId);
+    }
+
+    @Override
+    public Privilege queryByName(String username) {
+        if (Strings.isNullOrEmpty(username))
+            return null;
+        return privilegeDao.queryByName(username);
     }
 
     public List<Privilege> query() {

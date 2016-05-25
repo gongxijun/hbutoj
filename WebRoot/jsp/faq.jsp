@@ -5,7 +5,7 @@
   Time: 17:35
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
 <%@taglib uri="/struts-tags" prefix="s" %>
 <%
     String path = request.getContextPath();

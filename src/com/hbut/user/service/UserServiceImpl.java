@@ -1,5 +1,6 @@
 package com.hbut.user.service;
 
+
 import com.hbut.user.dao.UserDAO;
 import com.hbut.user.vo.User;
 
@@ -61,5 +62,10 @@ public class UserServiceImpl implements UserService {
 
     public int getUserRank(User user) {
         return userDao.getUserRank(user);
+    }
+
+    @Override
+    public boolean isSuperUser(String username) {
+        return userDao.isSuperUser(username);
     }
 }
