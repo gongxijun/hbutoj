@@ -35,7 +35,8 @@
     </div>
     <!-- End sidebar -->
 
-    <div id="content" class="content-with-sidebar">     <!-- class="content-with-sidebar" -->
+    <div id="content" class="content-with-sidebar">
+        <!-- class="content-with-sidebar" -->
         <div id="nav-content">
             <a href="problemset" class="current"><s:text name="problems"/></a>
             <a href="problemset/status"><s:text name="status"/></a>

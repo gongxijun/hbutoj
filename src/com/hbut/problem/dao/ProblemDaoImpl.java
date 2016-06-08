@@ -47,12 +47,15 @@ public class ProblemDaoImpl extends HibernateDaoSupport implements ProblemDAO {
 
         sql += condition;
 
-        if ("BY_SOLVED_DESC".equals(order)) {
+        if ("BY_SOLVED_DESC".equals(order))
+        {
             order_str = "order by p.solved DESC,p.problem_id DESC";
-        } else if ("BY_SOLVED_ASC".equals(order)) {
+        } else if ("BY_SOLVED_ASC".equals(order))
+        {
             order_str = "order by p.solved ASC,p.problem_id DESC";
-        } else {
-            order_str = "order by p.problem_id DESC,p.problem_id DESC";
+        } else
+        {
+            order_str = "order by p.problem_id ASC,p.problem_id ASC";
         }
         sql += order_str;
         Query q = (Query) session.createQuery(sql);

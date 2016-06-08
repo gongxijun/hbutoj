@@ -51,8 +51,9 @@ public class JsonProblemListAction extends ActionSupport {
                 ProblemInfoBean p_ = new ProblemInfoBean();
                 p_.setProblemId(p.getProblem_id());
                 p_.setTitle(p.getTitle());
-                // System.out.println(p.getProblem_id());
-                // problemMap.put(p.getProblem_id().toString(), p.getTitle());
+               //System.out.println(p.getProblem_id());
+               //System.out.println(p.toString());
+               /*problemMap.put(p.getProblem_id().toString(), p.getTitle());*/
                 problems.add(p_);
             }
         } catch (Exception e) {

@@ -28,7 +28,8 @@ public class ContestListAction extends ActionSupport {
 
     private List<Contest> contestList;
 
-    public List<Contest> getContestList() {
+    public List<Contest> getContestList()
+    {
         return contestList;
     }
 

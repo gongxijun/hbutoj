@@ -14,13 +14,6 @@ public class LoginInterceptor extends AbstractInterceptor {
         ActionContext actionContext = invocation.getInvocationContext();
         String username = (String) actionContext.getSession().get(
                 "session_username");
-        // System.out.println("----"+ServletActionContext.getRequest().getRequestURL());
-
-        // 获取HttpServletRequest对象
-        // HttpServletRequest req = ServletActionContext.getRequest();
-        // 获取此请求的地址，请求地址包含application name，进行subString操作，去除application name
-        // String path = req.getRequestURI();
-        // System.out.println(path+"----"+ServletActionContext.getRequest().getRequestURL());
         if (null != username) {
             // actionContext.put("tip","Login");
             return invocation.invoke();

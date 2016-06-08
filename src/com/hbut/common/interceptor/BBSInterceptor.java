@@ -1,11 +1,11 @@
 package com.hbut.common.interceptor;
 
+import com.hbut.privilege.service.PrivilegeService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import com.util.Config;
-import com.hbut.privilege.service.PrivilegeService;
 
 public class BBSInterceptor extends AbstractInterceptor {
     private static final long serialVersionUID = -5718204L;
